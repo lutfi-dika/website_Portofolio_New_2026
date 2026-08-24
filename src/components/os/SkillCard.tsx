@@ -7,7 +7,13 @@ import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 /** Modern skill tile: brand icon + radial level gauge + usage count. */
-export function SkillCard({ skill, index = 0 }: { skill: Skill; index?: number }) {
+export function SkillCard({
+  skill,
+  index = 0,
+}: {
+  skill: Skill;
+  index?: number;
+}) {
   const t = useT();
 
   const levelLabel =
@@ -41,11 +47,7 @@ export function SkillCard({ skill, index = 0 }: { skill: Skill; index?: number }
 
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold">{skill.name}</p>
-        <p className="truncate text-[11px] text-muted">
-          {skill.projectsUsed > 0
-            ? `${skill.projectsUsed} ${t.nav.projects.toLowerCase()}`
-            : levelLabel}
-        </p>
+        <p className="truncate text-[11px] text-muted">{levelLabel}</p>
       </div>
 
       {/* Radial gauge */}
@@ -55,7 +57,15 @@ export function SkillCard({ skill, index = 0 }: { skill: Skill; index?: number }
         aria-label={`${skill.name}: ${levelLabel} (${skill.level}%)`}
       >
         <svg viewBox="0 0 36 36" className="h-full w-full -rotate-90">
-          <circle cx="18" cy="18" r={R} fill="none" stroke="currentColor" strokeWidth="3" className="text-white/[0.07]" />
+          <circle
+            cx="18"
+            cy="18"
+            r={R}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            className="text-white/[0.07]"
+          />
           <motion.circle
             cx="18"
             cy="18"
@@ -76,7 +86,9 @@ export function SkillCard({ skill, index = 0 }: { skill: Skill; index?: number }
         </span>
       </div>
 
-      <span className={cn("sr-only")}>{t.skills.level}: {levelLabel}</span>
+      <span className={cn("sr-only")}>
+        {t.skills.level}: {levelLabel}
+      </span>
     </motion.div>
   );
 }
