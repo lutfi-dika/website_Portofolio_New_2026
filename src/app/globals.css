@@ -1,26 +1,235 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ══════════════════════════════════════════════════════════════════
+   LUTFI.DEV — Design System
+   Runtime theming via data attributes on <html>:
+     data-theme="dark|light"   data-accent="blue|purple|green|orange|red"
+     data-density="comfortable|compact"
+     data-glow / data-glass / data-cursor = on|off
+     data-motion="full|reduced"  data-large-text="on"  data-contrast="on"
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Dark (default) ─────────────────────────────── */
+:root,
+:root[data-theme="dark"] {
+  --bg: #050505;
+  --surface: #0a0a0a;
+  --card: #0f0f10;
+  --card-hover: #141416;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #ffffff;
+  --text-muted: #a1a1aa;
+  --text-faint: #6b6b74;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --input-bg: rgba(255, 255, 255, 0.03);
 }
 
+/* ── Light ──────────────────────────────────────── */
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-hover: #f4f4f5;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --text: #101012;
+  --text-muted: #52525b;
+  --text-faint: #9d9da6;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --grid-line: rgba(0, 0, 0, 0.045);
+  --input-bg: rgba(0, 0, 0, 0.02);
+}
+
+/* ── Accents ────────────────────────────────────── */
+:root[data-accent="blue"] {
+  --accent: #22d3ee;
+  --accent-strong: #0891b2;
+  --accent-soft: rgba(34, 211, 238, 0.14);
+}
+:root[data-accent="purple"] {
+  --accent: #a78bfa;
+  --accent-strong: #7c3aed;
+  --accent-soft: rgba(167, 139, 250, 0.14);
+}
+:root[data-accent="green"] {
+  --accent: #34d399;
+  --accent-strong: #059669;
+  --accent-soft: rgba(52, 211, 153, 0.14);
+}
+:root[data-accent="orange"] {
+  --accent: #fb923c;
+  --accent-strong: #ea580c;
+  --accent-soft: rgba(251, 146, 60, 0.14);
+}
+:root[data-accent="red"] {
+  --accent: #f87171;
+  --accent-strong: #dc2626;
+  --accent-soft: rgba(248, 113, 113, 0.14);
+}
+
+/* ── High contrast ──────────────────────────────── */
+:root[data-contrast="on"] {
+  --border: rgba(128, 128, 128, 0.45);
+  --border-strong: rgba(128, 128, 128, 0.7);
+}
+:root[data-theme="dark"][data-contrast="on"] {
+  --text-muted: #d4d4d8;
+  --bg: #000000;
+}
+:root[data-theme="light"][data-contrast="on"] {
+  --text-muted: #27272a;
+}
+
+/* ── Map runtime vars → Tailwind tokens ─────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--text);
+  --color-muted: var(--text-muted);
+  --color-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text) 14%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--text) 26%, transparent);
+  background-clip: content-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Large text accessibility mode */
+:root[data-large-text="on"] {
+  font-size: 112.5%;
+}
+
+/* ── Utilities ──────────────────────────────────── */
+
+/* Frosted glass panel — disabled when data-glass="off" */
+@utility glass {
+  background: color-mix(in srgb, var(--card) 72%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+html[data-glass="off"] .glass,
+html[data-glass="off"] [class*="backdrop-blur"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html[data-glass="off"] .glass {
+  background: var(--card);
+}
+
+/* Blueprint grid backdrop */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Film-grain noise texture */
+@utility bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* Gradient headline text */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--accent) 0%,
+    var(--accent-strong) 55%,
+    var(--text) 110%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Accent glow ring used by cards & buttons */
+@utility glow-ring {
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 0 32px -12px var(--accent-soft);
+}
+
+/* Motion safety — user setting AND OS preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hide native cursor when the custom one is active */
+html[data-cursor="on"] body.custom-cursor-active,
+html[data-cursor="on"] body.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Compact density trims paddings/gaps marked as density-aware */
+html[data-density="compact"] .density-gap > * + * {
+  margin-top: 0 !important;
 }
