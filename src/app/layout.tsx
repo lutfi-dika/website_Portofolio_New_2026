@@ -73,6 +73,9 @@ export const metadata: Metadata = {
     shortcut: "/logo.jpeg",
     apple: "/logo.jpeg",
   },
+  verification: {
+    google: "aDpO1RGTuhsjYc7AHePdjiNseGfYSB_K3QGC6AFUjgo",
+  },
 };
 
 export const viewport: Viewport = {
