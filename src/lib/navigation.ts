@@ -13,6 +13,7 @@ import {
   Inbox,
   Bookmark,
   Keyboard,
+  FileText,
   type LucideIcon,
 } from "lucide-react";
 import { GithubBrandIcon } from "@/components/icons";
@@ -26,6 +27,7 @@ export interface NavItem {
     | "about"
     | "skills"
     | "experience"
+    | "resume"
     | "projects"
     | "certificates"
     | "achievements"
@@ -62,6 +64,7 @@ export const navSections: NavSection[] = [
       { href: "/about", labelKey: "about", icon: User },
       { href: "/skills", labelKey: "skills", icon: Wrench },
       { href: "/experience", labelKey: "experience", icon: Briefcase },
+      { href: "/resume", labelKey: "resume", icon: FileText },
     ],
   },
   {
@@ -114,6 +117,7 @@ export const mobileMoreItems: NavItem[] = [
   { href: "/about", labelKey: "about", icon: User },
   { href: "/skills", labelKey: "skills", icon: Wrench },
   { href: "/experience", labelKey: "experience", icon: Briefcase },
+  { href: "/resume", labelKey: "resume", icon: FileText },
   { href: "/certificates", labelKey: "certificates", icon: Award },
   { href: "/github", labelKey: "github", icon: GithubBrandIcon },
   { href: "/settings", labelKey: "settings", icon: Settings },

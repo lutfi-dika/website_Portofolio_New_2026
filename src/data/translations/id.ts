@@ -5,7 +5,7 @@ export const id = {
   },
   brand: {
     name: "LUTFI.DEV",
-    tagline: "Developer Workspace",
+    tagline: "Personal Developer OS",
   },
   nav: {
     main: "UTAMA",
@@ -18,6 +18,7 @@ export const id = {
     about: "Tentang Saya",
     skills: "Skills",
     experience: "Pengalaman",
+    resume: "Resume",
     projects: "Projects",
     certificates: "Sertifikat",
     achievements: "Prestasi",

@@ -144,6 +144,15 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
           onClose();
         },
       },
+      {
+        id: "action-download-cv",
+        group: t.command.actions,
+        label: t.command.downloadCV,
+        icon: <Download className="h-4 w-4" aria-hidden />,
+        run: () => {
+          go("/resume")();
+        },
+      },
     ];
 
     return [...pageItems, ...projectItems, ...skillItems, ...actionItems];

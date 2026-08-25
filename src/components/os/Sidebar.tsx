@@ -44,13 +44,13 @@ export function Sidebar() {
           className="flex min-w-0 items-center gap-3"
           aria-label="Lutfi Andika Home"
         >
-          {/* LOGO DARI FOLDER PUBLIC */}
-          <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
+          {/* LOGO */}
+          <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
             <Image
               src="/logo.jpeg"
               alt="Lutfi Andika Logo"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
               priority
               className="h-full w-full object-cover"
             />
@@ -64,12 +64,10 @@ export function Sidebar() {
               transition={{ duration: 0.2 }}
               className="min-w-0"
             >
-              <span className="block truncate font-display text-base font-bold tracking-tight text-foreground">
-                LUTFI
-                <span className="text-accent">.DEV</span>
+              <span className="block truncate font-display text-sm font-bold tracking-tight text-foreground">
+                LUTFI<span className="text-accent">.DEV</span>
               </span>
-
-              <span className="block truncate text-[11px] leading-tight text-muted">
+              <span className="block truncate text-[10px] leading-tight text-faint">
                 {t.brand.tagline}
               </span>
             </motion.span>
@@ -85,12 +83,12 @@ export function Sidebar() {
           <div key={section.titleKey} className="mb-5 last:mb-0">
             {/* SECTION TITLE */}
             {!collapsed && (
-              <p className="mb-2 px-2.5 text-[10px] font-semibold tracking-[0.14em] text-faint">
+              <p className="mb-2 px-2.5 section-label">
                 {t.nav[section.titleKey]}
               </p>
             )}
 
-            <ul className="space-y-1">
+            <ul className="space-y-0.5">
               {section.items.map((item) => {
                 const active =
                   item.href === "/"
@@ -106,12 +104,12 @@ export function Sidebar() {
                       title={collapsed ? t.nav[item.labelKey] : undefined}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "group relative flex items-center gap-3 rounded-lg border px-2.5 py-2 text-sm transition-colors",
+                        "group relative flex items-center gap-3 rounded-lg border px-2.5 py-2 text-sm transition-all",
 
                         collapsed && "justify-center border-transparent px-0",
 
                         active
-                          ? "border-accent/25 bg-accent-soft font-medium text-foreground"
+                          ? "border-accent/20 bg-accent-soft font-medium text-foreground"
                           : "border-transparent text-muted hover:bg-white/[0.04] hover:text-foreground",
                       )}
                     >
@@ -119,7 +117,7 @@ export function Sidebar() {
                       {active && (
                         <motion.span
                           layoutId="sidebar-active"
-                          className="absolute inset-y-1.5 -left-px w-[2.5px] rounded-full bg-accent shadow-[0_0_8px_var(--accent)]"
+                          className="absolute inset-y-1.5 -left-px w-[2px] rounded-full bg-accent"
                           transition={{
                             duration: 0.25,
                           }}
@@ -171,9 +169,8 @@ export function Sidebar() {
           )}
         >
           {/* PROFILE AVATAR */}
-          <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/15 font-display text-xs font-bold text-accent ring-1 ring-accent/30">
+          <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 font-display text-xs font-bold text-accent ring-1 ring-accent/30">
             ML
-            {/* ONLINE INDICATOR */}
             <span
               className="absolute -bottom-0 -right-0 h-2.5 w-2.5 rounded-full border-2 border-surface bg-emerald-400"
               aria-label={t.dashboard.availableForProjects}
@@ -184,25 +181,20 @@ export function Sidebar() {
           {!collapsed && (
             <span className="min-w-0">
               <span className="block truncate text-sm font-medium leading-tight">
-                {profile.shortName} —{" "}
-                {profile.name.split(" ").slice(-2).join(" ")}
+                {profile.shortName}
               </span>
-
               <span className="mt-0.5 flex items-center gap-1.5 text-[11px] leading-tight text-muted">
                 <span
                   className="h-1.5 w-1.5 rounded-full bg-emerald-400"
                   aria-hidden
                 />
-
                 {profile.availableFor}
               </span>
             </span>
           )}
         </Link>
 
-        {/* =========================
-            COLLAPSE BUTTON
-        ========================== */}
+        {/* COLLAPSE BUTTON */}
         <button
           onClick={() => setSidebarCollapsed(!collapsed)}
           className={cn(
@@ -221,7 +213,7 @@ export function Sidebar() {
             aria-hidden
           />
 
-          {!collapsed && <span className="text-xs text-faint">Ctrl + B</span>}
+          {!collapsed && <span className="text-[10px] text-faint">Ctrl+B</span>}
         </button>
       </div>
     </motion.aside>

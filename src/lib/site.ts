@@ -1,3 +1,5 @@
+import { projects } from "@/data/projects";
+
 /** Canonical site URL — override via NEXT_PUBLIC_SITE_URL in production. */
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://lutfi-dev.vercel.app"
@@ -10,11 +12,9 @@ export const siteRoutes = [
   "/about",
   "/skills",
   "/experience",
+  "/resume",
   "/projects",
-  "/projects/bsi-company-profile",
-  "/projects/bsi-multi-role-dashboard",
-  "/projects/educare",
-  "/projects/webkraf-digital-studio",
+  ...projects.map((p) => `/projects/${p.slug}`),
   "/certificates",
   "/achievements",
   "/github",

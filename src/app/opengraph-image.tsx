@@ -41,7 +41,7 @@ export default async function OpengraphImage() {
             height: 560,
             borderRadius: 9999,
             background:
-              "radial-gradient(circle at center, rgba(34,211,238,0.22), transparent 65%)",
+              "radial-gradient(circle at center, rgba(148,163,184,0.22), transparent 65%)",
             filter: "blur(40px)",
           }}
         />
@@ -71,7 +71,7 @@ export default async function OpengraphImage() {
                 width: 96,
                 height: 96,
                 borderRadius: 9999,
-                border: "4px solid #22d3ee",
+                border: "4px solid #94a3b8",
                 objectFit: "cover",
               }}
             />
@@ -81,14 +81,14 @@ export default async function OpengraphImage() {
                 width: 14,
                 height: 14,
                 borderRadius: 9999,
-                background: "#22d3ee",
-                boxShadow: "0 0 24px rgba(34,211,238,0.9)",
+                background: "#94a3b8",
+                boxShadow: "0 0 24px rgba(148,163,184,0.9)",
               }}
             />
           )}
           <p
             style={{
-              color: "#22d3ee",
+              color: "#94a3b8",
               fontSize: 26,
               letterSpacing: 6,
               textTransform: "uppercase",

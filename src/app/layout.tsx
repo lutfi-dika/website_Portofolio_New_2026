@@ -102,6 +102,17 @@ const personSchema = {
   knowsAbout: ["Web Development", "Frontend Development", "UI/UX Design", "React", "Next.js", "TypeScript"],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "LUTFI.DEV",
+  alternateName: "Muhammad Lutfi Andika Portfolio",
+  url: siteUrl,
+  description: "Personal developer portfolio and OS dashboard of Muhammad Lutfi Andika.",
+  author: { "@type": "Person", name: profile.name },
+  inLanguage: ["id", "en"],
+};
+
 /** Runs before hydration to apply the saved theme — prevents flash of wrong theme. */
 const themeScript = `
 (function(){try{
@@ -148,6 +159,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </body>
     </html>

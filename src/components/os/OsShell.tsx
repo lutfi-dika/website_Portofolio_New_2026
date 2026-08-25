@@ -11,6 +11,9 @@ import { Onboarding } from "@/components/os/Onboarding";
 import { AIChatFloating } from "@/components/os/AIChatFloating";
 import { BackgroundFX, MouseGlow } from "@/components/os/BackgroundFX";
 import { CustomCursor } from "@/components/os/CustomCursor";
+import { ScrollProgress } from "@/components/os/ScrollProgress";
+import { BackToTop } from "@/components/os/BackToTop";
+import { KonamiEasterEgg } from "@/components/os/KonamiEasterEgg";
 import { useSettings } from "@/lib/settings";
 import { useI18n } from "@/lib/i18n";
 
@@ -91,6 +94,7 @@ export function OsShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-svh">
+      <ScrollProgress />
       <BackgroundFX />
       <MouseGlow />
       <CustomCursor />
@@ -117,15 +121,43 @@ export function OsShell({ children }: { children: React.ReactNode }) {
           </motion.main>
         </AnimatePresence>
 
-        <footer className="border-t border-border px-6 py-5 pb-24 text-center text-xs text-faint lg:pb-5">
-          LUTFI.DEV — {new Date().getFullYear()} · Muhammad Lutfi Andika
+        <footer className="border-t border-border px-6 py-5 pb-24 lg:pb-5">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <p className="font-display text-sm font-bold tracking-tight text-foreground">
+              LUTFI<span className="text-accent">.DEV</span>
+            </p>
+            <p className="text-xs text-muted">Muhammad Lutfi Andika · Frontend Developer</p>
+            <div className="flex gap-4 text-xs text-faint">
+              {[
+                { label: "GitHub", href: "https://github.com/lutfi-dika" },
+                { label: "Instagram", href: "https://instagram.com/lutfiandika" },
+                { label: "LinkedIn", href: "https://linkedin.com/in/lutfiandika" },
+                { label: "WhatsApp", href: "https://wa.me/6281234567890" },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-accent"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+            <p className="font-mono text-[10px] text-faint">
+              © {new Date().getFullYear()} Muhammad Lutfi Andika
+            </p>
+          </div>
         </footer>
       </motion.div>
 
       <MobileNav />
+      <BackToTop />
       <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
       <Onboarding />
       <AIChatFloating />
+      <KonamiEasterEgg />
     </div>
   );
 }

@@ -69,7 +69,6 @@ export function MiniCalendar() {
   const [today] = useState(() => new Date());
   const [viewDate, setViewDate] = useState(() => new Date());
 
-  // Hydration-safe: render calendar grid only after mount.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -79,7 +78,7 @@ export function MiniCalendar() {
   const cells = useMemo(() => {
     if (!mounted) return [];
     const first = new Date(year, month, 1);
-    const startDay = (first.getDay() + 6) % 7; // Monday-first
+    const startDay = (first.getDay() + 6) % 7;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const arr: (number | null)[] = Array(startDay).fill(null);
     for (let d = 1; d <= daysInMonth; d++) arr.push(d);
@@ -90,7 +89,7 @@ export function MiniCalendar() {
   const isToday = (d: number) =>
     today.getDate() === d && today.getMonth() === month && today.getFullYear() === year;
 
-  const weekdayLabels = ["S", "S", "R", "K", "J", "S", "M"]; // Sen-Min (id)
+  const weekdayLabels = ["S", "S", "R", "K", "J", "S", "M"];
   const monthLabel = new Intl.DateTimeFormat("id-ID", { month: "long", year: "numeric" }).format(
     new Date(year, month, 1),
   );
@@ -136,7 +135,7 @@ export function MiniCalendar() {
               className={cn(
                 "mx-auto flex h-6 w-6 items-center justify-center rounded-full text-[11px]",
                 d === null && "opacity-0",
-                d !== null && isToday(d) && "bg-accent font-bold text-background",
+                d !== null && isToday(d) && "bg-accent font-bold text-white",
                 d !== null && !isToday(d) && "text-muted",
               )}
               aria-current={d !== null && isToday(d) ? "date" : undefined}

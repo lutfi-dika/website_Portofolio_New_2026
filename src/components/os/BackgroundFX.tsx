@@ -14,22 +14,22 @@ export function BackgroundFX() {
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid" />
-      <div className="absolute inset-0 bg-noise opacity-[0.035]" />
+      <div className="absolute inset-0 bg-noise opacity-[0.025]" />
 
-      {/* GLOW LAYER */}
+      {/* GLOW LAYER — very subtle */}
       <div data-glow-layer className="contents [[data-glow='off']_&]:hidden">
         <div
-          className="glow-blob absolute -top-40 left-1/4 h-[480px] w-[480px] animate-drift rounded-full opacity-[0.13] blur-3xl motion-reduce:animate-none"
+          className="glow-blob absolute -top-40 left-1/4 h-[400px] w-[400px] animate-drift rounded-full blur-3xl motion-reduce:animate-none"
           style={{
             background:
-              "radial-gradient(circle, var(--accent), transparent 65%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--accent) 8%, transparent), transparent 65%)",
           }}
         />
         <div
-          className="glow-blob absolute -bottom-52 right-[10%] h-[560px] w-[560px] animate-drift rounded-full opacity-[0.09] blur-3xl motion-reduce:animate-none"
+          className="glow-blob absolute -bottom-52 right-[10%] h-[480px] w-[480px] animate-drift rounded-full blur-3xl motion-reduce:animate-none"
           style={{
             background:
-              "radial-gradient(circle, var(--accent-strong), transparent 65%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--accent-strong) 6%, transparent), transparent 65%)",
             animationDelay: "-6s",
           }}
         />

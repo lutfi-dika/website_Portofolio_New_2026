@@ -51,7 +51,7 @@ export function SkillsView() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <h2 className="mb-3 flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
+            <h2 className="mb-3 flex items-center gap-2 section-label">
               <span className="h-px w-5 bg-accent/60" aria-hidden />
               {t.skills.categories[group.category]}
               <span className="text-faint/60">({group.skills.length})</span>

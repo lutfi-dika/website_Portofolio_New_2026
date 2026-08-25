@@ -8,13 +8,10 @@ export interface DashboardWidgetProps {
   subtitle?: string;
   className?: string;
   children: React.ReactNode;
-  /** subtle accent border on hover */
   interactive?: boolean;
-  /** optional node rendered at the right of the header */
   action?: React.ReactNode;
 }
 
-/** Card container used for every dashboard widget. */
 export function DashboardWidget({
   title,
   subtitle,
@@ -30,9 +27,9 @@ export function DashboardWidget({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4 }}
       className={cn(
-        "rounded-2xl border border-border bg-card p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.03)_inset]",
+        "rounded-2xl border border-border bg-card p-5",
         interactive &&
-          "transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_0_36px_-14px_var(--accent-soft)]",
+          "transition-colors duration-300 hover:border-accent/30",
         className,
       )}
     >
@@ -40,7 +37,7 @@ export function DashboardWidget({
         <header className={cn("flex items-start justify-between gap-3", (title || subtitle) && "mb-4")}>
           <div>
             {title && (
-              <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
+              <h2 className="section-label">
                 {title}
               </h2>
             )}

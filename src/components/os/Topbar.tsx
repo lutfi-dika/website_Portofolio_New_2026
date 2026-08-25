@@ -30,7 +30,7 @@ export function Topbar({ onOpenSearch }: { onOpenSearch: () => void }) {
   const crumbs = buildCrumbs(pathname, t);
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-md lg:px-6">
+    <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-border bg-background/60 px-4 backdrop-blur-xl lg:px-6">
       {/* Mobile menu handled by MobileHeader; breadcrumb here */}
       <nav aria-label="Breadcrumb" className="min-w-0 flex-1 overflow-hidden">
         <ol className="flex items-center gap-1.5 text-sm">
@@ -59,25 +59,25 @@ export function Topbar({ onOpenSearch }: { onOpenSearch: () => void }) {
       {/* Global search trigger */}
       <button
         onClick={onOpenSearch}
-        className="hidden h-9 w-64 items-center gap-2 rounded-lg border border-border bg-input-bg px-3 text-sm text-muted transition-colors hover:border-border-strong hover:text-foreground md:flex xl:w-80"
+        className="hidden h-8 w-56 items-center gap-2 rounded-lg border border-border bg-input-bg px-3 text-sm text-muted transition-colors hover:border-border-strong hover:text-foreground md:flex xl:w-72"
         aria-label={t.topbar.search}
       >
-        <Search className="h-4 w-4 shrink-0" aria-hidden />
-        <span className="flex-1 truncate text-left">{t.topbar.searchPlaceholder}</span>
-        <kbd className="rounded border border-border px-1.5 font-mono text-[10px] text-faint">
+        <Search className="h-3.5 w-3.5 shrink-0" aria-hidden />
+        <span className="flex-1 truncate text-left text-xs">{t.topbar.searchPlaceholder}</span>
+        <kbd className="rounded border border-border px-1 font-mono text-[10px] text-faint">
           Ctrl K
         </kbd>
       </button>
 
       <button
         onClick={onOpenSearch}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted transition-colors hover:text-foreground md:hidden"
+        className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted transition-colors hover:text-foreground md:hidden"
         aria-label={t.topbar.search}
       >
-        <Search className="h-4 w-4" aria-hidden />
+        <Search className="h-3.5 w-3.5" aria-hidden />
       </button>
 
-      <div className="hidden items-center gap-1 sm:flex">
+      <div className="hidden items-center gap-0.5 sm:flex">
         <LanguageButton />
         <ThemeButton />
       </div>
@@ -87,9 +87,9 @@ export function Topbar({ onOpenSearch }: { onOpenSearch: () => void }) {
       <Link
         href="/about"
         aria-label={t.topbar.profile}
-        className="flex h-9 items-center gap-2 rounded-full border border-border pl-1 pr-1 transition-colors hover:border-border-strong sm:pr-3"
+        className="flex h-8 items-center gap-2 rounded-full border border-border pl-1 pr-2 transition-colors hover:border-border-strong"
       >
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20 text-xs font-bold text-accent">
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/20 text-[10px] font-bold text-accent">
           ML
         </span>
         <span className="hidden text-xs font-medium lg:block">Lutfi</span>
@@ -117,11 +117,11 @@ function IconBtn({
       onClick={onClick}
       aria-label={label}
       title={label}
-      className="relative flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-white/[0.05] hover:text-foreground"
+      className="relative flex h-8 w-8 items-center justify-center rounded-lg text-muted transition-colors hover:bg-white/[0.05] hover:text-foreground"
     >
       {children}
       {!!badge && badge > 0 && (
-        <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-bold text-background">
+        <span className="absolute -right-0.5 -top-0.5 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-accent px-1 text-[8px] font-bold text-background">
           {badge > 9 ? "9+" : badge}
         </span>
       )}
@@ -134,8 +134,8 @@ function LanguageButton() {
   const t = useT();
   return (
     <IconBtn label={t.topbar.language} onClick={toggleLocale}>
-      <span className="flex items-center gap-1 text-[11px] font-semibold uppercase">
-        <Globe className="h-4 w-4" aria-hidden />
+      <span className="flex items-center gap-1 text-[10px] font-semibold uppercase">
+        <Globe className="h-3.5 w-3.5" aria-hidden />
         {locale === "id" ? "ID" : "EN"}
       </span>
     </IconBtn>
@@ -152,7 +152,7 @@ function ThemeButton() {
       }`}
       onClick={toggleTheme}
     >
-      <SunMoon className="h-[18px] w-[18px]" aria-hidden />
+      <SunMoon className="h-3.5 w-3.5" aria-hidden />
     </IconBtn>
   );
 }
@@ -175,7 +175,7 @@ function NotificationButton() {
   return (
     <div ref={ref} className="relative">
       <IconBtn label={t.topbar.notifications} onClick={() => setOpen((v) => !v)} badge={unreadCount}>
-        <Bell className="h-[18px] w-[18px]" aria-hidden />
+        <Bell className="h-3.5 w-3.5" aria-hidden />
       </IconBtn>
       <AnimatePresence>
         {open && (
@@ -184,7 +184,7 @@ function NotificationButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 4, scale: 0.97 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-x-3 top-16 z-50 max-h-[70svh] overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-black/40 sm:absolute sm:inset-x-auto sm:right-0 sm:top-11 sm:w-96"
+            className="fixed inset-x-3 top-14 z-50 max-h-[70svh] overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-black/40 sm:absolute sm:inset-x-auto sm:right-0 sm:top-10 sm:w-80"
             role="dialog"
             aria-label={t.notifications.title}
           >

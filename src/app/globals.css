@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ══════════════════════════════════════════════════════════════════
-   LUTFI.DEV — Design System
+   LUTFI.DEV — Personal Developer OS
    Runtime theming via data attributes on <html>:
      data-theme="dark|light"   data-accent="blue|purple|green|orange|red"
      data-density="comfortable|compact"
@@ -14,16 +14,17 @@
 :root[data-theme="dark"] {
   --bg: #050505;
   --surface: #0a0a0a;
-  --card: #0f0f10;
-  --card-hover: #141416;
+  --card: #101012;
+  --card-hover: #16161a;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.14);
   --text: #ffffff;
   --text-muted: #a1a1aa;
-  --text-faint: #6b6b74;
+  --text-faint: #71717a;
   --shadow-color: rgba(0, 0, 0, 0.5);
-  --grid-line: rgba(255, 255, 255, 0.04);
-  --input-bg: rgba(255, 255, 255, 0.03);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --glow-opacity: 0.12;
 }
 
 /* ── Light ──────────────────────────────────────── */
@@ -39,34 +40,44 @@
   --text-faint: #9d9da6;
   --shadow-color: rgba(0, 0, 0, 0.08);
   --grid-line: rgba(0, 0, 0, 0.045);
-  --input-bg: rgba(0, 0, 0, 0.02);
+  --input-bg: rgba(0, 0, 0, 0.025);
+  --glow-opacity: 0.06;
 }
 
 /* ── Accents ────────────────────────────────────── */
 :root[data-accent="blue"] {
-  --accent: #22d3ee;
-  --accent-strong: #0891b2;
-  --accent-soft: rgba(34, 211, 238, 0.14);
+  --accent: #3b82f6;
+  --accent-strong: #2563eb;
+  --accent-soft: rgba(59, 130, 246, 0.12);
 }
 :root[data-accent="purple"] {
-  --accent: #a78bfa;
+  --accent: #8b5cf6;
   --accent-strong: #7c3aed;
-  --accent-soft: rgba(167, 139, 250, 0.14);
+  --accent-soft: rgba(139, 92, 246, 0.12);
 }
 :root[data-accent="green"] {
-  --accent: #34d399;
+  --accent: #10b981;
   --accent-strong: #059669;
-  --accent-soft: rgba(52, 211, 153, 0.14);
+  --accent-soft: rgba(16, 185, 129, 0.12);
 }
 :root[data-accent="orange"] {
-  --accent: #fb923c;
-  --accent-strong: #ea580c;
-  --accent-soft: rgba(251, 146, 60, 0.14);
+  --accent: #f59e0b;
+  --accent-strong: #d97706;
+  --accent-soft: rgba(245, 158, 11, 0.12);
 }
 :root[data-accent="red"] {
-  --accent: #f87171;
+  --accent: #ef4444;
   --accent-strong: #dc2626;
-  --accent-soft: rgba(248, 113, 113, 0.14);
+  --accent-soft: rgba(239, 68, 68, 0.12);
+}
+
+/* Settings swatch preview colors */
+:root {
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-green: #10b981;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
 }
 
 /* ── High contrast ──────────────────────────────── */
@@ -119,26 +130,23 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--text) 14%, transparent);
+  background: color-mix(in srgb, var(--text) 12%, transparent);
   border-radius: 999px;
-  border: 2px solid transparent;
-  background-clip: content-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--text) 26%, transparent);
-  background-clip: content-box;
+  background: color-mix(in srgb, var(--text) 22%, transparent);
 }
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
   border-radius: 4px;
 }
 
@@ -196,6 +204,16 @@ html[data-glass="off"] .glass {
   box-shadow:
     0 0 0 1px var(--border),
     0 0 32px -12px var(--accent-soft);
+}
+
+/* Section label — small uppercase muted text */
+@utility section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
 }
 
 /* Motion safety — user setting AND OS preference */

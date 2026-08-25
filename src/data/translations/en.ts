@@ -7,7 +7,7 @@ export const en: Dictionary = {
   },
   brand: {
     name: "LUTFI.DEV",
-    tagline: "Developer Workspace",
+    tagline: "Personal Developer OS",
   },
   nav: {
     main: "MAIN",
@@ -20,6 +20,7 @@ export const en: Dictionary = {
     about: "About Me",
     skills: "Skills",
     experience: "Experience",
+    resume: "Resume",
     projects: "Projects",
     certificates: "Certificates",
     achievements: "Achievements",
