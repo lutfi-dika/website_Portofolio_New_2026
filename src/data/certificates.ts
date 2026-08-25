@@ -1,6 +1,7 @@
 export interface Certificate {
   id: string;
-  title: string;
+  /** translation key inside t.certificates.items */
+  titleKey: string;
   issuer: string;
   year: string;
   credentialId?: string;
@@ -18,7 +19,7 @@ export interface Certificate {
 export const certificates: Certificate[] = [
   {
     id: "itechno-cup-2025",
-    title: "3rd Place — Front Developer Finalist",
+    titleKey: "itechnoCupTitle",
     issuer: "ITECHNO CUP 2025",
     year: "2025",
     fileUrl: "/certificates/itechno-cup-2025.jpeg",
@@ -26,7 +27,7 @@ export const certificates: Certificate[] = [
   },
   {
     id: "icom-feast-2026",
-    title: "3rd Place — Front Developer",
+    titleKey: "icomFeastTitle",
     issuer: "ICOM FEAST 2026",
     year: "2026",
     fileUrl: "/certificates/icom-feast-2026.jpeg",
@@ -34,7 +35,7 @@ export const certificates: Certificate[] = [
   },
   {
     id: "clash-of-cyber-heist",
-    title: "Participant Certificate",
+    titleKey: "clashCyberHeistTitle",
     issuer: "Clash of Cyber Heist",
     year: "—",
     fileUrl: "/certificates/clash-of-cyber-heist.jpeg",
@@ -42,7 +43,7 @@ export const certificates: Certificate[] = [
   },
   {
     id: "idn-boarding-school",
-    title: "Participant Certificate",
+    titleKey: "idnBoardingSchoolTitle",
     issuer: "IDN Boarding School",
     year: "—",
     fileUrl: "/certificates/idn-boarding-school.jpeg",

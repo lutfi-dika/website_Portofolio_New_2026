@@ -53,6 +53,9 @@ export function OsShell({ children }: { children: React.ReactNode }) {
       }
       if (typing) return;
 
+      // Single-key shortcuts must not fire while a modal/dialog is open.
+      if (document.querySelector('[role="dialog"]')) return;
+
       // G + key sequence navigation
       if (gPending) {
         clearTimeout(gTimer);

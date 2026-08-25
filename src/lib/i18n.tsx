@@ -30,7 +30,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem("lutfi.locale");
-      if (raw === "en" || raw === "id") setLocaleState(raw);
+      if (!raw) return;
+      let value = raw;
+      try {
+        value = JSON.parse(raw) as string;
+      } catch {
+        /* legacy/plain value */
+      }
+      if (value === "en" || value === "id") setLocaleState(value);
     } catch {
       /* noop */
     }
@@ -39,7 +46,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
     try {
-      window.localStorage.setItem("lutfi.locale", JSON.stringify(l));
+      window.localStorage.setItem("lutfi.locale", l);
     } catch {
       /* noop */
     }

@@ -23,7 +23,7 @@ export function AchievementsView() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {achievements.map((a, i) => {
-          const Icon = ICONS[a.icon];
+          const Icon = ICONS[a.icon] ?? Trophy;
           return (
             <motion.article
               key={a.id}

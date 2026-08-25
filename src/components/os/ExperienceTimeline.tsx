@@ -75,7 +75,7 @@ export function ExperienceTimeline() {
         ))}
 
         {/* Education section */}
-        <li className="relative pl-14 pt-2" aria-hidden>
+        <li className="relative pl-14 pt-2">
           <h2 className="flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
             <GraduationCap className="h-3.5 w-3.5 text-accent" aria-hidden />
             {t.experience.educationTitle}

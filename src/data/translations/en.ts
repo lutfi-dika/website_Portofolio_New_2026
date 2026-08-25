@@ -198,6 +198,8 @@ export const en: Dictionary = {
     shareLinkedin: "LinkedIn",
     shareX: "X",
     nextProject: "Next Project",
+    prevProject: "Previous Project",
+    resetFilters: "Reset Filters",
     year: "Year",
     client: "Client",
     role: "Role",
@@ -309,6 +311,12 @@ export const en: Dictionary = {
     viewCertificate: "View Certificate",
     credentialId: "Credential ID",
     issued: "Issued",
+    items: {
+      itechnoCupTitle: "3rd Place — Front Developer Finalist",
+      icomFeastTitle: "3rd Place — Front Developer",
+      clashCyberHeistTitle: "Participant Certificate",
+      idnBoardingSchoolTitle: "Participant Certificate",
+    },
   },
   achievements: {
     title: "Achievements",
@@ -358,11 +366,13 @@ export const en: Dictionary = {
     title: "Activity Feed",
     subtitle: "A record of what I've been working on.",
     empty: "No activity yet.",
+    all: "All",
     types: {
       project: "Project",
       learning: "Learning",
       github: "GitHub",
       portfolio: "Portfolio",
+      milestone: "Milestone",
     },
     items: {
       actPortfolioUpdated: "Portfolio updated",

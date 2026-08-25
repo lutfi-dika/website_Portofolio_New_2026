@@ -75,7 +75,7 @@ export function InboxView() {
 
       <div className="grid gap-4 lg:grid-cols-[380px_1fr]">
         {/* List */}
-        <div className="space-y-2" role="list">
+        <div className={cn("space-y-2", selected && "hidden lg:block")} role="list">
           {filtered.length === 0 ? (
             <EmptyState
               icon={<InboxIcon className="h-5 w-5" aria-hidden />}
@@ -206,6 +206,15 @@ export function InboxView() {
                     </>
                   )}
                 </button>
+                {selected.status !== "archived" && (
+                  <button
+                    onClick={() => setStatus(selected.id, "unread")}
+                    className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-muted hover:text-foreground"
+                  >
+                    <Mail className="h-4 w-4" aria-hidden />
+                    {t.inbox.markUnread}
+                  </button>
+                )}
                 <button
                   onClick={() => {
                     remove(selected.id);

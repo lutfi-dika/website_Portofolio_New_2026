@@ -76,7 +76,10 @@ export default function DashboardPage() {
         className="mb-6 flex flex-wrap items-end justify-between gap-3"
       >
         <div>
-          <h1 className="font-display text-[26px] font-bold tracking-tight sm:text-3xl">
+          <h1
+            className="font-display text-[26px] font-bold tracking-tight sm:text-3xl"
+            suppressHydrationWarning
+          >
             {greeting}
           </h1>
           <p className="mt-1 text-sm text-muted">{t.dashboard.subtitle}</p>

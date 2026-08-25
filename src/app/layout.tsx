@@ -61,11 +61,17 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} | LUTFI.DEV`,
     description: "Personal developer portfolio of Muhammad Lutfi Andika.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  icons: {
+    icon: [{ url: "/logo.jpeg", type: "image/jpeg" }],
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
   },
 };
 

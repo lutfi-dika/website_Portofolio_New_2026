@@ -96,7 +96,9 @@ export function answerSync(question: string, locale: "id" | "en"): string {
 
     case "skills": {
       const top = skillGroups[0].skills.slice(0, 5).map((s) => s.name).join(", ");
-      const backend = skillGroups[1].skills.map((s) => s.name).join(", ");
+      const backend =
+        skillGroups.find((g) => g.category === "backend")?.skills.map((s) => s.name).join(", ") ??
+        "";
       return id
         ? `Skill utamanya di frontend: ${top}. Untuk backend menguasai dasar ${backend}. Lengkapnya ada di halaman Skills ya!`
         : `Core frontend skills: ${top}. On the backend he knows the fundamentals of ${backend}. Check the Skills page for the full list!`;

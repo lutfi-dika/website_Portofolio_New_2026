@@ -39,12 +39,17 @@ export function ProjectDetailView({ slug }: { slug: string }) {
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [shareOpen, setShareOpen] = useState(false);
 
+  const prevProject = useMemo(
+    () =>
+      index >= 0 ? projects[(index - 1 + projects.length) % projects.length] : undefined,
+    [index],
+  );
   const nextProject = useMemo(
     () => (index >= 0 ? projects[(index + 1) % projects.length] : undefined),
     [index],
   );
 
-  if (!project || !nextProject) {
+  if (!project || !nextProject || !prevProject) {
     return (
       <div className="mx-auto max-w-xl py-20 text-center">
         <p className="text-muted">{t.errors.notFoundDesc}</p>
@@ -293,21 +298,43 @@ export function ProjectDetailView({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* Next project */}
-      <Link
-        href={`/projects/${nextProject.slug}`}
-        className="group mt-8 flex items-center justify-between rounded-2xl border border-border bg-card p-5 transition-all hover:border-accent/40"
-      >
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-faint">
-            {t.projects.nextProject}
-          </p>
-          <p className="mt-1 font-display text-lg font-bold group-hover:text-accent">
-            {nextProject.title}
-          </p>
-        </div>
-        <ArrowRight className="h-5 w-5 text-faint transition-transform group-hover:translate-x-1 group-hover:text-accent" aria-hidden />
-      </Link>
+      {/* Prev / Next project */}
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <Link
+          href={`/projects/${prevProject.slug}`}
+          className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-accent/40"
+        >
+          <ArrowLeft
+            className="h-5 w-5 shrink-0 text-faint transition-transform group-hover:-translate-x-1 group-hover:text-accent"
+            aria-hidden
+          />
+          <div className="min-w-0">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-faint">
+              {t.projects.prevProject}
+            </p>
+            <p className="mt-1 truncate font-display text-lg font-bold group-hover:text-accent">
+              {prevProject.title}
+            </p>
+          </div>
+        </Link>
+        <Link
+          href={`/projects/${nextProject.slug}`}
+          className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-5 text-right transition-all hover:border-accent/40"
+        >
+          <div className="min-w-0">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-faint">
+              {t.projects.nextProject}
+            </p>
+            <p className="mt-1 truncate font-display text-lg font-bold group-hover:text-accent">
+              {nextProject.title}
+            </p>
+          </div>
+          <ArrowRight
+            className="h-5 w-5 shrink-0 text-faint transition-transform group-hover:translate-x-1 group-hover:text-accent"
+            aria-hidden
+          />
+        </Link>
+      </div>
 
       {/* Lightbox */}
       <Lightbox

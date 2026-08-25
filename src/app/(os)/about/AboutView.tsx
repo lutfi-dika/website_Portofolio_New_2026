@@ -36,7 +36,7 @@ export function AboutView() {
             <h2 className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
               {t.about.bioTitle}
             </h2>
-            <p className="text-base leading-relaxed text-foreground">{profile.bio}</p>
+            <p className="text-base leading-relaxed text-foreground">{t.about.bio}</p>
 
             <dl className="mt-6 grid gap-4 border-t border-border pt-5 sm:grid-cols-3">
               <div>
@@ -83,7 +83,7 @@ export function AboutView() {
                     className="flex items-center gap-3 rounded-xl border border-border p-3.5 transition-colors hover:border-accent/40"
                   >
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
-                      <Icon className="h-4.5 w-4.5 h-[18px] w-[18px]" aria-hidden />
+                      <Icon className="h-[18px] w-[18px]" aria-hidden />
                     </span>
                     <span className="text-sm font-medium">
                       {t.about.interests[i.key as keyof typeof t.about.interests]}

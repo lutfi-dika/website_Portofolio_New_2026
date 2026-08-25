@@ -197,6 +197,8 @@ export const id = {
     shareLinkedin: "LinkedIn",
     shareX: "X",
     nextProject: "Project Berikutnya",
+    prevProject: "Project Sebelumnya",
+    resetFilters: "Atur Ulang Filter",
     year: "Tahun",
     client: "Client",
     role: "Peran",
@@ -308,6 +310,12 @@ export const id = {
     viewCertificate: "Lihat Sertifikat",
     credentialId: "ID Kredensial",
     issued: "Diterbitkan",
+    items: {
+      itechnoCupTitle: "Juara 3 — Finalis Front Developer",
+      icomFeastTitle: "Juara 3 — Front Developer",
+      clashCyberHeistTitle: "Sertifikat Peserta",
+      idnBoardingSchoolTitle: "Sertifikat Peserta",
+    },
   },
   achievements: {
     title: "Prestasi",
@@ -357,11 +365,13 @@ export const id = {
     title: "Activity Feed",
     subtitle: "Rekam jejak apa yang sedang saya kerjakan.",
     empty: "Belum ada aktivitas.",
+    all: "Semua",
     types: {
       project: "Project",
       learning: "Belajar",
       github: "GitHub",
       portfolio: "Portfolio",
+      milestone: "Milestone",
     },
     items: {
       actPortfolioUpdated: "Portfolio diperbarui",

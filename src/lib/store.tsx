@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -42,25 +43,31 @@ function NotificationsProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const persist = useCallback((next: AppNotification[]) => {
-    setNotifications(next);
-    try {
-      window.localStorage.setItem("lutfi.notifications", JSON.stringify(next));
-    } catch {
-      /* noop */
-    }
-  }, []);
+  /** Functional-updater mutation that also mirrors state to localStorage. */
+  const mutate = useCallback(
+    (fn: (prev: AppNotification[]) => AppNotification[]) => {
+      setNotifications((prev) => {
+        const next = fn(prev);
+        try {
+          window.localStorage.setItem("lutfi.notifications", JSON.stringify(next));
+        } catch {
+          /* noop */
+        }
+        return next;
+      });
+    },
+    [],
+  );
 
   const value = useMemo<NotificationsValue>(
     () => ({
       notifications,
       unreadCount: notifications.filter((n) => !n.read).length,
-      markRead: (id) =>
-        persist(notifications.map((n) => (n.id === id ? { ...n, read: true } : n))),
-      markAllRead: () => persist(notifications.map((n) => ({ ...n, read: true }))),
-      clearAll: () => persist([]),
+      markRead: (id) => mutate((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n))),
+      markAllRead: () => mutate((prev) => prev.map((n) => ({ ...n, read: true }))),
+      clearAll: () => mutate(() => []),
     }),
-    [notifications, persist],
+    [notifications, mutate],
   );
 
   return <NotificationsContext.Provider value={value}>{children}</NotificationsContext.Provider>;
@@ -84,33 +91,35 @@ const SavedContext = createContext<SavedValue | null>(null);
 
 function SavedProvider({ children }: { children: ReactNode }) {
   const [savedSlugs, setSaved] = useState<string[]>([]);
+  const savedRef = useRef<string[]>([]);
 
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem("lutfi.saved");
-      if (raw) setSaved(JSON.parse(raw) as string[]);
+      if (raw) {
+        const parsed = JSON.parse(raw) as string[];
+        savedRef.current = parsed;
+        setSaved(parsed);
+      }
     } catch {
       /* noop */
     }
   }, []);
 
-  const toggle = useCallback(
-    (slug: string) => {
-      let nowSaved = false;
-      setSaved((prev) => {
-        const next = prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug];
-        nowSaved = next.includes(slug);
-        try {
-          window.localStorage.setItem("lutfi.saved", JSON.stringify(next));
-        } catch {
-          /* noop */
-        }
-        return next;
-      });
-      return nowSaved;
-    },
-    [],
-  );
+  const toggle = useCallback((slug: string) => {
+    const next = savedRef.current.includes(slug)
+      ? savedRef.current.filter((s) => s !== slug)
+      : [...savedRef.current, slug];
+    const nowSaved = next.includes(slug);
+    savedRef.current = next;
+    setSaved(next);
+    try {
+      window.localStorage.setItem("lutfi.saved", JSON.stringify(next));
+    } catch {
+      /* noop */
+    }
+    return nowSaved;
+  }, []);
 
   const value = useMemo<SavedValue>(
     () => ({

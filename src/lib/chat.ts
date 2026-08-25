@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { askLutfiAI } from "@/lib/ai/engine";
 import { useI18n } from "@/lib/i18n";
 
@@ -12,6 +12,8 @@ export interface ChatMessage {
 }
 
 const STORAGE_KEY = "lutfi.chat";
+/** Fired (same tab) whenever either chat view writes new messages. */
+const CHAT_UPDATED = "lutfi.chat.updated";
 
 function loadMessages(): ChatMessage[] {
   try {
@@ -28,16 +30,44 @@ export function useChatEngine() {
   const { t, locale } = useI18n();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [typing, setTyping] = useState(false);
+  /** Mirror of the latest message list — keeps async appends correct. */
+  const messagesRef = useRef<ChatMessage[]>([]);
 
   // Hydrate once on mount.
   useEffect(() => {
-    setMessages(loadMessages());
+    const loaded = loadMessages();
+    messagesRef.current = loaded;
+    setMessages(loaded);
+  }, []);
+
+  // Stay in sync with the other chat surface (same tab & other tabs).
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY || e.key === null) {
+        const loaded = loadMessages();
+        messagesRef.current = loaded;
+        setMessages(loaded);
+      }
+    };
+    const onUpdated = () => {
+      const loaded = loadMessages();
+      messagesRef.current = loaded;
+      setMessages(loaded);
+    };
+    window.addEventListener("storage", onStorage);
+    window.addEventListener(CHAT_UPDATED, onUpdated);
+    return () => {
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener(CHAT_UPDATED, onUpdated);
+    };
   }, []);
 
   const persist = useCallback((next: ChatMessage[]) => {
+    messagesRef.current = next;
     setMessages(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      window.dispatchEvent(new Event(CHAT_UPDATED));
     } catch {
       /* noop */
     }
@@ -54,7 +84,7 @@ export function useChatEngine() {
         text: trimmed,
         time: Date.now(),
       };
-      persist([...messages, userMsg]);
+      persist([...messagesRef.current, userMsg]);
       setTyping(true);
 
       const answer = await askLutfiAI(trimmed, locale);
@@ -63,8 +93,7 @@ export function useChatEngine() {
 
       setTyping(false);
       persist([
-        ...messages,
-        userMsg,
+        ...messagesRef.current,
         {
           id: `m-${Date.now()}-a`,
           role: "assistant",
@@ -73,7 +102,7 @@ export function useChatEngine() {
         },
       ]);
     },
-    [messages, persist, typing, locale],
+    [persist, typing, locale],
   );
 
   const clear = useCallback(() => {

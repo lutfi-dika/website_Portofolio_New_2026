@@ -54,7 +54,7 @@ export interface NavSection {
 export const navSections: NavSection[] = [
   {
     titleKey: "main",
-    items: [{ href: "/", labelKey: "overview", icon: LayoutDashboard }],
+    items: [{ href: "/", labelKey: "dashboard", icon: LayoutDashboard }],
   },
   {
     titleKey: "profile",
@@ -91,6 +91,7 @@ export const navSections: NavSection[] = [
 
 /** Utility pages reachable via command palette & contextual links only. */
 export const extraRoutes: NavItem[] = [
+  { href: "/overview", labelKey: "overview", icon: LayoutDashboard },
   { href: "/inbox", labelKey: "inbox", icon: Inbox },
   { href: "/saved", labelKey: "saved", icon: Bookmark },
   { href: "/shortcuts", labelKey: "shortcuts", icon: Keyboard },
@@ -103,7 +104,7 @@ export const allNavItems: NavItem[] = [
 ];
 
 export const mobileNavItems = [
-  { href: "/", labelKey: "overview" as const, icon: LayoutDashboard },
+  { href: "/", labelKey: "dashboard" as const, icon: LayoutDashboard },
   { href: "/projects", labelKey: "projects" as const, icon: FolderKanban },
   { href: "/chat", labelKey: "chat" as const, icon: MessageSquare },
   { href: "/activity", labelKey: "activityPage" as const, icon: Activity },

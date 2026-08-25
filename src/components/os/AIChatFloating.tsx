@@ -24,6 +24,16 @@ export function AIChatFloating() {
     if (open) setTimeout(() => inputRef.current?.focus(), 250);
   }, [open]);
 
+  // Escape closes the panel.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const submit = () => {
     if (!input.trim()) return;
     void send(input);

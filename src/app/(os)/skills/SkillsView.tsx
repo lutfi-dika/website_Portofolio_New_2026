@@ -56,14 +56,7 @@ export function SkillsView() {
               {t.skills.categories[group.category]}
               <span className="text-faint/60">({group.skills.length})</span>
             </h2>
-            <div
-              className={cn(
-                "grid gap-3",
-                group.category === "frontend" || active !== "all"
-                  ? "sm:grid-cols-2 xl:grid-cols-3"
-                  : "sm:grid-cols-2 xl:grid-cols-3",
-              )}
-            >
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {group.skills.map((skill, i) => (
                 <SkillCard key={skill.name} skill={skill} index={i} />
               ))}

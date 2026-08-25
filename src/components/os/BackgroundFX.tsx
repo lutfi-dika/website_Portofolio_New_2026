@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Layered background: blueprint grid + accent glow blobs + noise.
@@ -41,15 +41,31 @@ export function BackgroundFX() {
 /** Soft light that follows the pointer. Desktop only. */
 export function MouseGlow() {
   const ref = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const enabled =
-      window.matchMedia("(pointer: fine)").matches &&
-      document.documentElement.dataset.glow !== "off" &&
-      document.documentElement.dataset.motion !== "reduced";
-    if (!enabled || !ref.current) return;
+    const check = () => {
+      const root = document.documentElement;
+      setEnabled(
+        window.matchMedia("(pointer: fine)").matches &&
+          root.dataset.glow !== "off" &&
+          root.dataset.motion !== "reduced",
+      );
+    };
+    check();
 
+    const observer = new MutationObserver(check);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-glow", "data-motion"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const el = ref.current;
+    if (!enabled || !el) return;
+
     let raf = 0;
     const onMove = (e: MouseEvent) => {
       cancelAnimationFrame(raf);
@@ -62,8 +78,9 @@ export function MouseGlow() {
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
+      el.style.opacity = "0";
     };
-  }, []);
+  }, [enabled]);
 
   return (
     <div

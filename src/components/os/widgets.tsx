@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Calendar as CalendarIcon,
@@ -249,6 +249,7 @@ export function AnimatedCounter({
 }) {
   const [display, setDisplay] = useState(0);
   const [started, setStarted] = useState(false);
+  const fromRef = useRef(0);
 
   useEffect(() => {
     if (document.documentElement.dataset.motion === "reduced") {
@@ -262,11 +263,14 @@ export function AnimatedCounter({
   useEffect(() => {
     if (!started) return;
     let raf = 0;
+    const from = fromRef.current;
     const start = performance.now();
     const tick = (t: number) => {
       const p = Math.min((t - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      setDisplay(Math.round(eased * value));
+      const next = Math.round(from + eased * (value - from));
+      fromRef.current = next;
+      setDisplay(next);
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);

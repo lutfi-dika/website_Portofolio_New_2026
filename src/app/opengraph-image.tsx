@@ -1,10 +1,22 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Muhammad Lutfi Andika — Frontend Developer & Web Developer";
 
-export default function OpengraphImage() {
+async function loadLogo(): Promise<string> {
+  try {
+    const file = await readFile(path.join(process.cwd(), "public", "logo.jpeg"));
+    return `data:image/jpeg;base64,${file.toString("base64")}`;
+  } catch {
+    return "";
+  }
+}
+
+export default async function OpengraphImage() {
+  const logo = await loadLogo();
   return new ImageResponse(
     (
       <div
@@ -48,15 +60,32 @@ export default function OpengraphImage() {
         />
 
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div
-            style={{
-              width: 14,
-              height: 14,
-              borderRadius: 9999,
-              background: "#22d3ee",
-              boxShadow: "0 0 24px rgba(34,211,238,0.9)",
-            }}
-          />
+          {logo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={logo}
+              width={96}
+              height={96}
+              alt=""
+              style={{
+                width: 96,
+                height: 96,
+                borderRadius: 9999,
+                border: "4px solid #22d3ee",
+                objectFit: "cover",
+              }}
+            />
+          ) : (
+            <div
+              style={{
+                width: 14,
+                height: 14,
+                borderRadius: 9999,
+                background: "#22d3ee",
+                boxShadow: "0 0 24px rgba(34,211,238,0.9)",
+              }}
+            />
+          )}
           <p
             style={{
               color: "#22d3ee",

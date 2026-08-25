@@ -29,15 +29,21 @@ export function ActivityView() {
   const { t, locale } = useI18n();
   const [filter, setFilter] = useState<"all" | ActivityType>("all");
 
-  const types: ("all" | ActivityType)[] = ["all", "portfolio", "project", "learning", "github"];
+  const types: ("all" | ActivityType)[] = [
+    "all",
+    "portfolio",
+    "project",
+    "learning",
+    "github",
+    "milestone",
+  ];
 
   const filtered = useMemo(
     () => (filter === "all" ? activities : activities.filter((a) => a.type === filter)),
     [filter],
   );
 
-  const typeLabel = (type: ActivityType) =>
-    type === "milestone" ? t.achievements.types.milestone : t.activity.types[type];
+  const typeLabel = (type: ActivityType) => t.activity.types[type];
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -56,7 +62,7 @@ export function ActivityView() {
                 : "border-border text-muted hover:border-border-strong hover:text-foreground"
             }`}
           >
-            {type === "all" ? t.skills.all : typeLabel(type)}
+            {type === "all" ? t.activity.all : typeLabel(type)}
           </button>
         ))}
       </div>

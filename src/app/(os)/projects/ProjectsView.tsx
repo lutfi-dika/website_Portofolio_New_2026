@@ -182,7 +182,7 @@ export function ProjectsView() {
           <>
             {" · "}
             <button onClick={resetAll} className="text-accent hover:underline">
-              {t.errors.tryAgain}
+              {t.projects.resetFilters}
             </button>
           </>
         )}
@@ -199,7 +199,7 @@ export function ProjectsView() {
               onClick={resetAll}
               className="rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-background transition-transform hover:brightness-110 active:scale-[0.98]"
             >
-              {t.errors.tryAgain}
+              {t.projects.resetFilters}
             </button>
           }
         />
