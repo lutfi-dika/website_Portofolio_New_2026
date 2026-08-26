@@ -78,7 +78,7 @@ export const id = {
     },
     recentProjects: "Project Terbaru",
     heroTagline:
-      "Menciptakan pengalaman digital melalui kode yang bersih dan desain yang intuitif.",
+      "Saya membuat website yang fokus pada tampilan, pengalaman pengguna, dan performa.",
     ownerBusiness: "Pemilik Webkraf Digital Studio",
     quickActions: "Aksi Cepat",
     quickActionsDesc: "Langkah pintas ke halaman penting.",
@@ -104,9 +104,9 @@ export const id = {
   },
   about: {
     title: "Tentang Saya",
-    subtitle: "Kenalan lebih dekat dengan saya dan perjalanan saya.",
+    subtitle: "Sedikit tentang saya dan apa yang saya kerjakan.",
     bioTitle: "Biografi",
-    bio:"Saya adalah Muhammad Lutfi Andika, seorang Web Developer yang menggabungkan code, design, dan creativity untuk membangun pengalaman digital yang modern. Saya fokus pada Front-End Development, Web Development, dan UI/UX, dengan menggunakan teknologi seperti JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya senang mengubah ide menjadi website yang fungsional, responsif, dan memiliki karakter. Melalui LUTFI.DEV dan Webkraf Digital Studio, saya terus belajar, bereksperimen, membangun project, dan berkembang untuk menciptakan solusi digital yang tidak hanya terlihat menarik, tetapi juga memberikan nilai.",
+    bio:"Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus di Frontend dan Web Development. Saat ini saya belajar dan membangun project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya suka membuat website yang bukan cuma terlihat bagus, tapi juga nyaman digunakan. Melalui LUTFI.DEV, saya terus belajar dan bereksperimen untuk meningkatkan kemampuan saya.",
     interestsTitle: "Minat",
     goalsTitle: "Tujuan",
     journeyTitle: "Perjalanan",
@@ -122,7 +122,7 @@ export const id = {
       technology: "Teknologi Digital",
     },
     goalsText:
-      "Menjadi Frontend Developer profesional yang membangun produk digital berkualitas — cepat, aksesibel, dan menyenangkan digunakan.",
+      "Ingin jadi Frontend Developer yang bisa membangun website yang cepat, aksesibel, dan nyaman dipakai.",
     journey: {
       journey2024Title: "Mulai Web Development",
       journey2024Desc: "Belajar dasar HTML, CSS, dan JavaScript dari rasa penasaran bagaimana website bekerja.",
@@ -138,7 +138,7 @@ export const id = {
   },
   skills: {
     title: "Skills",
-    subtitle: "Teknologi dan tools yang saya gunakan sehari-hari.",
+    subtitle: "Teknologi yang saya pakai untuk bikin website.",
     categories: {
       frontend: "Frontend Mastery",
       frameworks: "Frameworks & Libraries",
@@ -153,11 +153,14 @@ export const id = {
       intermediate: "Menengah",
       advanced: "Mahir",
       expert: "Expert",
+      comfortable: "Comfortable",
+      learning: "Learning",
+      exploring: "Exploring",
     },
   },
   projects: {
     title: "Projects",
-    subtitle: "Kumpulan project yang telah dan sedang saya bangun.",
+    subtitle: "Project yang sudah dan sedang saya bangun.",
     searchPlaceholder: "Cari project...",
     filters: "Filter",
     category: "Kategori",
@@ -316,7 +319,18 @@ export const id = {
       icomFeastTitle: "Juara 3 — Front Developer",
       clashCyberHeistTitle: "Sertifikat Peserta",
       idnBoardingSchoolTitle: "Sertifikat Peserta",
+      lksTitle: "LKS (Lomba Kompetensi Siswa)",
+      piagamPenghargaanTitle: "Piagam Penghargaan",
     },
+  },
+  resume: {
+    title: "Resume",
+    subtitle: "Profil profesional, pengalaman, dan pencapaian saya.",
+    profile: "Profil",
+    professionalSummary: "Profil Profesional",
+    generatingPdf: "Membuat PDF...",
+    downloadCv: "Unduh CV (PDF)",
+    generatedFrom: "CV generated from lutfi-dev.vercel.app",
   },
   achievements: {
     title: "Prestasi",
@@ -332,6 +346,8 @@ export const id = {
       itechnoCupDesc: "Meraih juara 3 kategori Front Developer di ITECHNO CUP 2025.",
       icomFeastTitle: "3rd Place Front Developer ICOM FEAST 2026",
       icomFeastDesc: "Meraih juara 3 kategori Front Developer di ICOM FEAST 2026.",
+      lksTitle: "LKS (Lomba Kompetensi Siswa)",
+      lksDesc: "Mengikuti LKS, kompetisi kompetensi siswa tingkat provinsi Jawa Barat bidang lomba cyber security",
       pklBsiTitle: "PKL di Bank Syariah Indonesia",
       pklBsiDesc: "Dipercaya sebagai Web Developer / IT di KCP Bekasi Tambun 1 — mengerjakan website & dashboard internal.",
       fourProjectsTitle: "7+ Project Major Selesai",

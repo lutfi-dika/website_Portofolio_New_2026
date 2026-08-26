@@ -49,4 +49,21 @@ export const certificates: Certificate[] = [
     fileUrl: "/certificates/idn-boarding-school.jpeg",
     accent: "#5eb562",
   },
+  {
+    id:"LKS-Lomba-Kompetensi-Siswa",
+    titleKey: "lksTitle",
+    issuer: "LKS (Lomba Kompetensi Siswa)",
+    year: "—",
+    fileUrl:"/certificates/LKS-lomba-kompetisi.jpeg",
+    accent: "#ff5722",
+  },
+  {
+    id: "piagam-penghargaan",
+    titleKey: "piagamPenghargaanTitle",
+    issuer: "Piagam Penghargaan",
+    year: "—",
+    fileUrl:"/certificates/Piagam Penghargaan.jpeg",
+    accent: "#9c27b0",
+  },
+
 ];

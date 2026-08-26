@@ -32,7 +32,7 @@ export const profile = {
    * Personal Branding Bio
    */
   bio:
-    "Saya adalah Muhammad Lutfi Andika, seorang Web Developer yang menggabungkan code, design, dan creativity untuk membangun pengalaman digital yang modern. Saya fokus pada Front-End Development, Web Development, dan UI/UX, dengan menggunakan teknologi seperti JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya senang mengubah ide menjadi website yang fungsional, responsif, dan memiliki karakter. Melalui LUTFI.DEV dan Webkraf Digital Studio, saya terus belajar, bereksperimen, membangun project, dan berkembang untuk menciptakan solusi digital yang tidak hanya terlihat menarik, tetapi juga memberikan nilai.",
+    "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus di Frontend dan Web Development. Saat ini saya belajar dan membangun project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya suka membuat website yang bukan cuma terlihat bagus, tapi juga nyaman digunakan.",
 
 } as const;
 

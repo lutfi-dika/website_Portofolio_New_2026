@@ -35,7 +35,20 @@ export function ResumeView() {
   const handleDownload = async () => {
     if (!printRef.current || generating) return;
     setGenerating(true);
+
+    const el = printRef.current;
+
     try {
+      // Clone element, append to body visibly for html2canvas
+      const clone = el.cloneNode(true) as HTMLElement;
+      clone.removeAttribute("aria-hidden");
+      clone.style.cssText =
+        "position:fixed;left:0;top:0;width:210mm;padding:15mm;z-index:99999;background:#fff;opacity:0.01;pointer-events:none;";
+      document.body.appendChild(clone);
+
+      // Wait for browser to fully render the clone
+      await new Promise((r) => setTimeout(r, 300));
+
       const html2pdf = (await import("html2pdf.js")).default;
       await html2pdf()
         .set({
@@ -54,10 +67,11 @@ export function ResumeView() {
             orientation: "portrait",
           },
         })
-        .from(printRef.current)
+        .from(clone)
         .save();
+
+      document.body.removeChild(clone);
     } catch {
-      // fallback: open print dialog
       window.print();
     } finally {
       setGenerating(false);
@@ -69,7 +83,7 @@ export function ResumeView() {
     {
       id: "profile",
       icon: User,
-      title: "Profil",
+      title: t.resume.profile,
       content: (
         <div className="space-y-3">
           <p className="text-sm leading-relaxed text-muted">{t.about.bio}</p>
@@ -281,7 +295,7 @@ export function ResumeView() {
 
   return (
     <div className="mx-auto max-w-5xl">
-      <PageHeader title="Resume" subtitle="Profil profesional, pengalaman, dan pencapaian saya." />
+      <PageHeader title={t.resume.title} subtitle={t.resume.subtitle} />
 
       {/* Stats banner */}
       <motion.div
@@ -347,12 +361,12 @@ export function ResumeView() {
           {generating ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
-              Membuat PDF...
+              {t.resume.generatingPdf}
             </>
           ) : (
             <>
               <Download className="h-4 w-4" aria-hidden />
-              Unduh CV (PDF)
+              {t.resume.downloadCv}
             </>
           )}
         </button>
@@ -361,7 +375,6 @@ export function ResumeView() {
       {/* ── Hidden printable resume (captured by html2pdf) ── */}
       <div
         ref={printRef}
-        className="sr-only"
         aria-hidden="true"
         style={{
           position: "absolute",
@@ -377,11 +390,11 @@ export function ResumeView() {
         }}
       >
         {/* Header */}
-        <div style={{ marginBottom: "12pt", borderBottom: "2pt solid #3b82f6", paddingBottom: "8pt" }}>
+        <div style={{ marginBottom: "12pt", borderBottom: "2pt solid #8b5cf6", paddingBottom: "8pt" }}>
           <h1 style={{ fontSize: "18pt", fontWeight: 800, margin: 0, letterSpacing: "-0.02em" }}>
             {profile.name}
           </h1>
-          <p style={{ fontSize: "10pt", color: "#3b82f6", fontWeight: 600, margin: "2pt 0 0" }}>
+          <p style={{ fontSize: "10pt", color: "#8b5cf6", fontWeight: 600, margin: "2pt 0 0" }}>
             {profile.role}
           </p>
           <div style={{ display: "flex", gap: "12pt", marginTop: "4pt", fontSize: "8pt", color: "#555" }}>
@@ -405,7 +418,7 @@ export function ResumeView() {
 
         {/* Professional Summary */}
         <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>PROFIL PROFESIONAL</h2>
+          <h2 style={sectionHeadingStyle}>{t.resume.professionalSummary.toUpperCase()}</h2>
           <p style={{ fontSize: "9pt", color: "#333", margin: 0 }}>{profile.bio}</p>
         </section>
 
@@ -419,7 +432,7 @@ export function ResumeView() {
                   <strong style={{ fontSize: "10pt" }}>
                     {t.experience.roles[exp.roleKey as keyof typeof t.experience.roles]}
                   </strong>
-                  <span style={{ fontSize: "9pt", color: "#3b82f6", marginLeft: "6pt" }}>
+                  <span style={{ fontSize: "9pt", color: "#8b5cf6", marginLeft: "6pt" }}>
                     — {exp.company}
                   </span>
                 </div>
@@ -462,7 +475,7 @@ export function ResumeView() {
                 <strong style={{ fontSize: "10pt" }}>{edu.school}</strong>
                 <span style={{ fontSize: "8pt", color: "#777", fontStyle: "italic" }}>{edu.period}</span>
               </div>
-              {edu.major && <p style={{ fontSize: "9pt", color: "#3b82f6", margin: "1pt 0" }}>{edu.major}</p>}
+              {edu.major && <p style={{ fontSize: "9pt", color: "#8b5cf6", margin: "1pt 0" }}>{edu.major}</p>}
               <div style={{ display: "flex", gap: "4pt", flexWrap: "wrap", marginTop: "2pt" }}>
                 {edu.focusKeys.map((key) => (
                   <span
@@ -489,7 +502,7 @@ export function ResumeView() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6pt" }}>
             {skillGroups.map((group) => (
               <div key={group.category}>
-                <p style={{ fontSize: "8pt", fontWeight: 700, color: "#3b82f6", margin: "0 0 2pt", textTransform: "uppercase" }}>
+                <p style={{ fontSize: "8pt", fontWeight: 700, color: "#8b5cf6", margin: "0 0 2pt", textTransform: "uppercase" }}>
                   {t.skills.categories[group.category]}
                 </p>
                 <p style={{ fontSize: "8pt", color: "#333", margin: 0 }}>
@@ -563,7 +576,7 @@ export function ResumeView() {
             textAlign: "center",
           }}
         >
-          CV generated from lutfi-dev.vercel.app · {new Date().toLocaleDateString("id-ID")}
+          {t.resume.generatedFrom} · {new Date().toLocaleDateString("id-ID")}
         </div>
       </div>
     </div>

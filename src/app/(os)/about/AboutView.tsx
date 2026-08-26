@@ -21,24 +21,22 @@ export function AboutView() {
   }));
 
   return (
-    <div className="mx-auto max-w-6xl">
+    <div className="mx-auto max-w-5xl">
       <PageHeader title={t.about.title} subtitle={t.about.subtitle} />
 
       <div className="grid gap-4 lg:grid-cols-3">
-        {/* Bio column */}
+        {/* Main content */}
         <div className="space-y-4 lg:col-span-2">
+          {/* Bio */}
           <motion.section
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="rounded-2xl border border-border bg-card p-6"
           >
-            <h2 className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
-              {t.about.bioTitle}
-            </h2>
-            <p className="text-base leading-relaxed text-foreground">{t.about.bio}</p>
+            <p className="text-sm leading-relaxed text-foreground">{t.about.bio}</p>
 
-            <dl className="mt-6 grid gap-4 border-t border-border pt-5 sm:grid-cols-3">
+            <dl className="mt-5 grid gap-4 border-t border-border pt-5 sm:grid-cols-3">
               <div>
                 <dt className="text-[11px] uppercase tracking-wider text-faint">{t.about.locationLabel}</dt>
                 <dd className="mt-1 text-sm font-medium">{profile.location}</dd>
@@ -61,62 +59,49 @@ export function AboutView() {
 
           {/* Interests */}
           <motion.section
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
             className="rounded-2xl border border-border bg-card p-6"
           >
-            <h2 className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
+            <h2 className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-faint">
               {t.about.interestsTitle}
             </h2>
-            <ul className="grid gap-2.5 sm:grid-cols-2">
-              {interests.map((i, idx) => {
+            <div className="flex flex-wrap gap-2">
+              {interests.map((i) => {
                 const Icon = INTEREST_ICONS[i.icon as keyof typeof INTEREST_ICONS];
                 return (
-                  <motion.li
+                  <span
                     key={i.key}
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.06 }}
-                    className="flex items-center gap-3 rounded-xl border border-border p-3.5 transition-colors hover:border-accent/40"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm text-muted"
                   >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
-                      <Icon className="h-[18px] w-[18px]" aria-hidden />
-                    </span>
-                    <span className="text-sm font-medium">
-                      {t.about.interests[i.key as keyof typeof t.about.interests]}
-                    </span>
-                  </motion.li>
+                    <Icon className="h-4 w-4 text-accent" aria-hidden />
+                    {t.about.interests[i.key as keyof typeof t.about.interests]}
+                  </span>
                 );
               })}
-            </ul>
+            </div>
           </motion.section>
 
           {/* Goals */}
           <motion.section
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="relative overflow-hidden rounded-2xl border border-border bg-card p-6"
+            className="rounded-2xl border border-border bg-card p-6"
           >
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full blur-3xl"
-              style={{ background: "var(--accent-soft)" }}
-            />
-            <h2 className="mb-3 flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
+            <h2 className="mb-2 flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-faint">
               <Target className="h-3.5 w-3.5 text-accent" aria-hidden />
               {t.about.goalsTitle}
             </h2>
-            <p className="max-w-xl leading-relaxed text-muted">{t.about.goalsText}</p>
+            <p className="text-sm leading-relaxed text-muted">{t.about.goalsText}</p>
           </motion.section>
 
-          {/* Journey timeline */}
+          {/* Journey */}
           <section className="rounded-2xl border border-border bg-card p-6">
-            <h2 className="mb-5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">
+            <h2 className="mb-5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-faint">
               {t.about.journeyTitle}
             </h2>
             <JourneyTimeline items={journeyItems} />

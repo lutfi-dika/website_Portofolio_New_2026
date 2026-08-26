@@ -3,9 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Layered background: blueprint grid + accent glow blobs + noise.
- * Glow layer is disabled when settings.effects.backgroundGlow = false
- * (html[data-glow="off"]).
+ * Layered background: subtle grid + noise.
+ * Glow layer is very subtle — disabled when data-glow="off".
  */
 export function BackgroundFX() {
   return (
@@ -14,23 +13,22 @@ export function BackgroundFX() {
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid" />
-      <div className="absolute inset-0 bg-noise opacity-[0.025]" />
+      <div className="absolute inset-0 bg-noise opacity-[0.02]" />
 
-      {/* GLOW LAYER — very subtle */}
+      {/* GLOW LAYER — very subtle, decorative only */}
       <div data-glow-layer className="contents [[data-glow='off']_&]:hidden">
         <div
-          className="glow-blob absolute -top-40 left-1/4 h-[400px] w-[400px] animate-drift rounded-full blur-3xl motion-reduce:animate-none"
+          className="absolute -top-48 left-1/3 h-[350px] w-[350px] rounded-full blur-[120px] motion-reduce:opacity-0"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--accent) 8%, transparent), transparent 65%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--accent) 5%, transparent), transparent 70%)",
           }}
         />
         <div
-          className="glow-blob absolute -bottom-52 right-[10%] h-[480px] w-[480px] animate-drift rounded-full blur-3xl motion-reduce:animate-none"
+          className="absolute -bottom-52 right-[15%] h-[300px] w-[300px] rounded-full blur-[120px] motion-reduce:opacity-0"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--accent-strong) 6%, transparent), transparent 65%)",
-            animationDelay: "-6s",
+              "radial-gradient(circle, color-mix(in oklab, var(--accent-strong) 4%, transparent), transparent 70%)",
           }}
         />
       </div>

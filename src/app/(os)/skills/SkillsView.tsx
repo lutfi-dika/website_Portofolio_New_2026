@@ -20,7 +20,7 @@ export function SkillsView() {
   const filters: ("all" | SkillCategory)[] = ["all", ...skillGroups.map((g) => g.category)];
 
   return (
-    <div className="mx-auto max-w-6xl">
+    <div className="mx-auto max-w-4xl">
       <PageHeader title={t.skills.title} subtitle={t.skills.subtitle} />
 
       {/* Category filter */}
@@ -43,6 +43,19 @@ export function SkillsView() {
         ))}
       </div>
 
+      {/* Level legend */}
+      <div className="mb-6 flex flex-wrap gap-3 text-[11px] text-faint">
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-emerald-400" /> {t.skills.levelLabels.comfortable}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-amber-400" /> {t.skills.levelLabels.learning}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-sky-400" /> {t.skills.levelLabels.exploring}
+        </span>
+      </div>
+
       <div className="space-y-8">
         {filtered.map((group) => (
           <motion.section
@@ -51,12 +64,12 @@ export function SkillsView() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <h2 className="mb-3 flex items-center gap-2 section-label">
+            <h2 className="mb-3 flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-faint">
               <span className="h-px w-5 bg-accent/60" aria-hidden />
               {t.skills.categories[group.category]}
               <span className="text-faint/60">({group.skills.length})</span>
             </h2>
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-2 sm:grid-cols-2">
               {group.skills.map((skill, i) => (
                 <SkillCard key={skill.name} skill={skill} index={i} />
               ))}

@@ -31,6 +31,14 @@ export const achievements: Achievement[] = [
     icon: "trophy",
   },
   {
+    id: "lks",
+    titleKey: "lksTitle",
+    descriptionKey: "lksDesc",
+    year: "2026",
+    type: "competition",
+    icon: "trophy",
+  },
+  {
     id: "pkl-bsi",
     titleKey: "pklBsiTitle",
     descriptionKey: "pklBsiDesc",
