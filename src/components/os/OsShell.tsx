@@ -131,7 +131,6 @@ export function OsShell({ children }: { children: React.ReactNode }) {
               {[
                 { label: "GitHub", href: "https://github.com/lutfi-dika" },
                 { label: "Instagram", href: "https://instagram.com/lutfiandika" },
-                { label: "LinkedIn", href: "https://linkedin.com/in/lutfiandika" },
                 { label: "WhatsApp", href: "https://wa.me/6281234567890" },
               ].map((s) => (
                 <a

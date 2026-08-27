@@ -108,7 +108,7 @@ export const en: Dictionary = {
     title: "About Me",
     subtitle: "A bit about me and what I do.",
     bioTitle: "About",
-    bio:"I'm Muhammad Lutfi Andika, a Web Developer focused on Frontend and Web Development. I currently work with JavaScript, React, Next.js, Tailwind CSS, PHP, and Laravel. I like building websites that not only look good but also feel good to use. Through LUTFI.DEV, I keep learning and experimenting to improve my skills.",
+    bio:"I am Muhammad Lutfi Andika, a web developer specializing in frontend and web development. I am constantly learning and building projects using technologies such as JavaScript, React, Next.js, Tailwind CSS, PHP, and Laravel. I am passionate about creating websites that are not only visually appealing but also user-friendly, responsive, and intuitive. In addition to my personal development as a developer through LUTFI.DEV, I founded and run Webkraf Digital Studio, a business specializing in website creation and digital solutions. Through Webkraf, I apply my technical skills and creativity to real-world projects while meeting my clients' digital needs. To me, every project is an opportunity to learn, experiment, and create something better.",
     interestsTitle: "Interests",
     goalsTitle: "Goals",
     journeyTitle: "Journey",
@@ -117,6 +117,10 @@ export const en: Dictionary = {
     educationLabel: "Education",
     statusLabel: "Status",
     student: "Vocational Student",
+    businessTitle: "Business",
+    businessDesc:
+      "Webkraf Digital Studio is my web development business. I help businesses build professional, modern, and responsive websites — from company profiles and landing pages to e-commerce, dashboards, and UI/UX design.",
+    businessCta: "Visit Webkraf Digital Studio",
     interests: {
       webdev: "Web Development",
       frontend: "Frontend Engineering",
@@ -126,16 +130,33 @@ export const en: Dictionary = {
     goalsText:
       "I want to be a Frontend Developer who builds websites that are fast, accessible, and comfortable to use.",
     journey: {
-      journey2024Title: "Started Web Development",
-      journey2024Desc: "Learned HTML, CSS, and JavaScript basics out of curiosity about how websites work.",
-      journey2025Title: "Started Building Projects",
-      journey2025Desc: "Built real projects: EduCare and various frontend experiments.",
-      journeyPklTitle: "Internship (PKL)",
-      journeyPklDesc: "Interned as Web Developer / IT at Bank Syariah Indonesia.",
-      journeyBsiTitle: "Building BSI Projects",
-      journeyBsiDesc: "Company profile & multi-role dashboard for internal needs.",
-      journeyLutfiDevTitle: "Building LUTFI.DEV",
-      journeyLutfiDevDesc: "Personal developer OS — the newest version of my portfolio.",
+      journey2023Title: "2023 — Started Web Development",
+      journey2023Desc:
+        "Started exploring web development by learning HTML, CSS, and JavaScript out of curiosity about how websites are built and how they work.",
+      journey2024Title: "2024 — Deepening Web Development",
+      journey2024Desc:
+        "Started deepening my web development skills, exploring JavaScript further, and experimenting with different website designs and interactions.",
+      journey2025Title: "2025 — Started Building Projects",
+      journey2025Desc:
+        "Started seriously building various projects and frontend experiments to improve my coding, UI/UX, and problem-solving skills.",
+      journey2025CompetitionTitle: "2025 — Joined Technology Competitions",
+      journey2025CompetitionDesc:
+        "Started participating in technology and application development competitions, including iTechno Cup 2025, to test my skills and gain experience in solving real-world challenges.",
+      journey2026CompetitionTitle: "2026 — Joined Technology Competitions",
+      journey2026CompetitionDesc:
+        "Participated in technology competitions such as ICOM Feast at IDN and LKS Cyber Security to strengthen my technical skills, gain experience, and take on new challenges in the technology field.",
+      journey2026Title: "2026 — Internship Experience",
+      journey2026Desc:
+        "Started my professional experience through an internship as a Web Developer / IT at Bank Syariah Indonesia KCP Bekasi Tambun.",
+      journeyBsiTitle: "2026 — Developing BSI Projects",
+      journeyBsiDesc:
+        "Designed and developed a company profile website and a multi-role dashboard to support internal information and monitoring needs.",
+      journeyWebkrafTitle: "2026 — Building Webkraf Digital Studio",
+      journeyWebkrafDesc:
+        "Started developing Webkraf Digital Studio as a digital studio focused on building web solutions and helping businesses with their digital needs.",
+      journeyLutfiDevTitle: "2026 — Building LUTFI.DEV",
+      journeyLutfiDevDesc:
+        "Developed LUTFI.DEV as my personal developer portfolio to document my journey, projects, skills, and growth in web development.",
     },
   },
   skills: {
@@ -200,7 +221,6 @@ export const en: Dictionary = {
     copyLink: "Copy Link",
     linkCopied: "Project link copied.",
     shareWhatsapp: "WhatsApp",
-    shareLinkedin: "LinkedIn",
     shareX: "X",
     nextProject: "Next Project",
     prevProject: "Previous Project",
@@ -477,6 +497,9 @@ export const en: Dictionary = {
     emptyHint: "Messages from the contact page will appear here.",
     selectMessage: "Select a message to read",
     replyVia: "Reply via",
+    replyPlaceholder: "Type your reply here...",
+    replySend: "Send Reply",
+    replyOriginalMessage: "Original Message",
     statusLabels: {
       unread: "Unread",
       read: "Read",

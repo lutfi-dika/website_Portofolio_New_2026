@@ -124,7 +124,7 @@ export const projects: Project[] = [
   {
     slug: "webkraf-digital-studio",
     index: "07",
-    title: "Webkraf",
+    title: "Webkraf Digital Studio",
     category: "frontend",
     status: "completed",
     year: "2025",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     features: ["animation", "scrollMotion", "interactiveUi", "responsive"],
     tech: ["React", "CSS", "AOS Animation"],
     github: "https://github.com/lutfi-dika/Website-Kreatif",
-    demo: "https://lutfi-dika.github.io/Website-Kreatif/",
+    demo: "https://webkraf-digital-studio.vercel.app/",
     preview: "studio",
     accent: "#fb923c",
     accent2: "#f472b6",

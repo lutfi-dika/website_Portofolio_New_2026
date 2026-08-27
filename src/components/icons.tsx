@@ -1,7 +1,6 @@
 import {
   FaGithub,
   FaInstagram,
-  FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa6";
 import {
@@ -32,7 +31,6 @@ type IconType = ComponentType<{ className?: string; style?: React.CSSProperties 
 const socialMap: Record<string, IconType> = {
   github: FaGithub,
   instagram: FaInstagram,
-  linkedin: FaLinkedinIn,
   whatsapp: FaWhatsapp,
 };
 

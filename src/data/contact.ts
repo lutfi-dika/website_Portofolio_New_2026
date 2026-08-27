@@ -4,7 +4,7 @@ export interface ContactChannel {
   /** translation key describing the channel */
   descriptionKey: string;
   href: string;
-  icon: "email" | "whatsapp" | "github" | "instagram" | "linkedin";
+  icon: "email" | "whatsapp" | "github" | "instagram";
 }
 
 export const contactChannels: ContactChannel[] = [
@@ -12,14 +12,14 @@ export const contactChannels: ContactChannel[] = [
     id: "email",
     label: "Email",
     descriptionKey: "contactEmailDesc",
-    href: "mailto:lutfiandika.dev@gmail.com",
+    href: "mailto:lutfiandika33@gmail.com",
     icon: "email",
   },
   {
     id: "whatsapp",
     label: "WhatsApp",
     descriptionKey: "contactWhatsappDesc",
-    href: "https://wa.me/6281234567890",
+    href: "https://wa.me/6281295431853",
     icon: "whatsapp",
   },
   {
@@ -33,14 +33,7 @@ export const contactChannels: ContactChannel[] = [
     id: "instagram",
     label: "Instagram",
     descriptionKey: "contactInstagramDesc",
-    href: "https://instagram.com/lutfiandika",
+    href: "https://instagram.com/303.andika",
     icon: "instagram",
-  },
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    descriptionKey: "contactLinkedinDesc",
-    href: "https://linkedin.com/in/lutfiandika",
-    icon: "linkedin",
   },
 ];

@@ -106,7 +106,7 @@ export const id = {
     title: "Tentang Saya",
     subtitle: "Sedikit tentang saya dan apa yang saya kerjakan.",
     bioTitle: "Biografi",
-    bio:"Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus di Frontend dan Web Development. Saat ini saya belajar dan membangun project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya suka membuat website yang bukan cuma terlihat bagus, tapi juga nyaman digunakan. Melalui LUTFI.DEV, saya terus belajar dan bereksperimen untuk meningkatkan kemampuan saya.",
+    bio: "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus pada Frontend dan Web Development. Saat ini saya terus belajar dan mengembangkan berbagai project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya memiliki ketertarikan dalam menciptakan website yang tidak hanya menarik secara visual, tetapi juga nyaman, responsif, dan mudah digunakan.\n\nSelain mengembangkan diri sebagai developer melalui LUTFI.DEV, saya juga membangun dan mengembangkan Webkraf Digital Studio, sebuah bisnis yang bergerak di bidang pembuatan website dan solusi digital. Melalui Webkraf, saya belajar menerapkan kemampuan teknis dan kreativitas dalam mengerjakan project nyata serta membantu kebutuhan digital klien.\n\nBagi saya, setiap project adalah kesempatan untuk belajar, bereksperimen, dan menciptakan sesuatu yang lebih baik.",
     interestsTitle: "Minat",
     goalsTitle: "Tujuan",
     journeyTitle: "Perjalanan",
@@ -115,6 +115,10 @@ export const id = {
     educationLabel: "Pendidikan",
     statusLabel: "Status",
     student: "Siswa SMK",
+    businessTitle: "Bisnis",
+    businessDesc:
+      "Webkraf Digital Studio adalah bisnis web development saya. Saya membantu bisnis membangun website yang profesional, modern, dan responsif — mulai dari company profile, landing page, e-commerce, dashboard, hingga UI/UX design.",
+    businessCta: "Kunjungi Webkraf Digital Studio",
     interests: {
       webdev: "Web Development",
       frontend: "Frontend Engineering",
@@ -124,16 +128,33 @@ export const id = {
     goalsText:
       "Ingin jadi Frontend Developer yang bisa membangun website yang cepat, aksesibel, dan nyaman dipakai.",
     journey: {
-      journey2024Title: "Mulai Web Development",
-      journey2024Desc: "Belajar dasar HTML, CSS, dan JavaScript dari rasa penasaran bagaimana website bekerja.",
-      journey2025Title: "Mulai Membangun Projects",
-      journey2025Desc: "Membangun project nyata: EduCare dan berbagai eksperimen frontend.",
-      journeyPklTitle: "Praktik Kerja Lapangan",
-      journeyPklDesc: "Magang sebagai Web Developer / IT di Bank Syariah Indonesia.",
-      journeyBsiTitle: "Membangun Projects BSI",
-      journeyBsiDesc: "Company profile & multi-role dashboard untuk kebutuhan internal.",
-      journeyLutfiDevTitle: "Membangun LUTFI.DEV",
-      journeyLutfiDevDesc: "Personal developer OS — dashboard portofolio versi terbaru.",
+      journey2023Title: "2023 — Mulai Web Development",
+      journey2023Desc:
+        "Mulai mengenal dunia web development dari HTML, CSS, dan JavaScript karena penasaran bagaimana sebuah website dibangun dan bekerja.",
+      journey2024Title: "2024 — Memperdalam Web Dev",
+      journey2024Desc:
+        "Mulai memperdalam frontend development, mempelajari JavaScript lebih jauh, serta bereksperimen dengan berbagai desain dan interaksi website.",
+      journey2025Title: "2025 — Mulai Membangun Project",
+      journey2025Desc:
+        "Mulai serius membangun berbagai project dan eksperimen frontend untuk meningkatkan kemampuan coding, UI/UX, dan problem solving.",
+      journey2025CompetitionTitle: "2025 — Mengikuti Kompetisi",
+      journey2025CompetitionDesc:
+        "Mulai mengikuti kompetisi di bidang teknologi dan pengembangan aplikasi, salah satunya iTechno Cup 2025 untuk menguji kemampuan dan pengalaman dalam menyelesaikan project.",
+      journey2026CompetitionTitle: "2026 — Mengikuti Kompetisi Teknologi",
+      journey2026CompetitionDesc:
+        "Mengikuti berbagai kompetisi teknologi seperti ICOM Feast di IDN dan LKS Cyber Security untuk mengembangkan kemampuan, pengalaman, serta menghadapi tantangan di dunia teknologi.",
+      journey2026Title: "2026 — Praktik Kerja Lapangan",
+      journey2026Desc:
+        "Memulai pengalaman profesional melalui Praktik Kerja Lapangan sebagai Web Developer / IT di Bank Syariah Indonesia KCP Bekasi Tambun.",
+      journeyBsiTitle: "2026 — Mengembangkan Project BSI",
+      journeyBsiDesc:
+        "Merancang dan mengembangkan website company profile serta dashboard multi-role untuk mendukung kebutuhan informasi dan monitoring internal.",
+      journeyWebkrafTitle: "2026 — Membangun Webkraf Digital Studio",
+      journeyWebkrafDesc:
+        "Mulai mengembangkan Webkraf Digital Studio sebagai wadah untuk membangun solusi website digital dan membantu kebutuhan website bisnis.",
+      journeyLutfiDevTitle: "2026 — Membangun LUTFI.DEV",
+      journeyLutfiDevDesc:
+        "Mengembangkan LUTFI.DEV sebagai personal developer portfolio untuk mendokumentasikan perjalanan, project, skill, dan perkembangan saya di dunia web development.",
     },
   },
   skills: {
@@ -198,7 +219,6 @@ export const id = {
     copyLink: "Copy Link",
     linkCopied: "Link project disalin.",
     shareWhatsapp: "WhatsApp",
-    shareLinkedin: "LinkedIn",
     shareX: "X",
     nextProject: "Project Berikutnya",
     prevProject: "Project Sebelumnya",
@@ -315,8 +335,8 @@ export const id = {
     credentialId: "ID Kredensial",
     issued: "Diterbitkan",
     items: {
-      itechnoCupTitle: "Juara 3 — Finalis Front Developer",
-      icomFeastTitle: "Juara 3 — Front Developer",
+      itechnoCupTitle: "Juara 3 — Finalis Frontend Developer",
+      icomFeastTitle: "Juara 3 — Frontend Developer",
       clashCyberHeistTitle: "Sertifikat Peserta",
       idnBoardingSchoolTitle: "Sertifikat Peserta",
       lksTitle: "LKS (Lomba Kompetensi Siswa)",
@@ -475,6 +495,9 @@ export const id = {
     emptyHint: "Pesan dari halaman kontak akan muncul di sini.",
     selectMessage: "Pilih pesan untuk dibaca",
     replyVia: "Balas via",
+    replyPlaceholder: "Ketik balasan kamu di sini...",
+    replySend: "Kirim Balasan",
+    replyOriginalMessage: "Pesan Asal",
     statusLabels: {
       unread: "Belum Dibaca",
       read: "Dibaca",
@@ -488,7 +511,7 @@ export const id = {
     title: "Project Tersimpan",
     subtitle: "Project yang kamu tandai untuk dicek lagi nanti.",
     empty: "Belum ada project tersimpan.",
-    emptyHint: 'Klik ikon bookmark pada project untuk menyimpannya.',
+    emptyHint: "Klik ikon bookmark pada project untuk menyimpannya.",
     browseProjects: "Jelajahi Projects",
     removed: "Project dihapus dari tersimpan.",
   },
@@ -627,8 +650,10 @@ export const id = {
 } as const;
 
 /** Widen literal string types so en.ts can provide its own translations. */
-type Widen<T> = {
-  [K in keyof T]: T[K] extends string ? string : Widen<T[K]>;
-};
+type Widen<T> = T extends object
+  ? { [K in keyof T]: Widen<T[K]> }
+  : T extends string
+  ? string
+  : T;
 
 export type Dictionary = Widen<typeof id>;

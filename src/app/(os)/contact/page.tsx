@@ -4,7 +4,7 @@ import { ContactView } from "./ContactView";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with Muhammad Lutfi Andika — ${profile.email}, WhatsApp, GitHub, Instagram, and LinkedIn.`,
+  description: `Get in touch with Muhammad Lutfi Andika — ${profile.email}, WhatsApp, GitHub, and Instagram.`,
   alternates: { canonical: "/contact" },
 };
 

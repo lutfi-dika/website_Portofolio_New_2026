@@ -105,12 +105,11 @@ export function ProjectDetailView({ slug }: { slug: string }) {
     setShareOpen(false);
   };
 
-  const openShare = (network: "whatsapp" | "linkedin" | "x") => {
+  const openShare = (network: "whatsapp" | "x") => {
     const url = encodeURIComponent(shareUrl());
     const text = encodeURIComponent(`${project.title} — by ${"Lutfi"}`);
     const hrefs = {
       whatsapp: `https://wa.me/?text=${text}%20${url}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
       x: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
     };
     window.open(hrefs[network], "_blank", "noopener,noreferrer");
@@ -357,7 +356,6 @@ export function ProjectDetailView({ slug }: { slug: string }) {
           {[
             { label: t.projects.copyLink, icon: Copy, action: copyLink },
             { label: t.projects.shareWhatsapp, icon: null, action: () => openShare("whatsapp") },
-            { label: t.projects.shareLinkedin, icon: null, action: () => openShare("linkedin") },
             { label: t.projects.shareX, icon: null, action: () => openShare("x") },
           ].map((item) => (
             <li key={item.label}>

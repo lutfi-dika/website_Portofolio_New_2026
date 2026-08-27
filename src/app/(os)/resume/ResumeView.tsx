@@ -291,7 +291,6 @@ export function ResumeView() {
 
   /* ── Printable resume data ──────────────────────────────── */
   const github = socials.find((s) => s.icon === "github");
-  const linkedin = socials.find((s) => s.icon === "linkedin");
 
   return (
     <div className="mx-auto max-w-5xl">
@@ -405,12 +404,6 @@ export function ResumeView() {
               <>
                 <span>|</span>
                 <span>github.com/{profile.githubUsername}</span>
-              </>
-            )}
-            {linkedin && (
-              <>
-                <span>|</span>
-                <span>{linkedin.href.replace("https://linkedin.com/in/", "linkedin.com/in/")}</span>
               </>
             )}
           </div>

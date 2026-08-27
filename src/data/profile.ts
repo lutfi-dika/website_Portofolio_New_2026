@@ -52,11 +52,6 @@ export const socials = [
     icon: "instagram",
   },
   {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/lutfiandika",
-    icon: "linkedin",
-  },
-  {
     label: "WhatsApp",
     href: "https://wa.me/6281234567890",
     icon: "whatsapp",

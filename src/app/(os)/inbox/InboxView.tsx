@@ -23,6 +23,7 @@ export function InboxView() {
   const { messages, setStatus, remove } = useInbox();
   const [filter, setFilter] = useState<Filter>("all");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [replyText, setReplyText] = useState("");
 
   const filtered = useMemo(() => {
     if (filter === "archived") return messages.filter((m) => m.status === "archived");
@@ -179,53 +180,85 @@ export function InboxView() {
                 {selected.message}
               </p>
 
-              <footer className="flex flex-wrap gap-2 border-t border-border pt-4">
-                <a
-                  href={`mailto:${selected.email}?subject=${encodeURIComponent(`Re: ${selected.subject}`)}`}
-                  onClick={() => setStatus(selected.id, "replied")}
-                  className="flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-background hover:brightness-110"
-                >
-                  <Reply className="h-4 w-4" aria-hidden />
-                  {t.inbox.replyVia} Email
-                </a>
-                <button
-                  onClick={() =>
-                    setStatus(selected.id, selected.status === "archived" ? "read" : "archived")
-                  }
-                  className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-muted hover:text-foreground"
-                >
-                  {selected.status === "archived" ? (
-                    <>
-                      <ArchiveRestore className="h-4 w-4" aria-hidden />
-                      {t.inbox.unarchive}
-                    </>
-                  ) : (
-                    <>
-                      <Archive className="h-4 w-4" aria-hidden />
-                      {t.inbox.archive}
-                    </>
-                  )}
-                </button>
-                {selected.status !== "archived" && (
+              <div className="border-t border-border pt-4">
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={`mailto:${selected.email}?subject=${encodeURIComponent(`Re: ${selected.subject}`)}&body=${encodeURIComponent(replyText || "")}`}
+                    onClick={() => {
+                      if (replyText.trim()) setStatus(selected.id, "replied");
+                      setReplyText("");
+                    }}
+                    className={cn(
+                      "flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all",
+                      replyText.trim()
+                        ? "bg-accent text-background hover:brightness-110"
+                        : "border border-border text-muted hover:text-foreground",
+                    )}
+                  >
+                    <Reply className="h-4 w-4" aria-hidden />
+                    {t.inbox.replyVia} Email
+                  </a>
                   <button
-                    onClick={() => setStatus(selected.id, "unread")}
+                    onClick={() =>
+                      setStatus(selected.id, selected.status === "archived" ? "read" : "archived")
+                    }
                     className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-muted hover:text-foreground"
                   >
-                    <Mail className="h-4 w-4" aria-hidden />
-                    {t.inbox.markUnread}
+                    {selected.status === "archived" ? (
+                      <>
+                        <ArchiveRestore className="h-4 w-4" aria-hidden />
+                        {t.inbox.unarchive}
+                      </>
+                    ) : (
+                      <>
+                        <Archive className="h-4 w-4" aria-hidden />
+                        {t.inbox.archive}
+                      </>
+                    )}
                   </button>
-                )}
-                <button
-                  onClick={() => {
-                    remove(selected.id);
-                    setSelectedId(null);
-                  }}
-                  className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-red-300 hover:border-red-400/40 hover:bg-red-400/5"
-                >
-                  <Trash2 className="h-4 w-4" aria-hidden />
-                  {t.inbox.delete}
-                </button>
-              </footer>
+                  {selected.status !== "archived" && (
+                    <button
+                      onClick={() => setStatus(selected.id, "unread")}
+                      className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-muted hover:text-foreground"
+                    >
+                      <Mail className="h-4 w-4" aria-hidden />
+                      {t.inbox.markUnread}
+                    </button>
+                  )}
+                  <button
+                    onClick={() => {
+                      remove(selected.id);
+                      setSelectedId(null);
+                    }}
+                    className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-red-300 hover:border-red-400/40 hover:bg-red-400/5"
+                  >
+                    <Trash2 className="h-4 w-4" aria-hidden />
+                    {t.inbox.delete}
+                  </button>
+                </div>
+
+                <div className="mt-4">
+                  <p className="mb-2 text-xs font-medium text-faint">{t.inbox.replyOriginalMessage}:</p>
+                  <div className="rounded-xl border border-border bg-input-bg p-3">
+                    <p className="text-xs text-muted">
+                      <span className="font-medium text-foreground">{selected.sender}</span>{" "}
+                      <span className="text-faint">&lt;{selected.email}&gt;</span>
+                    </p>
+                    <p className="mt-1 text-xs text-faint">{selected.subject}</p>
+                    <p className="mt-2 whitespace-pre-wrap text-xs text-muted line-clamp-3">{selected.message}</p>
+                  </div>
+                </div>
+
+                <div className="mt-3">
+                  <textarea
+                    value={replyText}
+                    onChange={(e) => setReplyText(e.target.value)}
+                    placeholder={t.inbox.replyPlaceholder}
+                    rows={4}
+                    className="w-full resize-none rounded-xl border border-border bg-input-bg px-4 py-3 text-sm outline-none transition-colors placeholder:text-faint focus:border-accent"
+                  />
+                </div>
+              </div>
             </motion.article>
           ) : (
             <motion.div

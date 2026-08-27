@@ -6,7 +6,6 @@ import { MapPin, GraduationCap } from "lucide-react";
 import {
   FaGithub,
   FaInstagram,
-  FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa6";
 import { profile, socials } from "@/data/profile";
@@ -15,7 +14,6 @@ import { useT } from "@/lib/i18n";
 const SOCIAL_ICONS = {
   github: FaGithub,
   instagram: FaInstagram,
-  linkedin: FaLinkedinIn,
   whatsapp: FaWhatsapp,
 } as const;
 
