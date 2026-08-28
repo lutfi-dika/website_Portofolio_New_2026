@@ -95,9 +95,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/logo.jpeg", type: "image/jpeg" }],
-    shortcut: "/logo.jpeg",
-    apple: "/logo.jpeg",
+    icon: [{ url: "/Avatar.png", type: "image/jpeg" }],
+    shortcut: "/Avatar.png",
+    apple: "/Avatar.png",
   },
   verification: {
     google: "aDpO1RGTuhsjYc7AHePdjiNseGfYSB_K3QGC6AFUjgo",
