@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/Avatar.png", type: "image/jpeg" }],
+    icon: [{ url: "/Avatar.png", type: "image/png" }],
     shortcut: "/Avatar.png",
     apple: "/Avatar.png",
   },
