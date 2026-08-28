@@ -17,68 +17,155 @@ import {
 import { profile, stats, socials } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { skillGroups } from "@/data/skills";
-import { certificates } from "@/data/certificates";
 import { experiences, educationHistory } from "@/data/experience";
 import { PageHeader } from "@/components/os/DashboardWidget";
-import { useT, useI18n } from "@/lib/i18n";
+import { useT } from "@/lib/i18n";
 import { AnimatedCounter } from "@/components/os/widgets";
+
+// Data sertifikat
+const myCertificates = [
+  {
+    id: "1",
+    titleKey: "itechnoCup",
+    fallbackTitle: "Itecnho Cup 2025 - Juara 3 Lomba Frontend",
+    issuer: "Itechno Cup",
+    year: "2025",
+    accent: "#38bdf8",
+    image: "/certificates/itechno-cup-2025.jpeg",
+  },
+  {
+    id: "2",
+    titleKey: "cyberHeist",
+    fallbackTitle: "Peserta Lomba Clash of Cyber Heist",
+    issuer: "Cyber Security",
+    year: "2026",
+    accent: "#38bdf8",
+    image: "/certificates/clash-of-cyber-heist.jpeg",
+  },
+  {
+    id: "3",
+    titleKey: "icomFeast",
+    fallbackTitle: "Juara 3 Icom Feast 2026 Bidang Front End Dev",
+    issuer: "Icom Feast",
+    year: "2026",
+    accent: "#38bdf8",
+    image: "/certificates/icom-feast-2026.jpeg",
+  },
+  {
+    id: "4",
+    titleKey: "idnBoarding",
+    fallbackTitle: "Peserta Lomba IDN Boarding School Web Dev",
+    issuer: "IDN Boarding School",
+    year: "2026",
+    accent: "#38bdf8",
+    image: "/certificates/idn-boarding-school.jpeg",
+  },
+  {
+    id: "5",
+    titleKey: "lksKompetisi",
+    fallbackTitle:
+      "LKS Lomba Kompetisi Siswa Bidang Lomba Cyber Scecurity 2026",
+    issuer: "LKS SMK",
+    year: "2026",
+    accent: "#38bdf8",
+    image: "/certificates/LKS-lomba-kompetisi.jpeg",
+  },
+  {
+    id: "6",
+    titleKey: "piagamPenghargaan",
+    fallbackTitle: "Piagam Penghargaan Siswa Berprestasi ",
+    issuer: "Sekolah / Instansi",
+    year: "2026",
+    accent: "#38bdf8",
+    image: "/certificates/Piagam Penghargaan.jpeg",
+  },
+];
 
 export function ResumeView() {
   const t = useT();
-  const { locale } = useI18n();
   const printRef = useRef<HTMLDivElement>(null);
+  const avatarImgRef = useRef<HTMLImageElement>(null);
+  const certImgRefs = useRef<(HTMLImageElement | null)[]>([]);
   const [generating, setGenerating] = useState(false);
 
   const techCount = skillGroups.reduce((n, g) => n + g.skills.length, 0);
   const projectCount = projects.length;
 
+  const convertImageToBase64 = (
+    imgElement: HTMLImageElement,
+  ): Promise<string> => {
+    return new Promise((resolve) => {
+      const canvas = document.createElement("canvas");
+      canvas.width = imgElement.naturalWidth || 300;
+      canvas.height = imgElement.naturalHeight || 200;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        try {
+          ctx.drawImage(imgElement, 0, 0);
+          resolve(canvas.toDataURL("image/jpeg"));
+          return;
+        } catch (e) {
+          console.warn("Gagal konversi canvas gambar:", e);
+        }
+      }
+      resolve(imgElement.src);
+    });
+  };
+
   const handleDownload = async () => {
     if (!printRef.current || generating) return;
     setGenerating(true);
 
-    const el = printRef.current;
+    const element = printRef.current;
 
     try {
-      // Clone element, append to body visibly for html2canvas
-      const clone = el.cloneNode(true) as HTMLElement;
-      clone.removeAttribute("aria-hidden");
-      clone.style.cssText =
-        "position:fixed;left:0;top:0;width:210mm;padding:15mm;z-index:99999;background:#fff;opacity:0.01;pointer-events:none;";
-      document.body.appendChild(clone);
+      if (avatarImgRef.current) {
+        avatarImgRef.current.src = await convertImageToBase64(
+          avatarImgRef.current,
+        );
+      }
 
-      // Wait for browser to fully render the clone
-      await new Promise((r) => setTimeout(r, 300));
+      for (let i = 0; i < certImgRefs.current.length; i++) {
+        const imgEl = certImgRefs.current[i];
+        if (imgEl) {
+          imgEl.src = await convertImageToBase64(imgEl);
+        }
+      }
+
+      element.style.display = "block";
+      await new Promise((r) => setTimeout(r, 800));
 
       const html2pdf = (await import("html2pdf.js")).default;
-      await html2pdf()
-        .set({
-          margin: [10, 10, 10, 10],
-          filename: "CV-Muhammad-Lutfi-Andika.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: {
-            scale: 2,
-            useCORS: true,
-            letterRendering: true,
-            backgroundColor: "#ffffff",
-          },
-          jsPDF: {
-            unit: "mm",
-            format: "a4",
-            orientation: "portrait",
-          },
-        })
-        .from(clone)
-        .save();
 
-      document.body.removeChild(clone);
-    } catch {
+      const opt = {
+        margin: [10, 10, 10, 10] as [number, number, number, number],
+        filename: `CV-${profile.name.replace(/\s+/g, "-")}.pdf`,
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+          backgroundColor: "#f8fafc",
+          windowWidth: 800,
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+        },
+      };
+
+      await html2pdf().set(opt).from(element).save();
+    } catch (err) {
+      console.error("PDF generation failed, falling back to print:", err);
       window.print();
     } finally {
       setGenerating(false);
     }
   };
 
-  /* ── Visible dashboard sections ─────────────────────────── */
+  /* ── Visible dashboard sections ── */
   const sections = [
     {
       id: "profile",
@@ -86,7 +173,9 @@ export function ResumeView() {
       title: t.resume.profile,
       content: (
         <div className="space-y-3">
-          <p className="text-sm leading-relaxed text-muted">{t.about.bio}</p>
+          <p className="text-sm leading-relaxed text-muted text-justify">
+            {t.about.bio}
+          </p>
           <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-2 text-sm text-muted">
               <MapPin className="h-4 w-4 text-accent" aria-hidden />
@@ -122,7 +211,11 @@ export function ResumeView() {
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <h3 className="font-display text-sm font-bold">
-                    {t.experience.roles[exp.roleKey as keyof typeof t.experience.roles]}
+                    {
+                      t.experience.roles[
+                        exp.roleKey as keyof typeof t.experience.roles
+                      ]
+                    }
                   </h3>
                   <p className="text-xs text-accent">{exp.company}</p>
                   <p className="text-[10px] text-faint">{exp.location}</p>
@@ -135,23 +228,20 @@ export function ResumeView() {
                 {exp.activitiesKeys.map((key) => (
                   <li
                     key={key}
-                    className="flex items-start gap-2 text-xs text-muted"
+                    className="flex items-start gap-2 text-xs text-muted text-justify"
                   >
-                    <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />
-                    {t.experience.activitiesList[key as keyof typeof t.experience.activitiesList]}
+                    <span
+                      className="mt-1 h-1 w-1 shrink-0 rounded-full bg-accent"
+                      aria-hidden
+                    />
+                    {
+                      t.experience.activitiesList[
+                        key as keyof typeof t.experience.activitiesList
+                      ]
+                    }
                   </li>
                 ))}
               </ul>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {exp.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border px-1.5 py-0.5 font-mono text-[10px] text-faint"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
             </div>
           ))}
         </div>
@@ -170,17 +260,23 @@ export function ResumeView() {
             >
               <h3 className="font-display text-sm font-bold">{edu.school}</h3>
               {edu.major && <p className="text-xs text-accent">{edu.major}</p>}
-              <p className="mt-1 font-mono text-[10px] text-faint">{edu.period}</p>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {edu.focusKeys.map((key) => (
-                  <span
-                    key={key}
-                    className="rounded-md border border-border px-1.5 py-0.5 font-mono text-[10px] text-muted"
-                  >
-                    {t.experience.educationFocus[key as keyof typeof t.experience.educationFocus]}
-                  </span>
-                ))}
-              </div>
+              {edu.place && (
+                <p className="text-xs text-muted">📍 {edu.place}</p>
+              )}
+              <p className="mt-1 font-mono text-[10px] text-faint">
+                {edu.period}
+              </p>
+              {edu.focusKeys && edu.focusKeys.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {edu.focusKeys.map((key) => (
+                    <span key={key} className="rounded px-2 py-0.5 text-[10px]">
+                      {t.experience.educationFocus?.[
+                        key as keyof typeof t.experience.educationFocus
+                      ] || key}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -228,30 +324,12 @@ export function ResumeView() {
               key={project.slug}
               className="rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
             >
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  <h3 className="font-display text-sm font-bold">{project.title}</h3>
-                  <p className="text-xs text-accent">
-                    {t.projects.categories[project.category]} · {project.year}
-                  </p>
-                </div>
-                {project.status === "in-progress" && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-medium text-amber-300">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-300" />
-                    {t.dashboard.inProgress}
-                  </span>
-                )}
-              </div>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border px-1.5 py-0.5 font-mono text-[10px] text-faint"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <h3 className="font-display text-sm font-bold">
+                {project.title}
+              </h3>
+              <p className="text-xs text-accent">
+                {t.projects.categories[project.category]} · {project.year}
+              </p>
             </div>
           ))}
         </div>
@@ -263,20 +341,29 @@ export function ResumeView() {
       title: t.certificates.title,
       content: (
         <div className="space-y-3">
-          {certificates.map((cert) => (
+          {myCertificates.map((cert) => (
             <div
               key={cert.id}
               className="flex items-center gap-3 rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
             >
               <div
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
-                style={{ backgroundColor: `${cert.accent}1a`, color: cert.accent }}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl overflow-hidden"
+                style={{
+                  backgroundColor: `${cert.accent}1a`,
+                  color: cert.accent,
+                }}
               >
-                <Award className="h-5 w-5" aria-hidden />
+                <img
+                  src={cert.image}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="truncate text-sm font-bold">
-                  {t.certificates.items[cert.titleKey as keyof typeof t.certificates.items]}
+                  {t.certificates.items[
+                    cert.titleKey as keyof typeof t.certificates.items
+                  ] || cert.fallbackTitle}
                 </h3>
                 <p className="text-xs text-muted">
                   {cert.issuer} · {cert.year}
@@ -289,7 +376,6 @@ export function ResumeView() {
     },
   ];
 
-  /* ── Printable resume data ──────────────────────────────── */
   const github = socials.find((s) => s.icon === "github");
 
   return (
@@ -302,7 +388,7 @@ export function ResumeView() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4"
       >
-        {stats.map((s, i) => (
+        {stats.map((s) => (
           <div
             key={s.key}
             className="rounded-xl border border-border bg-card p-4 text-center"
@@ -326,7 +412,7 @@ export function ResumeView() {
         ))}
       </motion.div>
 
-      {/* Resume sections (dashboard view) */}
+      {/* Resume sections */}
       <div className="space-y-4">
         {sections.map((section, i) => (
           <motion.section
@@ -345,7 +431,7 @@ export function ResumeView() {
         ))}
       </div>
 
-      {/* Download CV */}
+      {/* Download CV Button */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -371,219 +457,451 @@ export function ResumeView() {
         </button>
       </motion.div>
 
-      {/* ── Hidden printable resume (captured by html2pdf) ── */}
+      {/* ── Hidden printable resume (PDF) ── */}
       <div
-        ref={printRef}
-        aria-hidden="true"
         style={{
           position: "absolute",
           left: "-9999px",
-          top: 0,
+          top: "0",
           width: "210mm",
-          padding: "15mm",
-          fontFamily: "Inter, system-ui, sans-serif",
-          fontSize: "10pt",
-          lineHeight: 1.5,
-          color: "#1a1a2e",
-          background: "#ffffff",
+          pointerEvents: "none",
+          opacity: 0,
         }}
       >
-        {/* Header */}
-        <div style={{ marginBottom: "12pt", borderBottom: "2pt solid #8b5cf6", paddingBottom: "8pt" }}>
-          <h1 style={{ fontSize: "18pt", fontWeight: 800, margin: 0, letterSpacing: "-0.02em" }}>
-            {profile.name}
-          </h1>
-          <p style={{ fontSize: "10pt", color: "#8b5cf6", fontWeight: 600, margin: "2pt 0 0" }}>
-            {profile.role}
-          </p>
-          <div style={{ display: "flex", gap: "12pt", marginTop: "4pt", fontSize: "8pt", color: "#555" }}>
-            <span>{profile.location}</span>
-            <span>|</span>
-            <span>{profile.email}</span>
-            {github && (
-              <>
-                <span>|</span>
-                <span>github.com/{profile.githubUsername}</span>
-              </>
-            )}
+        <div
+          ref={printRef}
+          style={{
+            width: "210mm",
+            padding: "15mm 12mm",
+            fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            fontSize: "10pt",
+            lineHeight: 1.5,
+            color: "#1e293b",
+            background: "#f8fafc",
+          }}
+        >
+          {/* HEADER CARD */}
+          <div
+            style={{
+              background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+              color: "#ffffff",
+              borderRadius: "12px",
+              padding: "20px 24px",
+              marginBottom: "14px",
+            }}
+          >
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      width: "150px",
+                      verticalAlign: "middle",
+                      paddingRight: "20px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "130px",
+                        height: "130px",
+                        borderRadius: "50%",
+                        overflow: "hidden",
+                        border: "3px solid #38bdf8",
+                        flexShrink: 0,
+                        backgroundColor: "#334155",
+                        position: "relative",
+                      }}
+                    >
+                      <img
+                        ref={avatarImgRef}
+                        src="/images/avatar.png"
+                        alt={profile.name}
+                        crossOrigin="anonymous"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          display: "block",
+                        }}
+                      />
+                    </div>
+                  </td>
+                  <td style={{ verticalAlign: "middle", paddingLeft: "0" }}>
+                    <h1
+                      style={{
+                        fontSize: "22pt",
+                        fontWeight: 700,
+                        margin: "0 0 4px 0",
+                        color: "#ffffff",
+                        letterSpacing: "-0.5px",
+                      }}
+                    >
+                      {profile.name}
+                    </h1>
+                    <p
+                      style={{
+                        fontSize: "11pt",
+                        fontWeight: 600,
+                        color: "#38bdf8",
+                        margin: "0 0 8px 0",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {profile.role}
+                    </p>
+                    <div style={{ fontSize: "9pt", color: "#cbd5e1" }}>
+                      <span style={{ marginRight: "16px" }}>
+                        📍 {profile.location}
+                      </span>
+                      <span style={{ marginRight: "16px" }}>
+                        ✉️ {profile.email}
+                      </span>
+                      {github && (
+                        <span>💻 github.com/{profile.githubUsername}</span>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
 
-        {/* Professional Summary */}
-        <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>{t.resume.professionalSummary.toUpperCase()}</h2>
-          <p style={{ fontSize: "9pt", color: "#333", margin: 0 }}>{profile.bio}</p>
-        </section>
+          {/* Professional Summary */}
+          <div style={pdfCardStyle}>
+            <h2 style={pdfHeadingStyle}>
+              {t.resume.professionalSummary.toUpperCase()}
+            </h2>
+            <p
+              style={{
+                margin: 0,
+                color: "#475569",
+                fontSize: "9.5pt",
+                textAlign: "justify",
+              }}
+            >
+              {profile.bio}
+            </p>
+          </div>
 
-        {/* Experience */}
-        <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>{t.experience.title.toUpperCase()}</h2>
-          {experiences.map((exp) => (
-            <div key={exp.id} style={{ marginBottom: "8pt" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                <div>
-                  <strong style={{ fontSize: "10pt" }}>
-                    {t.experience.roles[exp.roleKey as keyof typeof t.experience.roles]}
-                  </strong>
-                  <span style={{ fontSize: "9pt", color: "#8b5cf6", marginLeft: "6pt" }}>
-                    — {exp.company}
-                  </span>
-                </div>
-                <span style={{ fontSize: "8pt", color: "#777", fontStyle: "italic" }}>{exp.period}</span>
-              </div>
-              <p style={{ fontSize: "8pt", color: "#777", margin: "1pt 0 3pt" }}>{exp.location}</p>
-              <ul style={{ margin: "0 0 3pt 14pt", padding: 0, fontSize: "9pt", color: "#333" }}>
-                {exp.activitiesKeys.map((key) => (
-                  <li key={key} style={{ marginBottom: "1pt" }}>
-                    {t.experience.activitiesList[key as keyof typeof t.experience.activitiesList]}
-                  </li>
-                ))}
-              </ul>
-              <div style={{ display: "flex", gap: "4pt", flexWrap: "wrap" }}>
-                {exp.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    style={{
-                      fontSize: "7pt",
-                      padding: "1pt 5pt",
-                      border: "0.5pt solid #ddd",
-                      borderRadius: "3pt",
-                      color: "#555",
-                    }}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </section>
-
-        {/* Education */}
-        <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>{t.experience.educationTitle.toUpperCase()}</h2>
-          {educationHistory.map((edu) => (
-            <div key={edu.id} style={{ marginBottom: "6pt" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                <strong style={{ fontSize: "10pt" }}>{edu.school}</strong>
-                <span style={{ fontSize: "8pt", color: "#777", fontStyle: "italic" }}>{edu.period}</span>
-              </div>
-              {edu.major && <p style={{ fontSize: "9pt", color: "#8b5cf6", margin: "1pt 0" }}>{edu.major}</p>}
-              <div style={{ display: "flex", gap: "4pt", flexWrap: "wrap", marginTop: "2pt" }}>
-                {edu.focusKeys.map((key) => (
-                  <span
-                    key={key}
-                    style={{
-                      fontSize: "7pt",
-                      padding: "1pt 5pt",
-                      border: "0.5pt solid #ddd",
-                      borderRadius: "3pt",
-                      color: "#555",
-                    }}
-                  >
-                    {t.experience.educationFocus[key as keyof typeof t.experience.educationFocus]}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </section>
-
-        {/* Skills */}
-        <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>{t.skills.title.toUpperCase()}</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6pt" }}>
-            {skillGroups.map((group) => (
-              <div key={group.category}>
-                <p style={{ fontSize: "8pt", fontWeight: 700, color: "#8b5cf6", margin: "0 0 2pt", textTransform: "uppercase" }}>
-                  {t.skills.categories[group.category]}
-                </p>
-                <p style={{ fontSize: "8pt", color: "#333", margin: 0 }}>
-                  {group.skills.map((s) => s.name).join(" · ")}
-                </p>
+          {/* Experience */}
+          <div style={pdfCardStyle}>
+            <h2 style={pdfHeadingStyle}>{t.experience.title.toUpperCase()}</h2>
+            {experiences.map((exp) => (
+              <div key={exp.id} style={{ marginBottom: "12px" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <tbody>
+                    <tr>
+                      <td style={{ verticalAlign: "top", padding: 0 }}>
+                        <p
+                          style={{
+                            fontSize: "10.5pt",
+                            fontWeight: 700,
+                            color: "#1e293b",
+                            margin: 0,
+                          }}
+                        >
+                          {
+                            t.experience.roles[
+                              exp.roleKey as keyof typeof t.experience.roles
+                            ]
+                          }
+                        </p>
+                        <p
+                          style={{
+                            fontSize: "9.5pt",
+                            fontWeight: 600,
+                            color: "#0284c7",
+                            margin: "2px 0 0 0",
+                          }}
+                        >
+                          {exp.company}
+                        </p>
+                        <p
+                          style={{
+                            fontSize: "8.5pt",
+                            color: "#64748b",
+                            margin: "2px 0 0 0",
+                          }}
+                        >
+                          📍 {exp.location}
+                        </p>
+                      </td>
+                      <td
+                        style={{
+                          verticalAlign: "top",
+                          textAlign: "right",
+                          padding: 0,
+                          width: "120px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "9pt",
+                            fontWeight: 700,
+                            color: "#0f172a",
+                            backgroundColor: "#f1f5f9",
+                            padding: "2px 10px",
+                            borderRadius: "4px",
+                            display: "inline-block",
+                          }}
+                        >
+                          {exp.period}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             ))}
           </div>
-        </section>
 
-        {/* Projects */}
-        <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>{t.projects.title.toUpperCase()}</h2>
-          {projects.slice(0, 6).map((project) => (
-            <div key={project.slug} style={{ marginBottom: "5pt" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                <strong style={{ fontSize: "9pt" }}>{project.title}</strong>
-                <span style={{ fontSize: "8pt", color: "#777" }}>
-                  {t.projects.categories[project.category]} · {project.year}
-                </span>
+          {/* Education */}
+          <div style={pdfCardStyle}>
+            <h2 style={pdfHeadingStyle}>
+              {t.experience.educationTitle.toUpperCase()}
+            </h2>
+            {educationHistory.map((edu) => (
+              <div key={edu.id} style={{ marginBottom: "14px" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <tbody>
+                    <tr>
+                      <td style={{ verticalAlign: "top", padding: 0 }}>
+                        <p
+                          style={{
+                            fontSize: "10.5pt",
+                            fontWeight: 700,
+                            color: "#1e293b",
+                            margin: 0,
+                          }}
+                        >
+                          {edu.school}
+                        </p>
+                        {edu.major && (
+                          <p
+                            style={{
+                              fontSize: "9.5pt",
+                              fontWeight: 600,
+                              color: "#0284c7",
+                              margin: "2px 0 0 0",
+                            }}
+                          >
+                            {edu.major}
+                          </p>
+                        )}
+                        {edu.place && (
+                          <p
+                            style={{
+                              fontSize: "8.5pt",
+                              color: "#64748b",
+                              margin: "2px 0 0 0",
+                            }}
+                          >
+                            📍 {edu.place}
+                          </p>
+                        )}
+                        {edu.focusKeys && edu.focusKeys.length > 0 && (
+                          <div style={{ marginTop: "4px" }}>
+                            {edu.focusKeys.map((key) => {
+                              const label =
+                                t.experience.educationFocus?.[
+                                  key as keyof typeof t.experience.educationFocus
+                                ] || key;
+                              return (
+                                <span
+                                  key={key}
+                                  style={{
+                                    display: "inline-block",
+                                    background: "#e2e8f0",
+                                    color: "#1e293b",
+                                    fontSize: "7.5pt",
+                                    padding: "1px 8px",
+                                    borderRadius: "4px",
+                                    marginRight: "4px",
+                                    marginBottom: "2px",
+                                  }}
+                                >
+                                  {label}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </td>
+                      <td
+                        style={{
+                          verticalAlign: "top",
+                          textAlign: "right",
+                          padding: 0,
+                          width: "120px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "9pt",
+                            fontWeight: 700,
+                            color: "#0f172a",
+                            backgroundColor: "#f1f5f9",
+                            padding: "2px 10px",
+                            borderRadius: "4px",
+                            display: "inline-block",
+                          }}
+                        >
+                          {edu.period}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <p style={{ fontSize: "8pt", color: "#555", margin: "1pt 0 0" }}>
-                {t.projectDetails[project.descriptionKey as keyof typeof t.projectDetails] as string}
-              </p>
-              <div style={{ display: "flex", gap: "3pt", flexWrap: "wrap", marginTop: "2pt" }}>
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
+            ))}
+          </div>
+
+          {/* Skills */}
+          <div style={pdfCardStyle}>
+            <h2 style={pdfHeadingStyle}>{t.skills.title.toUpperCase()}</h2>
+            {skillGroups.map((group, idx) => (
+              <div
+                key={group.category}
+                style={{
+                  marginBottom: idx < skillGroups.length - 1 ? "8px" : 0,
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "9pt",
+                    fontWeight: 700,
+                    color: "#0f172a",
+                    margin: "0 0 4px 0",
+                  }}
+                >
+                  {t.skills.categories[group.category]}
+                </p>
+                <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
+                  {group.skills.map((skill) => (
+                    <span key={skill.name} style={pdfBadgeStyle}>
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Certificates */}
+          <div style={pdfCardStyle}>
+            <h2 style={pdfHeadingStyle}>
+              {t.certificates.title.toUpperCase()}
+            </h2>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+              }}
+            >
+              {myCertificates.map((cert, index) => (
+                <div
+                  key={cert.id}
+                  style={{
+                    background: "#f8fafc",
+                    padding: "10px 12px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "6px",
+                    borderRadius: "6px",
+                    border: "1px solid #e2e8f0",
+                    width: "100%",
+                  }}
+                >
+                  <div>
+                    <p
+                      style={{
+                        fontSize: "9pt",
+                        fontWeight: 700,
+                        color: "#1e293b",
+                        margin: "0 0 2px 0",
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {t.certificates.items[
+                        cert.titleKey as keyof typeof t.certificates.items
+                      ] || cert.fallbackTitle}
+                    </p>
+                    <p style={{ fontSize: "8pt", color: "#64748b", margin: 0 }}>
+                      {cert.issuer} ·{" "}
+                      <span style={{ fontWeight: 600, color: "#0284c7" }}>
+                        {cert.year}
+                      </span>
+                    </p>
+                  </div>
+
+                  <div
                     style={{
-                      fontSize: "7pt",
-                      padding: "1pt 4pt",
-                      border: "0.5pt solid #ddd",
-                      borderRadius: "3pt",
-                      color: "#555",
+                      width: "100%",
+                      height: "160px",
+                      borderRadius: "4px",
+                      overflow: "hidden",
+                      backgroundColor: "#f1f5f9",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                    <img
+                      ref={(el: HTMLImageElement | null) => {
+                        certImgRefs.current[index] = el;
+                      }}
+                      src={cert.image}
+                      alt={cert.fallbackTitle}
+                      crossOrigin="anonymous"
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        width: "auto",
+                        height: "auto",
+                        objectFit: "contain",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </section>
-
-        {/* Certificates */}
-        <section style={{ marginBottom: "10pt" }}>
-          <h2 style={sectionHeadingStyle}>{t.certificates.title.toUpperCase()}</h2>
-          {certificates.map((cert) => (
-            <div key={cert.id} style={{ marginBottom: "4pt", display: "flex", justifyContent: "space-between" }}>
-              <div>
-                <strong style={{ fontSize: "9pt" }}>
-                  {t.certificates.items[cert.titleKey as keyof typeof t.certificates.items]}
-                </strong>
-                <span style={{ fontSize: "8pt", color: "#555", marginLeft: "4pt" }}>
-                  — {cert.issuer}
-                </span>
-              </div>
-              <span style={{ fontSize: "8pt", color: "#777", fontStyle: "italic" }}>{cert.year}</span>
-            </div>
-          ))}
-        </section>
-
-        {/* Footer */}
-        <div
-          style={{
-            borderTop: "1pt solid #e5e7eb",
-            paddingTop: "6pt",
-            marginTop: "8pt",
-            fontSize: "7pt",
-            color: "#999",
-            textAlign: "center",
-          }}
-        >
-          {t.resume.generatedFrom} · {new Date().toLocaleDateString("id-ID")}
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-/* Heading style for printable sections */
-const sectionHeadingStyle: React.CSSProperties = {
-  fontSize: "10pt",
+/* ── PDF Styling Helpers ── */
+const pdfCardStyle: React.CSSProperties = {
+  background: "#ffffff",
+  borderRadius: "10px",
+  padding: "14px 18px",
+  marginBottom: "12px",
+};
+
+const pdfHeadingStyle: React.CSSProperties = {
+  fontSize: "11pt",
   fontWeight: 700,
-  color: "#1a1a2e",
-  borderBottom: "1pt solid #e5e7eb",
-  paddingBottom: "3pt",
-  marginBottom: "6pt",
-  marginTop: 0,
-  letterSpacing: "0.05em",
+  color: "#0f172a",
+  borderLeft: "4px solid #38bdf8",
+  paddingLeft: "8px",
+  margin: "0 0 8px 0",
+  textTransform: "uppercase",
+  letterSpacing: "0.5px",
+};
+
+const pdfBadgeStyle: React.CSSProperties = {
+  display: "inline-block",
+  background: "#f1f5f9",
+  color: "#334155",
+  fontSize: "7.5pt",
+  fontWeight: 600,
+  padding: "2px 6px",
+  borderRadius: "4px",
+  border: "1px solid #e2e8f0",
 };

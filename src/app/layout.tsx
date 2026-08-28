@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { profile, socials } from "@/data/profile";
+import { projects } from "@/data/projects";
 import { siteUrl } from "@/lib/site";
 import { SettingsProvider } from "@/lib/settings";
 import { LanguageProvider } from "@/lib/i18n";
@@ -138,7 +139,9 @@ const personSchema = {
     name: profile.school,
     url: "https://stelecosi.sch.id",
   },
-  sameAs: socials.map((s) => s.href),
+  sameAs: socials
+    .filter((s) => ["github", "instagram", "linkedin"].includes(s.icon))
+    .map((s) => s.href),
   knowsAbout: [
     "Web Development",
     "Frontend Development",
@@ -227,10 +230,9 @@ const professionalServiceSchema = {
     "@type": "Person",
     name: profile.name,
   },
-  sameAs: [
-    "https://www.instagram.com/303.andika",
-    "https://github.com/lutfi-dika",
-  ],
+  sameAs: socials
+    .filter((s) => ["github", "instagram", "linkedin"].includes(s.icon))
+    .map((s) => s.href),
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Development" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Company Profile" } },
@@ -266,6 +268,50 @@ const websiteSchema = {
       urlTemplate: `${siteUrl}/projects?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Beranda", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Tentang", item: `${siteUrl}/about` },
+    { "@type": "ListItem", position: 3, name: "Proyek", item: `${siteUrl}/projects` },
+    { "@type": "ListItem", position: 4, name: "Kontak", item: `${siteUrl}/contact` },
+  ],
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: `Tentang ${profile.name}`,
+  url: `${siteUrl}/about`,
+  description: `Profil, perjalanan, minat, dan tujuan ${profile.name} — ${profile.role} dari ${profile.location}.`,
+  mainEntity: {
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: profile.role,
+    url: siteUrl,
+  },
+  primaryImageOfPage: `${siteUrl}/logo.jpeg`,
+};
+
+const projectsSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Proyek Muhammad Lutfi Andika",
+  url: `${siteUrl}/projects`,
+  description: "Kumpulan proyek website dan aplikasi yang dibuat oleh Muhammad Lutfi Andika.",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: projects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.title,
+      url: `${siteUrl}/projects/${p.slug}`,
+      image: `${siteUrl}/opengraph-image`,
+    })),
   },
 };
 
@@ -386,6 +432,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
         />
         <script
           type="application/ld+json"

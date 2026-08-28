@@ -18,7 +18,7 @@ export const profile = {
   schoolPeriod: "2023 — 2026",
 
   // Contact
-  email: "lutfiandika.dev@gmail.com",
+  email: "lutfiandika33@gmail.com",
   githubUsername: "lutfi-dika",
 
   // Availability
@@ -32,7 +32,7 @@ export const profile = {
    * Personal Branding Bio
    */
   bio:
-    "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus di Frontend dan Web Development. Saat ini saya belajar dan membangun project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya suka membuat website yang bukan cuma terlihat bagus, tapi juga nyaman digunakan.",
+    "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus pada Frontend dan Web Development. Saat ini saya terus belajar dan mengembangkan berbagai project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya memiliki ketertarikan dalam menciptakan website yang tidak hanya menarik secara visual, tetapi juga nyaman, responsif, dan mudah digunakan. Selain mengembangkan diri sebagai developer melalui LUTFI.DEV, saya juga membangun dan mengembangkan Webkraf Digital Studio, sebuah bisnis yang bergerak di bidang pembuatan website dan solusi digital. Melalui Webkraf, saya belajar menerapkan kemampuan teknis dan kreativitas dalam mengerjakan project nyata serta membantu kebutuhan digital klien.Bagi saya, setiap project adalah kesempatan untuk belajar, bereksperimen, dan menciptakan sesuatu yang lebih baik.",
 
 } as const;
 
@@ -47,14 +47,24 @@ export const socials = [
     icon: "github",
   },
   {
+    label: "Email",
+    href: "mailto:lutfiandika33@gmail.com",
+    icon: "email",
+  },
+  {
     label: "Instagram",
-    href: "https://instagram.com/lutfiandika",
+    href: "https://instagram.com/3030.andika",
     icon: "instagram",
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/6281234567890",
+    href: "https://wa.me/6281295431853",
     icon: "whatsapp",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/muhammad-lutfi-andika/",
+    icon: "linkedin",
   },
 ] as const;
 

@@ -16,6 +16,7 @@ import { BackToTop } from "@/components/os/BackToTop";
 import { KonamiEasterEgg } from "@/components/os/KonamiEasterEgg";
 import { useSettings } from "@/lib/settings";
 import { useI18n } from "@/lib/i18n";
+import { socials } from "@/data/profile";
 
 /**
  * Developer OS shell: sidebar + topbar + global shortcuts +
@@ -128,15 +129,11 @@ export function OsShell({ children }: { children: React.ReactNode }) {
             </p>
             <p className="text-xs text-muted">Muhammad Lutfi Andika · Frontend Developer</p>
             <div className="flex gap-4 text-xs text-faint">
-              {[
-                { label: "GitHub", href: "https://github.com/lutfi-dika" },
-                { label: "Instagram", href: "https://instagram.com/lutfiandika" },
-                { label: "WhatsApp", href: "https://wa.me/6281234567890" },
-              ].map((s) => (
+              {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  target="_blank"
+                  target={s.href.startsWith("mailto:") ? undefined : "_blank"}
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-accent"
                 >

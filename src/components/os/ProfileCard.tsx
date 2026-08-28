@@ -4,8 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, GraduationCap } from "lucide-react";
 import {
+  FaEnvelope,
   FaGithub,
   FaInstagram,
+  FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa6";
 import { profile, socials } from "@/data/profile";
@@ -13,8 +15,10 @@ import { useT } from "@/lib/i18n";
 
 const SOCIAL_ICONS = {
   github: FaGithub,
+  email: FaEnvelope,
   instagram: FaInstagram,
   whatsapp: FaWhatsapp,
+  linkedin: FaLinkedinIn,
 } as const;
 
 export function ProfileCard() {

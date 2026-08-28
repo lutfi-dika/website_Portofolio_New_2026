@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Cpu, ExternalLink, LayoutDashboard, Palette, Target } from "lucide-react";
+import {
+  Code2,
+  Cpu,
+  ExternalLink,
+  LayoutDashboard,
+  Palette,
+  Target,
+} from "lucide-react";
 import { profile, interests } from "@/data/profile";
 import { journey } from "@/data/journey";
 import { PageHeader } from "@/components/os/DashboardWidget";
@@ -9,7 +16,12 @@ import { ProfileCard } from "@/components/os/ProfileCard";
 import { JourneyTimeline } from "@/components/os/ExperienceTimeline";
 import { useT } from "@/lib/i18n";
 
-const INTEREST_ICONS = { code: Code2, layout: LayoutDashboard, palette: Palette, cpu: Cpu };
+const INTEREST_ICONS = {
+  code: Code2,
+  layout: LayoutDashboard,
+  palette: Palette,
+  cpu: Cpu,
+};
 
 export function AboutView() {
   const t = useT();
@@ -17,7 +29,8 @@ export function AboutView() {
   const journeyItems = journey.map((j) => ({
     year: j.year,
     title: t.about.journey[j.titleKey as keyof typeof t.about.journey],
-    description: t.about.journey[j.descriptionKey as keyof typeof t.about.journey],
+    description:
+      t.about.journey[j.descriptionKey as keyof typeof t.about.journey],
   }));
 
   return (
@@ -34,23 +47,35 @@ export function AboutView() {
             transition={{ duration: 0.4 }}
             className="rounded-2xl border border-border bg-card p-6"
           >
-            <p className="text-sm leading-relaxed text-foreground">{t.about.bio}</p>
+            {/* Sudah justify sebelumnya */}
+            <p className="text-sm leading-relaxed text-foreground text-justify">
+              {t.about.bio}
+            </p>
 
             <dl className="mt-5 grid gap-4 border-t border-border pt-5 sm:grid-cols-3">
               <div>
-                <dt className="text-[11px] uppercase tracking-wider text-faint">{t.about.locationLabel}</dt>
+                <dt className="text-[11px] uppercase tracking-wider text-faint">
+                  {t.about.locationLabel}
+                </dt>
                 <dd className="mt-1 text-sm font-medium">{profile.location}</dd>
               </div>
               <div>
-                <dt className="text-[11px] uppercase tracking-wider text-faint">{t.about.educationLabel}</dt>
+                <dt className="text-[11px] uppercase tracking-wider text-faint">
+                  {t.about.educationLabel}
+                </dt>
                 <dd className="mt-1 text-sm font-medium">
                   {t.about.student} — {profile.major}
                 </dd>
               </div>
               <div>
-                <dt className="text-[11px] uppercase tracking-wider text-faint">{t.about.statusLabel}</dt>
+                <dt className="text-[11px] uppercase tracking-wider text-faint">
+                  {t.about.statusLabel}
+                </dt>
                 <dd className="mt-1 flex items-center gap-1.5 text-sm font-medium text-emerald-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-emerald-400"
+                    aria-hidden
+                  />
                   {t.dashboard.availableForProjects}
                 </dd>
               </div>
@@ -73,22 +98,31 @@ export function AboutView() {
                 W
               </div>
               <div className="flex-1">
-                <h3 className="font-display text-base font-bold">{profile.business}</h3>
-                <p className="mt-0.5 text-xs text-accent">{profile.businessRole}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <h3 className="font-display text-base font-bold">
+                  {profile.business}
+                </h3>
+                <p className="mt-0.5 text-xs text-accent">
+                  {profile.businessRole}
+                </p>
+                {/* Ditambahkan text-justify di sini */}
+                <p className="mt-2 text-sm leading-relaxed text-muted text-justify">
                   {t.about.businessDesc}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {["Company Profile", "Landing Page", "E-Commerce", "Dashboard", "UI/UX Design"].map(
-                    (service) => (
-                      <span
-                        key={service}
-                        className="rounded-lg border border-border px-2.5 py-1 text-[11px] text-muted"
-                      >
-                        {service}
-                      </span>
-                    ),
-                  )}
+                  {[
+                    "Company Profile",
+                    "Landing Page",
+                    "E-Commerce",
+                    "Dashboard",
+                    "UI/UX Design",
+                  ].map((service) => (
+                    <span
+                      key={service}
+                      className="rounded-lg border border-border px-2.5 py-1 text-[11px] text-muted"
+                    >
+                      {service}
+                    </span>
+                  ))}
                 </div>
                 <a
                   href="https://webkraf-digital-studio.vercel.app/"
@@ -116,7 +150,8 @@ export function AboutView() {
             </h2>
             <div className="flex flex-wrap gap-2">
               {interests.map((i) => {
-                const Icon = INTEREST_ICONS[i.icon as keyof typeof INTEREST_ICONS];
+                const Icon =
+                  INTEREST_ICONS[i.icon as keyof typeof INTEREST_ICONS];
                 return (
                   <span
                     key={i.key}
@@ -142,7 +177,10 @@ export function AboutView() {
               <Target className="h-3.5 w-3.5 text-accent" aria-hidden />
               {t.about.goalsTitle}
             </h2>
-            <p className="text-sm leading-relaxed text-muted">{t.about.goalsText}</p>
+            {/* Ditambahkan text-justify di sini */}
+            <p className="text-sm leading-relaxed text-muted text-justify">
+              {t.about.goalsText}
+            </p>
           </motion.section>
 
           {/* Journey */}
