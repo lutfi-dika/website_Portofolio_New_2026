@@ -79,7 +79,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${profile.name} | LUTFI.DEV`,
-    description: "Frontend Developer & Web Developer from Bekasi, Indonesia. Owner of Webkraf Digital Studio.",
+    description:
+      "Frontend Developer & Web Developer from Bekasi, Indonesia. Owner of Webkraf Digital Studio.",
     images: ["/opengraph-image"],
     creator: "@lutfiandika",
   },
@@ -121,7 +122,7 @@ const personSchema = {
   jobTitle: profile.role,
   description: profile.bio,
   url: siteUrl,
-  image: `${siteUrl}/logo.jpeg`,
+  image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
   telephone: "+6281295431853",
   address: {
@@ -203,7 +204,7 @@ const professionalServiceSchema = {
   description:
     "Webkraf Digital Studio membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Website development, company profile, landing page, e-commerce, dashboard, hingga UI/UX design.",
   url: "https://webkraf-digital-studio.vercel.app/",
-  image: `${siteUrl}/logo.jpeg`,
+  image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
   telephone: "+6281295431853",
   address: {
@@ -234,19 +235,51 @@ const professionalServiceSchema = {
     .filter((s) => ["github", "instagram", "linkedin"].includes(s.icon))
     .map((s) => s.href),
   makesOffer: [
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Development" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Company Profile" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Landing Page" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "E-Commerce" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dashboard & Web Application" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "UI/UX Design" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO & Performance" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Maintenance" } },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Website Development" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Company Profile" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Landing Page" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "E-Commerce" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Dashboard & Web Application" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "UI/UX Design" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "SEO & Performance" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Maintenance" },
+    },
   ],
   priceRange: "$$",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
     opens: "00:00",
     closes: "23:59",
   },
@@ -258,7 +291,8 @@ const websiteSchema = {
   name: "LUTFI.DEV",
   alternateName: "Muhammad Lutfi Andika Portfolio",
   url: siteUrl,
-  description: "Personal developer portfolio and OS dashboard of Muhammad Lutfi Andika.",
+  description:
+    "Personal developer portfolio and OS dashboard of Muhammad Lutfi Andika.",
   author: { "@type": "Person", name: profile.name },
   inLanguage: ["id", "en"],
   potentialAction: {
@@ -276,9 +310,24 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Beranda", item: siteUrl },
-    { "@type": "ListItem", position: 2, name: "Tentang", item: `${siteUrl}/about` },
-    { "@type": "ListItem", position: 3, name: "Proyek", item: `${siteUrl}/projects` },
-    { "@type": "ListItem", position: 4, name: "Kontak", item: `${siteUrl}/contact` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Tentang",
+      item: `${siteUrl}/about`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Proyek",
+      item: `${siteUrl}/projects`,
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "Kontak",
+      item: `${siteUrl}/contact`,
+    },
   ],
 };
 
@@ -294,7 +343,7 @@ const aboutPageSchema = {
     jobTitle: profile.role,
     url: siteUrl,
   },
-  primaryImageOfPage: `${siteUrl}/logo.jpeg`,
+  primaryImageOfPage: `${siteUrl}/Avatar.png`,
 };
 
 const projectsSchema = {
@@ -302,7 +351,8 @@ const projectsSchema = {
   "@type": "CollectionPage",
   name: "Proyek Muhammad Lutfi Andika",
   url: `${siteUrl}/projects`,
-  description: "Kumpulan proyek website dan aplikasi yang dibuat oleh Muhammad Lutfi Andika.",
+  description:
+    "Kumpulan proyek website dan aplikasi yang dibuat oleh Muhammad Lutfi Andika.",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: projects.map((p, i) => ({
@@ -401,7 +451,11 @@ else{document.documentElement.lang="id";}
 }catch(_){document.documentElement.dataset.theme="dark";}})();
 `;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="id"
@@ -427,7 +481,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(professionalServiceSchema),
+          }}
         />
         <script
           type="application/ld+json"

@@ -514,7 +514,7 @@ export function ResumeView() {
                     >
                       <img
                         ref={avatarImgRef}
-                        src="/images/avatar.png"
+                        src="/images/Logo.jpg"
                         alt={profile.name}
                         crossOrigin="anonymous"
                         style={{

@@ -8,8 +8,8 @@ export const alt = "Muhammad Lutfi Andika — Frontend Developer & Web Developer
 
 async function loadLogo(): Promise<string> {
   try {
-    const file = await readFile(path.join(process.cwd(), "public", "logo.jpeg"));
-    return `data:image/jpeg;base64,${file.toString("base64")}`;
+    const file = await readFile(path.join(process.cwd(), "public", "Avatar.png"));
+    return `data:image/png;base64,${file.toString("base64")}`;
   } catch {
     return "";
   }

@@ -35,7 +35,7 @@ const profilePageSchema = {
     jobTitle: profile.role,
     description: profile.bio,
     url: siteUrl,
-    image: `${siteUrl}/logo.jpeg`,
+    image: `${siteUrl}/images/logo.jpeg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Bekasi",

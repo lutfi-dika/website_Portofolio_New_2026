@@ -45,12 +45,12 @@ export function Sidebar() {
           aria-label="Lutfi Andika Home"
         >
           {/* LOGO */}
-          <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
+          <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
             <Image
-              src="/logo.jpeg"
+              src="/images/logo.jpeg"
               alt="Lutfi Andika Logo"
-              width={32}
-              height={32}
+              width={40}
+              height={40}
               priority
               className="h-full w-full object-cover"
             />
