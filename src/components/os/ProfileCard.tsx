@@ -1,114 +1,208 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { MapPin, GraduationCap } from "lucide-react";
-import {
-  FaEnvelope,
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  FaWhatsapp,
-} from "react-icons/fa6";
-import { profile, socials } from "@/data/profile";
-import { useT } from "@/lib/i18n";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const SOCIAL_ICONS = {
-  github: FaGithub,
-  email: FaEnvelope,
-  instagram: FaInstagram,
-  whatsapp: FaWhatsapp,
-  linkedin: FaLinkedinIn,
-} as const;
+type PhotoCarouselProps = {
+  /** Daftar path/URL gambar, urutan sesuai tampilan */
+  images: string[];
+  /** Nama yang ditampilkan sebagai caption di pojok kiri bawah */
+  name: string;
+  /** Rasio aspek container, default 4:5 seperti contoh */
+  aspectClassName?: string;
+};
 
-export function ProfileCard() {
-  const t = useT();
+export function PhotoCarousel({
+  images,
+  name,
+  aspectClassName = "aspect-[4/5]",
+}: PhotoCarouselProps) {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const total = images.length;
+
+  const goTo = (newIndex: number) => {
+    if (total === 0) return;
+    setDirection(newIndex > index ? 1 : -1);
+    setIndex((newIndex + total) % total);
+  };
+
+  const goPrev = () => goTo(index - 1);
+  const goNext = () => goTo(index + 1);
+
+  if (total === 0) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
-      className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-lg"
+    <div
+      className={`relative w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-border bg-card shadow-lg ${aspectClassName}`}
     >
-      {/* accent wash */}
+      {/* Gambar dengan transisi slide */}
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <motion.div
+          key={index}
+          custom={direction}
+          initial={{ opacity: 0, x: direction > 0 ? 80 : -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: direction > 0 ? -80 : 80 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={images[index]}
+            alt={`${name} ${index + 1}`}
+            fill
+            priority={index === 0}
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 448px"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Gradient overlay bawah supaya caption tetap terbaca */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl"
-        style={{ background: "var(--accent-soft)" }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent"
       />
 
-      <div className="relative flex flex-col items-center text-center">
-        {/* Profile Image Avatar - Diperbesar menjadi h-40 w-40 (160px) */}
-        <div className="relative">
-          <div className="group relative h-80 w-60 overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_0_48px_-8px_var(--accent)]">
-            <Image
-              src="/images/logo.jpeg"
-              alt={profile.name}
-              width={160}
-              height={160}
-              priority
-              className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
-            />
-            <span className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <Image
-                src="/images/Logo-Animasi.jpeg"
-                alt={`${profile.name} Logo`}
-                width={160}
-                height={160}
-                className="h-full w-full object-cover"
-              />
-            </span>
-          </div>
-          <span
-            className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-emerald-400 ring-[4px] ring-card"
-            title={t.dashboard.availableForProjects}
-            aria-label={t.dashboard.availableForProjects}
+      {/* Tombol panah kiri */}
+      <button
+        type="button"
+        onClick={goPrev}
+        aria-label="Foto sebelumnya"
+        className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-md transition hover:bg-white active:scale-95"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+
+      {/* Tombol panah kanan */}
+      <button
+        type="button"
+        onClick={goNext}
+        aria-label="Foto berikutnya"
+        className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-md transition hover:bg-white active:scale-95"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      {/* Caption nama, pojok kiri bawah */}
+      <p className="absolute bottom-4 left-4 z-10 text-sm font-semibold text-white drop-shadow">
+        {name}
+      </p>
+
+      {/* Counter foto, pojok kanan bawah */}
+      <span className="absolute bottom-4 right-4 z-10 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white">
+        {index + 1}/{total}
+      </span>
+    </div>
+  );
+}
+
+/**
+ * Wrapper: menampilkan dot indicator DI LUAR kartu foto,
+ * persis seperti pada contoh (garis panjang untuk foto aktif).
+ * Ini yang dipakai untuk hasil akhir sesuai gambar referensi.
+ */
+export function PhotoCarouselWithDots(props: PhotoCarouselProps) {
+  const [index, setIndex] = useState(0);
+  const total = props.images.length;
+
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <PhotoCarouselControlled {...props} index={index} onChange={setIndex} />
+      <div className="flex items-center gap-1.5">
+        {Array.from({ length: total }).map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Ke foto ${i + 1}`}
+            onClick={() => setIndex(i)}
+            className={`h-1.5 rounded-full transition-all ${
+              i === index ? "w-6 bg-accent" : "w-1.5 bg-border"
+            }`}
           />
-        </div>
-
-        <h3 className="mt-5 font-display text-xl font-bold leading-tight">
-          {profile.name}
-        </h3>
-        <p className="mt-1 text-base text-accent">
-          {profile.role.split(" & ")[0]}
-        </p>
-
-        <div className="mt-4 space-y-1.5 text-sm text-muted">
-          <p className="flex items-center justify-center gap-2">
-            <MapPin className="h-4 w-4" aria-hidden />
-            {profile.location}
-          </p>
-          <p className="flex items-center justify-center gap-2">
-            <GraduationCap className="h-4 w-4" aria-hidden />
-            {t.about.student}
-          </p>
-        </div>
-
-        <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1.5 text-xs font-medium text-emerald-300">
-          <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
-          {t.dashboard.availableForProjects}
-        </p>
-
-        <ul className="mt-6 flex gap-3" aria-label="Social links">
-          {socials.map((s) => {
-            const Icon = SOCIAL_ICONS[s.icon as keyof typeof SOCIAL_ICONS];
-            return (
-              <li key={s.label}>
-                <a
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-muted transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-                >
-                  <Icon className="h-4 w-4" aria-hidden />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        ))}
       </div>
-    </motion.div>
+    </div>
+  );
+}
+
+/** Versi terkontrol dari carousel, dipakai oleh PhotoCarouselWithDots */
+function PhotoCarouselControlled({
+  images,
+  name,
+  aspectClassName = "aspect-[4/5]",
+  index,
+  onChange,
+}: PhotoCarouselProps & { index: number; onChange: (i: number) => void }) {
+  const [direction, setDirection] = useState(0);
+  const total = images.length;
+
+  const goTo = (newIndex: number) => {
+    if (total === 0) return;
+    setDirection(newIndex > index ? 1 : -1);
+    onChange((newIndex + total) % total);
+  };
+
+  if (total === 0) return null;
+
+  return (
+    <div
+      className={`relative w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-border bg-card shadow-lg ${aspectClassName}`}
+    >
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <motion.div
+          key={index}
+          custom={direction}
+          initial={{ opacity: 0, x: direction > 0 ? 80 : -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: direction > 0 ? -80 : 80 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={images[index]}
+            alt={`${name} ${index + 1}`}
+            fill
+            priority={index === 0}
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 448px"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent"
+      />
+
+      <button
+        type="button"
+        onClick={() => goTo(index - 1)}
+        aria-label="Foto sebelumnya"
+        className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-md transition hover:bg-white active:scale-95"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+
+      <button
+        type="button"
+        onClick={() => goTo(index + 1)}
+        aria-label="Foto berikutnya"
+        className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-md transition hover:bg-white active:scale-95"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      <p className="absolute bottom-4 left-4 z-10 text-sm font-semibold text-white drop-shadow">
+        {name}
+      </p>
+
+      <span className="absolute bottom-4 right-4 z-10 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white">
+        {index + 1}/{total}
+      </span>
+    </div>
   );
 }

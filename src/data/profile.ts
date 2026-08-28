@@ -63,7 +63,7 @@ export const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/muhammad-lutfi-andika/",
+    href: "https://id.linkedin.com/in/lutfi-andika-8709453a2",
     icon: "linkedin",
   },
 ] as const;

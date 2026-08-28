@@ -476,6 +476,11 @@ export const id = {
     errorMessage: "Pesan wajib diisi (min. 10 karakter).",
     errorSubject: "Subjek wajib diisi.",
     orReachVia: "atau hubungi lewat",
+    contactEmailDesc: "Balasan dalam sehari.",
+    contactWhatsappDesc: "Cara tercepat menghubungi saya.",
+    contactGithubDesc: "Lihat kode dan karya open-source saya.",
+    contactInstagramDesc: "Ikuti proyek dan pembaruan saya.",
+    contactLinkedinDesc: "Terhubung secara profesional.",
   },
   inbox: {
     title: "Inbox",

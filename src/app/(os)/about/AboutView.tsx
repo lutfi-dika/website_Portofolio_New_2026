@@ -9,10 +9,17 @@ import {
   Palette,
   Target,
 } from "lucide-react";
-import { profile, interests } from "@/data/profile";
+import { profile, interests, socials } from "@/data/profile";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa6";
 import { journey } from "@/data/journey";
 import { PageHeader } from "@/components/os/DashboardWidget";
-import { ProfileCard } from "@/components/os/ProfileCard";
+import { PhotoCarouselWithDots } from "@/components/os/ProfileCard";
 import { JourneyTimeline } from "@/components/os/ExperienceTimeline";
 import { useT } from "@/lib/i18n";
 
@@ -22,6 +29,14 @@ const INTEREST_ICONS = {
   palette: Palette,
   cpu: Cpu,
 };
+
+const SOCIAL_ICONS = {
+  github: FaGithub,
+  email: FaEnvelope,
+  instagram: FaInstagram,
+  whatsapp: FaWhatsapp,
+  linkedin: FaLinkedinIn,
+} as const;
 
 export function AboutView() {
   const t = useT();
@@ -192,9 +207,49 @@ export function AboutView() {
           </section>
         </div>
 
-        {/* Profile card */}
-        <div>
-          <ProfileCard />
+        {/* Profile photo carousel + info */}
+        <div className="space-y-4">
+          <PhotoCarouselWithDots
+            name={profile.name}
+            images={[
+              "/images/logo.jpeg",
+              "/images/Logo-Animasi.jpeg",
+              "/images/Logo.jpg",
+            ]}
+          />
+
+          {/* Profile info: name, job, socials */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="rounded-2xl border border-border bg-card p-6 text-center"
+          >
+            <h2 className="font-display text-xl font-bold">
+              {profile.name}
+            </h2>
+            <p className="mt-1 text-sm text-accent">{profile.role}</p>
+
+            <ul className="mt-5 flex justify-center gap-3" aria-label="Social links">
+              {socials.map((s) => {
+                const Icon =
+                  SOCIAL_ICONS[s.icon as keyof typeof SOCIAL_ICONS];
+                return (
+                  <li key={s.label}>
+                    <a
+                      href={s.href}
+                      target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-muted transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                    >
+                      <Icon className="h-4 w-4" aria-hidden />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.section>
         </div>
       </div>
     </div>

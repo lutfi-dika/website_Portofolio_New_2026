@@ -478,6 +478,11 @@ export const en: Dictionary = {
     errorMessage: "Message is required (min. 10 characters).",
     errorSubject: "Subject is required.",
     orReachVia: "or reach me via",
+    contactEmailDesc: "Replies within a day.",
+    contactWhatsappDesc: "The fastest way to reach me.",
+    contactGithubDesc: "See my code and open-source work.",
+    contactInstagramDesc: "Follow my projects and updates.",
+    contactLinkedinDesc: "Connect with me professionally.",
   },
   inbox: {
     title: "Inbox",
