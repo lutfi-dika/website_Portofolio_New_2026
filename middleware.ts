@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Website HANYA akan mati/maintenance jika di-deploy ke server live (production).
   // Di localhost (saat Anda jalankan npm run dev), nilainya otomatis false.
-  const isMaintenanceMode = process.env.NODE_ENV === 'production'; 
+const isMaintenanceMode = false;
 
   const pathname = request.nextUrl.pathname;
 

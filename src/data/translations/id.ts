@@ -106,7 +106,7 @@ export const id = {
     title: "Tentang Saya",
     subtitle: "Sedikit tentang saya dan apa yang saya kerjakan.",
     bioTitle: "Biografi",
-    bio: "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus pada Frontend dan Web Development. Saat ini saya terus belajar dan mengembangkan berbagai project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya memiliki ketertarikan dalam menciptakan website yang tidak hanya menarik secara visual, tetapi juga nyaman, responsif, dan mudah digunakan.\n\nSelain mengembangkan diri sebagai developer melalui LUTFI.DEV, saya juga membangun dan mengembangkan Webkraf Digital Studio, sebuah bisnis yang bergerak di bidang pembuatan website dan solusi digital. Melalui Webkraf, saya belajar menerapkan kemampuan teknis dan kreativitas dalam mengerjakan project nyata serta membantu kebutuhan digital klien.\n\nBagi saya, setiap project adalah kesempatan untuk belajar, bereksperimen, dan menciptakan sesuatu yang lebih baik.",
+    bio: "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus pada Frontend dan Web Development. Saat ini saya terus belajar dan mengembangkan berbagai project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya memiliki ketertarikan dalam menciptakan website yang tidak hanya menarik secara visual, tetapi juga nyaman, responsif, dan mudah digunakan.\n\nSelain mengembangkan diri sebagai developer melalui LUTFI.DEV, saya juga membangun dan mengembangkan KRAFDEV Digital Technology Studio, sebuah bisnis yang bergerak di bidang pembuatan website dan solusi digital. Melalui Webkraf, saya belajar menerapkan kemampuan teknis dan kreativitas dalam mengerjakan project nyata serta membantu kebutuhan digital klien. Bagi saya, setiap project adalah kesempatan untuk belajar, bereksperimen, dan menciptakan sesuatu yang lebih baik.",
     interestsTitle: "Minat",
     goalsTitle: "Tujuan",
     journeyTitle: "Perjalanan",
@@ -117,8 +117,8 @@ export const id = {
     student: "Siswa SMK",
     businessTitle: "Bisnis",
     businessDesc:
-      "Webkraf Digital Studio adalah bisnis web development saya. Saya membantu bisnis membangun website yang profesional, modern, dan responsif — mulai dari company profile, landing page, e-commerce, dashboard, hingga UI/UX design.",
-    businessCta: "Kunjungi Webkraf Digital Studio",
+      "KRAFDEV Digital Technology Studio adalah bisnis web development saya. Saya membantu bisnis membangun website yang profesional, modern, dan responsif — mulai dari company profile, landing page, e-commerce, dashboard, hingga UI/UX design.",
+    businessCta: "Kunjungi KRAFDEV",
     interests: {
       webdev: "Web Development",
       frontend: "Frontend Engineering",
@@ -149,9 +149,9 @@ export const id = {
       journeyBsiTitle: "2026 — Mengembangkan Project BSI",
       journeyBsiDesc:
         "Merancang dan mengembangkan website company profile serta dashboard multi-role untuk mendukung kebutuhan informasi dan monitoring internal.",
-      journeyWebkrafTitle: "2026 — Membangun Webkraf Digital Studio",
+      journeyWebkrafTitle: "2026 — Membangun KRAFDEV Digital Technology Studio",
       journeyWebkrafDesc:
-        "Mulai mengembangkan Webkraf Digital Studio sebagai wadah untuk membangun solusi website digital dan membantu kebutuhan website bisnis.",
+        "Mulai mengembangkan KRAFDEV Digital Technology Studio sebagai wadah untuk membangun solusi website digital dan membantu kebutuhan website bisnis.",
       journeyLutfiDevTitle: "2026 — Membangun LUTFI.DEV",
       journeyLutfiDevDesc:
         "Mengembangkan LUTFI.DEV sebagai personal developer portfolio untuk mendokumentasikan perjalanan, project, skill, dan perkembangan saya di dunia web development.",

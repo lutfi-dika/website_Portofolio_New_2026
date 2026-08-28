@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: `%s | LUTFI.DEV`,
   },
   description:
-    "Personal developer portfolio of Muhammad Lutfi Andika — Frontend Developer & Web Developer from Bekasi, Indonesia. Building modern websites with React, Next.js, Tailwind CSS. Owner of Webkraf Digital Studio.",
+    "Personal developer portfolio of Muhammad Lutfi Andika — Frontend Developer & Web Developer from Bekasi, Indonesia. Building modern websites with React, Next.js, Tailwind CSS. Founder of KRAFDEV Digital Technology Studio.",
   keywords: [
     "Muhammad Lutfi Andika",
     "LUTFI.DEV",
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     "Portfolio",
     "Bekasi",
     "Indonesia",
-    "Webkraf Digital Studio",
-    "jasa website",
+    "KRAFDEV Digital Technology Studio",
+    "jasa pembuatan website",
     "web development",
     "company profile",
     "landing page",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     siteName: "LUTFI.DEV — Developer Portfolio",
     title: `${profile.name} | LUTFI.DEV`,
     description:
-      "Personal developer portfolio of Muhammad Lutfi Andika — Frontend Developer & Web Developer. Owner of Webkraf Digital Studio. Projects, skills, experience, and AI assistant.",
+      "Personal developer portfolio of Muhammad Lutfi Andika — Frontend Developer & Web Developer. Founder of KRAFDEV Digital Technology Studio. Projects, skills, experience, and AI assistant.",
     images: [
       {
         url: "/opengraph-image",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} | LUTFI.DEV`,
     description:
-      "Frontend Developer & Web Developer from Bekasi, Indonesia. Owner of Webkraf Digital Studio.",
+      "Frontend Developer & Web Developer from Bekasi, Indonesia. Founder of KRAFDEV Digital Technology Studio.",
     images: ["/opengraph-image"],
     creator: "@lutfiandika",
   },
@@ -186,8 +186,8 @@ const personSchema = {
   ],
   worksFor: {
     "@type": "Organization",
-    name: profile.business,
-    url: "https://webkraf-digital-studio.vercel.app/",
+    name: "KRAFDEV Digital Technology Studio",
+    url: siteUrl,
   },
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
@@ -199,11 +199,11 @@ const personSchema = {
 const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: profile.business,
-  alternateName: "Webkraf",
+  name: "KRAFDEV Digital Technology Studio",
+  alternateName: "KRAFDEV",
   description:
-    "Webkraf Digital Studio membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Website development, company profile, landing page, e-commerce, dashboard, hingga UI/UX design.",
-  url: "https://webkraf-digital-studio.vercel.app/",
+    "KRAFDEV Digital Technology Studio membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Layanan meliputi website development, company profile, landing page, e-commerce, dashboard, hingga UI/UX design.",
+  url: siteUrl,
   image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
   telephone: "+6281295431853",
@@ -374,7 +374,7 @@ const faqSchema = {
       name: "Siapa Muhammad Lutfi Andika?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Muhammad Lutfi Andika adalah Frontend Developer & Web Developer dari Bekasi, Indonesia. Siswa SMK Telekomunikasi Telesandi Bekasi jurusan Teknik Komputer dan Jaringan. Fokus membangun website modern, responsive, dan interaktif menggunakan React, Next.js, dan Tailwind CSS. Pemilik Webkraf Digital Studio.",
+        text: "Muhammad Lutfi Andika adalah Frontend Developer & Web Developer dari Bekasi, Indonesia. Siswa SMK Telekomunikasi Telesandi Bekasi jurusan Teknik Komputer dan Jaringan. Fokus membangun website modern, responsive, dan interaktif menggunakan React, Next.js, dan Tailwind CSS. Founder dari KRAFDEV Digital Technology Studio.",
       },
     },
     {
@@ -387,10 +387,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Apa itu Webkraf Digital Studio?",
+      name: "Apa itu KRAFDEV Digital Technology Studio?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Webkraf Digital Studio adalah bisnis web development yang dimiliki Muhammad Lutfi Andika. Melayani pembuatan website profesional, company profile, landing page, e-commerce, dashboard, UI/UX design, SEO, dan maintenance. Website: webkraf-digital-studio.vercel.app",
+        text: "KRAFDEV Digital Technology Studio adalah studio web development yang didirikan oleh Muhammad Lutfi Andika. Melayani pembuatan website profesional, company profile, landing page, e-commerce, dashboard, UI/UX design, SEO, dan maintenance.",
       },
     },
     {
@@ -398,7 +398,7 @@ const faqSchema = {
       name: "Project apa saja yang sudah dibuat Muhammad Lutfi Andika?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Project meliputi: BSI Company Profile, BSI Multi-Role Dashboard, EduCare (platform pembelajaran digital), SMK Telekomunikasi Telesandi website, D&DiShop (toko online), CakraLogy, Webkraf Digital Studio, Portofolio Website v1, dan My Legacy Portfolio.",
+        text: "Project meliputi: BSI Company Profile, BSI Multi-Role Dashboard, EduCare (platform pembelajaran digital), SMK Telekomunikasi Telesandi website, D&DiShop (toko online), CakraLogy, KRAFDEV Digital Technology Studio, Portofolio Website v1, dan My Legacy Portfolio.",
       },
     },
     {

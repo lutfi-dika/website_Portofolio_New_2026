@@ -108,7 +108,7 @@ export const en: Dictionary = {
     title: "About Me",
     subtitle: "A bit about me and what I do.",
     bioTitle: "About",
-    bio:"I am Muhammad Lutfi Andika, a web developer specializing in frontend and web development. I am constantly learning and building projects using technologies such as JavaScript, React, Next.js, Tailwind CSS, PHP, and Laravel. I am passionate about creating websites that are not only visually appealing but also user-friendly, responsive, and intuitive. In addition to my personal development as a developer through LUTFI.DEV, I founded and run Webkraf Digital Studio, a business specializing in website creation and digital solutions. Through Webkraf, I apply my technical skills and creativity to real-world projects while meeting my clients' digital needs. To me, every project is an opportunity to learn, experiment, and create something better.",
+    bio:"I am Muhammad Lutfi Andika, a web developer specializing in frontend and web development. I am constantly learning and building projects using technologies such as JavaScript, React, Next.js, Tailwind CSS, PHP, and Laravel. I am passionate about creating websites that are not only visually appealing but also user-friendly, responsive, and intuitive. In addition to my personal development as a developer through LUTFI.DEV, I founded and run KRAFDEV Digital Technology Studio, a business specializing in website creation and digital solutions. Through Webkraf, I apply my technical skills and creativity to real-world projects while meeting my clients' digital needs. To me, every project is an opportunity to learn, experiment, and create something better.",
     interestsTitle: "Interests",
     goalsTitle: "Goals",
     journeyTitle: "Journey",
@@ -119,8 +119,8 @@ export const en: Dictionary = {
     student: "Vocational Student",
     businessTitle: "Business",
     businessDesc:
-      "Webkraf Digital Studio is my web development business. I help businesses build professional, modern, and responsive websites — from company profiles and landing pages to e-commerce, dashboards, and UI/UX design.",
-    businessCta: "Visit Webkraf Digital Studio",
+      "KRAFDEV Digital Technology Studio is my web development business. I help businesses build professional, modern, and responsive websites — from company profiles and landing pages to e-commerce, dashboards, and UI/UX design.",
+    businessCta: "Visit KRAVDEV",
     interests: {
       webdev: "Web Development",
       frontend: "Frontend Engineering",
@@ -151,9 +151,9 @@ export const en: Dictionary = {
       journeyBsiTitle: "2026 — Developing BSI Projects",
       journeyBsiDesc:
         "Designed and developed a company profile website and a multi-role dashboard to support internal information and monitoring needs.",
-      journeyWebkrafTitle: "2026 — Building Webkraf Digital Studio",
+      journeyWebkrafTitle: "2026 — Building KRAFDEV Digital Technology Studio",
       journeyWebkrafDesc:
-        "Started developing Webkraf Digital Studio as a digital studio focused on building web solutions and helping businesses with their digital needs.",
+        "Started developing KRAFDEV Digital Technology Studio as a digital studio focused on building web solutions and helping businesses with their digital needs.",
       journeyLutfiDevTitle: "2026 — Building LUTFI.DEV",
       journeyLutfiDevDesc:
         "Developed LUTFI.DEV as my personal developer portfolio to document my journey, projects, skills, and growth in web development.",
