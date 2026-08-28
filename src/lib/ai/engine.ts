@@ -192,7 +192,32 @@ function getProvider(): AIProvider {
   return LocalProvider;
 }
 
+/**
+ * Try the LLM first (through the server-side /api/ai route). If no API key is
+ * configured, the route returns 501/error and we gracefully fall back to the
+ * local rule-based provider — so the site keeps working without a key.
+ */
 export async function askLutfiAI(question: string, locale: "id" | "en") {
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 20000);
+    const res = await fetch("/api/ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, locale }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(timer);
+    if (res.ok) {
+      const data = await res.json();
+      if (typeof data?.answer === "string" && data.answer) {
+        return data.answer;
+      }
+    }
+  } catch {
+    // network/timeout — fall through to local provider
+  }
+
   const provider = getProvider();
   try {
     return await provider.answer(question, locale);
