@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Loader2, Mail, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import { contactChannels } from "@/data/contact";
 import { PageHeader } from "@/components/os/DashboardWidget";
 import { SocialIcon } from "@/components/icons";
@@ -26,7 +26,6 @@ export function ContactView() {
   const { addMessage } = useInbox();
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [errors, setErrors] = useState<Partial<FormState>>({});
-  const [sending, setSending] = useState(false);
 
   const setField = (key: keyof FormState) => (value: string) => {
     setForm((f) => ({ ...f, [key]: value }));
@@ -43,36 +42,36 @@ export function ContactView() {
     return Object.keys(next).length === 0;
   };
 
-  const onSubmit = async (e: FormEvent) => {
+  const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    setSending(true);
-    try {
-      // Real delivery via Formspree + a copy in the local inbox.
-      const res = await fetch("https://formspree.io/f/xzdbvrqw", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim(),
-          _subject: `[LUTFI.DEV] ${form.subject.trim()}`,
-          message: form.message.trim(),
-        }),
-      });
-      if (!res.ok) throw new Error("formspree");
-      addMessage({
-        sender: form.name.trim(),
-        email: form.email.trim(),
-        subject: form.subject.trim(),
-        message: form.message.trim(),
-      });
-      setForm(EMPTY_FORM);
-      toast(t.contact.successToast, "success");
-    } catch {
-      toast(t.errors.somethingWrong, "error");
-    } finally {
-      setSending(false);
-    }
+
+    addMessage({
+      sender: form.name.trim(),
+      email: form.email.trim(),
+      subject: form.subject.trim(),
+      message: form.message.trim(),
+    });
+
+    const waNumber = contactChannels.find((c) => c.icon === "whatsapp")?.href?.replace("https://wa.me/", "") || "6281295431853";
+    const waText = [
+      `Halo Lutfi! Ada pesan baru dari website portfolio.`,
+      ``,
+      `Nama: ${form.name.trim()}`,
+      `Email: ${form.email.trim()}`,
+      `Subjek: ${form.subject.trim()}`,
+      ``,
+      `${form.message.trim()}`,
+    ].join("\n");
+
+    window.open(
+      `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+
+    setForm(EMPTY_FORM);
+    toast(t.contact.successToast, "success");
   };
 
   const inputClass = (invalid?: string) =>
@@ -146,20 +145,10 @@ export function ContactView() {
 
             <button
               type="submit"
-              disabled={sending}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-background transition-all hover:brightness-110 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-60 sm:w-auto sm:min-w-44"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-background transition-all hover:brightness-110 active:scale-[0.99] sm:w-auto sm:min-w-44"
             >
-              {sending ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
-                  {t.contact.sending}
-                </>
-              ) : (
-                <>
-                  <Send className="h-4 w-4" aria-hidden />
-                  {t.contact.send}
-                </>
-              )}
+              <Send className="h-4 w-4" aria-hidden />
+              {t.contact.send}
             </button>
           </form>
         </motion.section>

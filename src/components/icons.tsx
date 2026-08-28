@@ -24,7 +24,7 @@ import {
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
-import { Braces, Code2, Layers, MoveVertical, Sparkles } from "lucide-react";
+import { Braces, Code2, Layers, MoveVertical, ShieldCheck, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ComponentType } from "react";
 
@@ -61,6 +61,7 @@ const techMap: Record<string, IconType> = {
   flowbite: Layers as IconType,
   geekshelp: Braces as IconType,
   phpmyadmin: SiPhpmyadmin,
+  cybersecurity: ShieldCheck as IconType,
 };
 
 interface IconProps {

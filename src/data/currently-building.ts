@@ -16,5 +16,5 @@ export const currentlyLearning: LearningItem[] = [
   { name: "Next.js", icon: "nextjs", color: "#e2e8f0" },
   { name: "Laravel", icon: "laravel", color: "#ff2d20" },
   { name: "UI/UX", icon: "figma", color: "#a259ff" },
-  { name: "JavaScript", icon: "javascript", color: "#f7df1e" },
+  { name: "Cyber Security", icon: "cybersecurity", color: "#38bdf8" },
 ];

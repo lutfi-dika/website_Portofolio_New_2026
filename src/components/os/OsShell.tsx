@@ -8,7 +8,6 @@ import { Topbar } from "@/components/os/Topbar";
 import { MobileNav } from "@/components/os/MobileNav";
 import { CommandPalette } from "@/components/os/CommandPalette";
 import { Onboarding } from "@/components/os/Onboarding";
-import { AIChatFloating } from "@/components/os/AIChatFloating";
 import { BackgroundFX, MouseGlow } from "@/components/os/BackgroundFX";
 import { CustomCursor } from "@/components/os/CustomCursor";
 import { ScrollProgress } from "@/components/os/ScrollProgress";
@@ -152,7 +151,6 @@ export function OsShell({ children }: { children: React.ReactNode }) {
       <BackToTop />
       <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
       <Onboarding />
-      <AIChatFloating />
       <KonamiEasterEgg />
     </div>
   );
