@@ -130,7 +130,7 @@ const personSchema = {
   url: siteUrl,
   image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
-  telephone: "+6281295431853",
+  telephone: "+6285135977841",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bekasi",
@@ -212,7 +212,7 @@ const professionalServiceSchema = {
   url: siteUrl,
   image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
-  telephone: "+6281295431853",
+  telephone: "+6285135977841",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bekasi",
@@ -322,7 +322,7 @@ const organizationSchema = {
   description:
     "KRAFDEV Digital Technology Studio adalah studio web development yang membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Layanan: company profile, landing page, e-commerce, dashboard & web application, UI/UX design, SEO, dan maintenance.",
   email: `mailto:${profile.email}`,
-  telephone: "+6281295431853",
+  telephone: "+6285135977841",
   foundingDate: "2026",
   founder: {
     "@type": "Person",
@@ -454,7 +454,7 @@ const faqSchema = {
       name: "Bagaimana cara menghubungi Muhammad Lutfi Andika?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bisa menghubungi via email di lutfiandika.dev@gmail.com, WhatsApp di +6281295431853, atau Instagram di @303.andika. Form kontak tersedia di halaman Contact portfolio.",
+        text: "Bisa menghubungi via email di lutfiandika.dev@gmail.com, WhatsApp di +6285135977841, atau Instagram di @303.andika. Form kontak tersedia di halaman Contact portfolio.",
       },
     },
     {

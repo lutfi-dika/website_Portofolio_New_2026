@@ -19,7 +19,7 @@ export const contactChannels: ContactChannel[] = [
     id: "whatsapp",
     label: "WhatsApp",
     descriptionKey: "contactWhatsappDesc",
-    href: "https://wa.me/6281295431853",
+    href: "https://wa.me/6285135977841",
     icon: "whatsapp",
   },
   {
