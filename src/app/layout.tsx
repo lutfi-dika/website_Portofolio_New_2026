@@ -30,14 +30,25 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} | LUTFI.DEV`,
-    template: `%s | LUTFI.DEV`,
+    default: `${profile.business} | Jasa Pembuatan Website Profesional`,
+    template: `%s | ${profile.business}`,
   },
   description:
-    "Personal developer portfolio of Muhammad Lutfi Andika — Frontend Developer & Web Developer from Bekasi, Indonesia. Building modern websites with React, Next.js, Tailwind CSS. Founder of KRAFDEV Digital Technology Studio.",
+    "KRAFDEV Digital Technology Studio — jasa pembuatan website profesional oleh Muhammad Lutfi Andika. Layanan company profile, landing page, e-commerce, dashboard web app, UI/UX design, dan SEO untuk bisnis Anda di Indonesia. Dibangun dengan React, Next.js, dan Tailwind CSS.",
   keywords: [
+    "KRAFDEV Digital Technology Studio",
+    "jasa pembuatan website",
+    "jasa pembuatan website profesional",
+    "pembuatan website murah",
+    "web development Indonesia",
+    "company profile website",
+    "landing page",
+    "e-commerce website",
+    "web application",
+    "dashboard website",
+    "UI/UX design",
+    "SEO website",
     "Muhammad Lutfi Andika",
-    "LUTFI.DEV",
     "Frontend Developer",
     "Web Developer",
     "React Developer",
@@ -47,11 +58,6 @@ export const metadata: Metadata = {
     "Portfolio",
     "Bekasi",
     "Indonesia",
-    "KRAFDEV Digital Technology Studio",
-    "jasa pembuatan website",
-    "web development",
-    "company profile",
-    "landing page",
   ],
   authors: [{ name: profile.name, url: siteUrl }],
   creator: profile.name,
@@ -63,24 +69,24 @@ export const metadata: Metadata = {
     locale: "id_ID",
     alternateLocale: ["en_US"],
     url: siteUrl,
-    siteName: "LUTFI.DEV — Developer Portfolio",
-    title: `${profile.name} | LUTFI.DEV`,
+    siteName: `${profile.business} — Web Development Studio`,
+    title: `${profile.business} | Jasa Pembuatan Website Profesional Indonesia`,
     description:
-      "Personal developer portfolio of Muhammad Lutfi Andika — Frontend Developer & Web Developer. Founder of KRAFDEV Digital Technology Studio. Projects, skills, experience, and AI assistant.",
+      "KRAFDEV Digital Technology Studio membantu bisnis Anda dengan pembuatan website profesional, responsive, cepat, dan scalable — company profile, landing page, e-commerce, dashboard, UI/UX design, dan SEO. Powered by Muhammad Lutfi Andika.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${profile.name} — ${profile.role}`,
+        alt: `${profile.business} — ${profile.businessRole} ${profile.name}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | LUTFI.DEV`,
+    title: `${profile.business} | Jasa Pembuatan Website Profesional`,
     description:
-      "Frontend Developer & Web Developer from Bekasi, Indonesia. Founder of KRAFDEV Digital Technology Studio.",
+      "KRAFDEV Digital Technology Studio — pembuatan website profesional, company profile, landing page, e-commerce, dashboard, UI/UX design, dan SEO oleh Muhammad Lutfi Andika.",
     images: ["/opengraph-image"],
     creator: "@lutfiandika",
   },
@@ -288,11 +294,11 @@ const professionalServiceSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "LUTFI.DEV",
-  alternateName: "Muhammad Lutfi Andika Portfolio",
+  name: `${profile.business}`,
+  alternateName: "KRAFDEV — Web Development Studio",
   url: siteUrl,
   description:
-    "Personal developer portfolio and OS dashboard of Muhammad Lutfi Andika.",
+    "KRAFDEV Digital Technology Studio — jasa pembuatan website profesional, company profile, landing page, e-commerce, dashboard web app, UI/UX design, dan SEO. Founded by Muhammad Lutfi Andika.",
   author: { "@type": "Person", name: profile.name },
   inLanguage: ["id", "en"],
   potentialAction: {
@@ -303,6 +309,48 @@ const websiteSchema = {
     },
     "query-input": "required name=search_term_string",
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: `${profile.business}`,
+  alternateName: "KRAFDEV",
+  url: siteUrl,
+  logo: `${siteUrl}/Avatar.png`,
+  image: `${siteUrl}/Avatar.png`,
+  description:
+    "KRAFDEV Digital Technology Studio adalah studio web development yang membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Layanan: company profile, landing page, e-commerce, dashboard & web application, UI/UX design, SEO, dan maintenance.",
+  email: `mailto:${profile.email}`,
+  telephone: "+6281295431853",
+  foundingDate: "2026",
+  founder: {
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: "Founder & Web Developer",
+    url: siteUrl,
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bekasi",
+    addressRegion: "Jawa Barat",
+    addressCountry: "ID",
+  },
+  areaServed: { "@type": "Country", name: "Indonesia" },
+  sameAs: socials
+    .filter((s) => ["github", "instagram", "linkedin", "whatsapp"].includes(s.icon))
+    .map((s) => s.href),
+  knowsAbout: [
+    "Web Development",
+    "Company Profile Website",
+    "Landing Page",
+    "E-Commerce",
+    "Web Application",
+    "Dashboard",
+    "UI/UX Design",
+    "SEO",
+    "Website Maintenance",
+  ],
 };
 
 const breadcrumbSchema = {
@@ -488,6 +536,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <script
           type="application/ld+json"

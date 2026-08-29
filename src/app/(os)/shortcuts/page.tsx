@@ -3,7 +3,7 @@ import { ShortcutsView } from "./ShortcutsView";
 
 export const metadata: Metadata = {
   title: "Keyboard Shortcuts",
-  description: "Navigate LUTFI.DEV faster with keyboard shortcuts.",
+  description: "Navigate the KRAFDEV portfolio faster with keyboard shortcuts.",
   alternates: { canonical: "/shortcuts" },
 };
 

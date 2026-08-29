@@ -32,7 +32,7 @@ export const profile = {
    * Personal Branding Bio
    */
   bio:
-    "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus pada Frontend dan Web Development. Saat ini saya terus belajar dan mengembangkan berbagai project menggunakan JavaScript, React, Next.js, Tailwind CSS, PHP, dan Laravel. Saya memiliki ketertarikan dalam menciptakan website yang tidak hanya menarik secara visual, tetapi juga nyaman, responsif, dan mudah digunakan. Selain mengembangkan diri sebagai developer melalui LUTFI.DEV, saya juga membangun dan mengembangkan KRAFDEV Digital Technology Studio, sebuah bisnis yang bergerak di bidang pembuatan website dan solusi digital. Melalui Webkraf, saya belajar menerapkan kemampuan teknis dan kreativitas dalam mengerjakan project nyata serta membantu kebutuhan digital klien.Bagi saya, setiap project adalah kesempatan untuk belajar, bereksperimen, dan menciptakan sesuatu yang lebih baik.",
+    "Saya Muhammad Lutfi Andika, seorang Web Developer yang fokus pada Frontend dan Web Development. Saya memiliki ketertarikan dalam menciptakan website yang tidak hanya menarik secara visual, tetapi juga nyaman, responsif, dan mudah digunakan. Saya adalah founder dan owner dari KRAFDEV Digital Technology Studio, sebuah bisnis yang bergerak di bidang pembuatan website dan solusi digital. Melalui KRAFDEV, saya menerapkan kemampuan teknis dan kreativitas dalam mengerjakan project nyata serta membantu kebutuhan digital klien. Bagi saya, setiap project adalah kesempatan untuk belajar, bereksperimen, dan menciptakan sesuatu yang lebih baik.",
 
 } as const;
 

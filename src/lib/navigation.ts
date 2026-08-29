@@ -14,6 +14,7 @@ import {
   Bookmark,
   Keyboard,
   FileText,
+  Store,
   type LucideIcon,
 } from "lucide-react";
 import { GithubBrandIcon } from "@/components/icons";
@@ -23,6 +24,7 @@ export interface NavItem {
   /** key inside t.nav */
   labelKey:
     | "dashboard"
+    | "krafdev"
     | "overview"
     | "about"
     | "skills"
@@ -56,7 +58,10 @@ export interface NavSection {
 export const navSections: NavSection[] = [
   {
     titleKey: "main",
-    items: [{ href: "/", labelKey: "dashboard", icon: LayoutDashboard }],
+    items: [
+      { href: "/", labelKey: "dashboard", icon: LayoutDashboard },
+      { href: "/krafdev", labelKey: "krafdev", icon: Store },
+    ],
   },
   {
     titleKey: "profile",

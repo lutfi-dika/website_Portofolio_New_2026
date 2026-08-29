@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/about" },
   openGraph: {
-    title: `About Me | ${profile.name} — LUTFI.DEV`,
+    title: `About Me | ${profile.name} | ${profile.business}`,
     description:
-      `Frontend Developer & Web Developer dari Bekasi, Indonesia. Pemilik Webkraf Digital Studio.`,
+      `Tentang ${profile.name} — Frontend Developer & Web Developer dari Bekasi, Indonesia. Founder ${profile.business}.`,
     url: `${siteUrl}/about`,
   },
 };

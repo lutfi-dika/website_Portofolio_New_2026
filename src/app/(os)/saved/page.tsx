@@ -3,7 +3,7 @@ import { SavedView } from "./SavedView";
 
 export const metadata: Metadata = {
   title: "Saved",
-  description: "Projects you bookmarked in LUTFI.DEV.",
+  description: "Projects you bookmarked in the KRAFDEV portfolio.",
   alternates: { canonical: "/saved" },
 };
 

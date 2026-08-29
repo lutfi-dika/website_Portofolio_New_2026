@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProjectsView } from "./ProjectsView";
 import { projects } from "@/data/projects";
+import { profile } from "@/data/profile";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/projects" },
   openGraph: {
-    title: `Projects | Muhammad Lutfi Andika — LUTFI.DEV`,
+    title: `Projects | Muhammad Lutfi Andika | ${profile.business}`,
     description:
       "Project portfolio Muhammad Lutfi Andika — website development, dashboard, e-commerce, dan UI/UX design.",
     url: `${siteUrl}/projects`,

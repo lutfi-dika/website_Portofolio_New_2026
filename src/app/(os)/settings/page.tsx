@@ -3,7 +3,7 @@ import { SettingsView } from "./SettingsView";
 
 export const metadata: Metadata = {
   title: "Settings",
-  description: "Customize the appearance, language, and accessibility of LUTFI.DEV.",
+  description: "Customize the appearance, language, and accessibility of the KRAFDEV portfolio.",
   alternates: { canonical: "/settings" },
 };
 

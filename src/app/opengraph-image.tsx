@@ -1,10 +1,11 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
+import { profile } from "@/data/profile";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Muhammad Lutfi Andika — Frontend Developer & Web Developer";
+export const alt = "KRAFDEV Digital Technology Studio — Jasa Pembuatan Website Profesional";
 
 async function loadLogo(): Promise<string> {
   try {
@@ -67,14 +68,14 @@ export default async function OpengraphImage() {
               fontFamily: "monospace",
             }}
           >
-            Available for Projects
+            {profile.business}
           </p>
         </div>
 
         <h1
           style={{
             marginTop: 28,
-            fontSize: 84,
+            fontSize: 60,
             fontWeight: 700,
             lineHeight: 1.05,
             color: "#f8fafc",
@@ -82,7 +83,7 @@ export default async function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          Muhammad Lutfi Andika.
+          Jasa Pembuatan Website Profesional.
         </h1>
 
         <p
@@ -96,11 +97,11 @@ export default async function OpengraphImage() {
             fontWeight: 600,
           }}
         >
-          Frontend Developer &amp; Web Developer
+          Company Profile &middot; Landing Page &middot; E-Commerce &middot; UI/UX &middot; SEO
         </p>
 
         <p style={{ marginTop: 22, fontSize: 26, color: "#94a3b8", margin: "22px 0 0" }}>
-          Turning ideas into modern digital experiences.
+          Founder: Muhammad Lutfi Andika &middot; {profile.business}
         </p>
       </div>
     ),

@@ -3,7 +3,7 @@ import { OverviewView } from "./OverviewView";
 
 export const metadata: Metadata = {
   title: "Overview",
-  description: "System overview of LUTFI.DEV — every section of the dashboard at a glance.",
+  description: "System overview of the KRAFDEV portfolio — every section of the dashboard at a glance.",
   alternates: { canonical: "/overview" },
 };
 

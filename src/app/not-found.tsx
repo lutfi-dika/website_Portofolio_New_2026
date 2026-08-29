@@ -19,10 +19,10 @@ export default function NotFound() {
             {"}"} catch (error) {"{"}
           </p>
           <p className="pl-12 text-gray-400">
-            // Ternyata halamannya tidak ada
+            {"// Ternyata halamannya tidak ada"}
           </p>
           <p className="pl-12 text-red-500">
-            return "Ups, link yang Anda tuju tidak ditemukan.";
+            return &ldquo;Ups, link yang Anda tuju tidak ditemukan.&rdquo;;
           </p>
           <p className="pl-6 text-blue-300">{"}"}</p>
           <p className="text-white">{"}"}</p>
