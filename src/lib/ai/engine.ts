@@ -79,7 +79,7 @@ function detectIntent(q: string): Intent {
   if (has("sekolah", "school", "smk", "pendidikan", "education", "belajar di mana")) return "education";
   if (has("tinggal", "domisili", "lokasi", "where", "lokasinya", "alamat")) return "location";
   if (has("sedang belajar", "currently learning", "lagi belajar")) return "learning";
-  if (has("webkraf", "studio", "bisnis", "business", "usaha", "jasa website", "web development service")) return "business";
+  if (has("webkraf", "krafdev", "studio", "bisnis", "business", "usaha", "jasa website", "web development service")) return "business";
   if (has("jasa", "service", "bisa buat", "can you build", "landing page", "company profile", "e-commerce", "dashboard", "ui ux", "design")) return "services";
   if (has("tersedia", "available", "open for", "buka project", "ready", "kosong", "sibuk")) return "availability";
   return "unknown";

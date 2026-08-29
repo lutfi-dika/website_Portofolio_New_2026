@@ -69,13 +69,8 @@ export function ProjectDetailView({ slug }: { slug: string }) {
   const CHALLENGE_PREFIX: Record<string, string> = {
     "bsi-company-profile": "bsiCompanyProfile",
     "bsi-multi-role-dashboard": "bsiDashboard",
-    educare: "educare",
-    "webkraf-digital-studio": "webkraf",
-    "smk-telesandi": "smkTelesandi",
     "d-dishop": "dDishop",
-    cakralogy: "cakralogy",
-    "portofolio-v1": "portofolioV1",
-    "legacy-portfolio": "legacyPortfolio",
+    "undangan-pernikahan-zulfian-irya": "weddingInvitation",
   };
   const prefix = CHALLENGE_PREFIX[project.slug] ?? project.slug;
   const challenge =

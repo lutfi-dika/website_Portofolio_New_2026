@@ -6,14 +6,14 @@ import { siteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Me",
   description:
-    `Tentang ${profile.name} — Frontend Developer & Web Developer dari Bekasi, Indonesia. Siswa SMK Telekomunikasi Telesandi Bekasi, pemilik Webkraf Digital Studio. Membangun website modern dengan React, Next.js, dan Tailwind CSS.`,
+    `Tentang ${profile.name} — Frontend Developer & Web Developer dari Bekasi, Indonesia, founder & owner KRAFDEV Digital Technology Studio. ${profile.business}. Membangun website modern dengan React, Next.js, dan Tailwind CSS.`,
   keywords: [
     "Muhammad Lutfi Andika",
     "tentang saya",
     "about me",
     "frontend developer bekasi",
     "web developer indonesia",
-    "Webkraf Digital Studio",
+    "KRAFDEV Digital Technology Studio",
     "SMK Telekomunikasi Telesandi",
   ],
   alternates: { canonical: "/about" },

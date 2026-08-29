@@ -237,12 +237,14 @@ export const en: Dictionary = {
       "Operational monitoring dashboard with a multi-role access system for data management — roles, permissions, and real-time monitoring in one place.",
     educare:
       "Digital learning platform with student & teacher login, learning materials, video lessons, and interactive quizzes for a complete classroom flow.",
-    webkraf:
-      "Official website of Webkraf Digital Studio — my own digital studio business. Bold modern visuals, scroll-based AOS animations, and interactive UI components to reach clients.",
+    krafdev:
+      "Official website of KRAFDEV Digital Technology Studio — my own web development studio. Showcasing professional website building services: company profile, landing page, e-commerce, UI/UX design, and SEO to reach clients.",
     smkTelesandi:
       "Official website of SMK Telekomunikasi Telesandi Bekasi — tidy, responsive school information that is easy to access for students and the public.",
     dDishop:
       "D&DiShop online store with a clean React interface — product catalog, item details, and a simple shopping experience.",
+    weddingInvitation:
+      "Zulfian & Irya digital wedding invitation — an elegant, responsive, interactive online invitation that is easy to share via WhatsApp.",
     cakralogy:
       "CakraLogy website with engaging presentation content and AOS scroll animations for a lively browsing experience.",
     portofolioV1:
@@ -279,10 +281,10 @@ export const en: Dictionary = {
         "Building a complete learning flow — from login to quizzes — with plain PHP within a limited timeframe.",
       educareSolution:
         "Clean code structure with logic separation, normalized MySQL database, and a simple UI easy for students to use.",
-      webkrafChallenge:
-        "Creating a premium feel with scroll animations that stay smooth and don't hurt performance.",
-      webkrafSolution:
-        "AOS Animation with carefully orchestrated reveals, lazy loading, and testing across screen sizes.",
+      krafdevChallenge:
+        "Building a studio website that showcases services professionally and convincingly to potential clients.",
+      krafdevSolution:
+        "Modern design with Next.js and Tailwind CSS, clear content structure, smooth animations, and SEO optimization to reach a wider audience.",
       smkTelesandiChallenge:
         "Organizing a large amount of school information so it stays tidy and easy to navigate.",
       smkTelesandiSolution:
@@ -291,6 +293,10 @@ export const en: Dictionary = {
         "Making a simple shopping flow that still feels comfortable on every screen size.",
       dDishopSolution:
         "Consistent product components, a responsive catalog grid, and a focus on fast page loads.",
+      weddingInvitationChallenge:
+        "Building a digital invitation that feels personal, elegant, and runs smoothly on guests' mobile phones.",
+      weddingInvitationSolution:
+        "Elegant responsive design with smooth animations, lightweight navigation, and easy WhatsApp sharing buttons.",
       cakralogyChallenge:
         "Presenting dense content so it stays engaging and doesn't feel monotonous to read.",
       cakralogySolution:
@@ -374,7 +380,7 @@ export const en: Dictionary = {
       pklBsiTitle: "Internship at Bank Syariah Indonesia",
       pklBsiDesc: "Trusted as Web Developer / IT at KCP Bekasi Tambun 1 — working on internal websites & dashboards.",
       fourProjectsTitle: "7+ Major Projects Shipped",
-      fourProjectsDesc: "BSI Company Profile, EduCare, SMK Telesandi, D&DiShop, CakraLogy, Webkraf, and portfolios — all live and accessible.",
+      fourProjectsDesc: "BSI Company Profile, EduCare, SMK Telesandi, D&DiShop, CakraLogy, KRAFDEV, and portfolios — all live and accessible.",
       lutfiDevTitle: "Launched LUTFI.DEV",
       lutfiDevDesc: "Built a personal developer OS as the hub of my digital portfolio.",
       webJourneyTitle: "Started Web Development",
@@ -421,7 +427,7 @@ export const en: Dictionary = {
       actLearningNext: "Learning Next.js",
       actLearningNextDesc: "Deep diving into App Router, caching, and server components.",
       actNewProject: "New project added",
-      actNewProjectDesc: "Webkraf Digital Studio joined the projects list.",
+      actNewProjectDesc: "KRAFDEV Digital Technology Studio joined the projects list.",
       actGithubUpdated: "GitHub repository updated",
       actGithubUpdatedDesc: "Pushed latest commits to the portfolio repository.",
     },
@@ -538,7 +544,7 @@ export const en: Dictionary = {
       notifPortfolioTitle: "Portfolio updated",
       notifPortfolioMsg: "Fresh new look with developer OS vibes.",
       notifProjectTitle: "New project added",
-      notifProjectMsg: "Webkraf Digital Studio is now in the projects list.",
+      notifProjectMsg: "KRAFDEV Digital Technology Studio is now in the projects list.",
     },
   },
   settings: {

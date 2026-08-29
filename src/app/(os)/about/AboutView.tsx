@@ -97,7 +97,7 @@ export function AboutView() {
             </dl>
           </motion.section>
 
-          {/* Business — Webkraf Digital Studio */}
+          {/* Business — KRAFDEV Digital Technology Studio */}
           <motion.section
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,8 +109,8 @@ export function AboutView() {
               {t.about.businessTitle}
             </h2>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 text-lg font-bold text-white">
-                W
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 text-lg font-bold text-white">
+                K
               </div>
               <div className="flex-1">
                 <h3 className="font-display text-base font-bold">
@@ -140,7 +140,7 @@ export function AboutView() {
                   ))}
                 </div>
                 <a
-                  href="https://webkraf-digital-studio.vercel.app/"
+                  href="https://krafdev-digital-technology-studio.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:brightness-110"

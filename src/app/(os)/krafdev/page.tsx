@@ -138,7 +138,7 @@ export default function KrafdevPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://wa.me/6285135977841?text=Halo%20KRAFDEV%2C%20saya%20ingin%20konsultasi%20pembuatan%20website"
+              href="https://wa.me/6281295431853?text=Halo%20KRAFDEV%2C%20saya%20ingin%20konsultasi%20pembuatan%20website"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 active:scale-[0.98]"
@@ -315,7 +315,7 @@ export default function KrafdevPage() {
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
-              href="https://wa.me/6285135977841?text=Halo%20KRAFDEV%2C%20saya%20ingin%20konsultasi%20pembuatan%20website"
+              href="https://wa.me/6281295431853?text=Halo%20KRAFDEV%2C%20saya%20ingin%20konsultasi%20pembuatan%20website"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 active:scale-[0.98]"

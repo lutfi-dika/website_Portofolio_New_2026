@@ -235,12 +235,14 @@ export const id = {
       "Dashboard monitoring operasional dengan sistem akses multi-role untuk pengelolaan data — role, permission, dan pemantauan real-time dalam satu tempat.",
     educare:
       "Platform pembelajaran digital dengan login siswa & guru, materi pelajaran, video pembelajaran, dan kuis interaktif untuk alur kelas yang lengkap.",
-    webkraf:
-      "Website resmi Webkraf Digital Studio — usaha digital studio milik saya sendiri. Visual modern yang berani, animasi AOS berbasis scroll, dan komponen UI interaktif untuk menjangkau klien.",
+    krafdev:
+      "Website resmi KRAFDEV Digital Technology Studio — studio web development milik saya. Menampilkan layanan pembuatan website profesional, company profile, landing page, e-commerce, UI/UX design, dan SEO untuk menjangkau klien.",
     smkTelesandi:
       "Website profil resmi SMK Telekomunikasi Telesandi Bekasi — informasi sekolah yang rapi, responsif, dan mudah diakses siswa maupun umum.",
     dDishop:
       "Toko online D&DiShop dengan antarmuka React yang bersih — katalog produk, detail item, dan pengalaman belanja yang sederhana.",
+    weddingInvitation:
+      "Undangan pernikahan digital Zulfian & Irya — website undangan modern yang elegan, responsif, interaktif, dan mudah dibagikan via WhatsApp.",
     cakralogy:
       "Website CakraLogy dengan konten presentasi yang menarik dan animasi scroll AOS untuk pengalaman browsing yang hidup.",
     portofolioV1:
@@ -277,10 +279,10 @@ export const id = {
         "Membangun alur belajar lengkap — dari login hingga kuis — dengan PHP native dalam waktu terbatas.",
       educareSolution:
         "Struktur kode rapi dengan pemisahan logic, database MySQL yang dinormalisasi, dan UI sederhana yang mudah digunakan siswa.",
-      webkrafChallenge:
-        "Menciptakan kesan premium dengan animasi scroll yang tetap smooth dan tidak mengganggu performa.",
-      webkrafSolution:
-        "AOS Animation dengan orkestrasi reveal yang hati-hati, lazy loading, dan pengujian di berbagai ukuran layar.",
+      krafdevChallenge:
+        "Membangun website studio yang menampilkan layanan secara profesional dan meyakinkan bagi calon klien.",
+      krafdevSolution:
+        "Desain modern dengan Next.js dan Tailwind CSS, struktur konten jelas, animasi halus, serta optimasi SEO untuk menjangkau klien lebih luas.",
       smkTelesandiChallenge:
         "Menyusun informasi sekolah yang banyak agar tetap rapi dan mudah dinavigasi.",
       smkTelesandiSolution:
@@ -289,6 +291,10 @@ export const id = {
         "Membuat alur belanja sederhana namun terasa nyaman di semua ukuran layar.",
       dDishopSolution:
         "Komponen produk yang konsisten, grid katalog responsif, dan fokus pada kecepatan muat halaman.",
+      weddingInvitationChallenge:
+        "Membuat undangan digital yang terasa pribadi, elegan, dan lancar di perangkat HP para tamu.",
+      weddingInvitationSolution:
+        "Desain elegan responsif dengan animasi halus, navigasi ringan, dan tombol berbagi WhatsApp yang mudah.",
       cakralogyChallenge:
         "Menyajikan konten yang padat agar tetap menarik dan tidak monoton saat dibaca.",
       cakralogySolution:
@@ -372,7 +378,7 @@ export const id = {
       pklBsiTitle: "PKL di Bank Syariah Indonesia",
       pklBsiDesc: "Dipercaya sebagai Web Developer / IT di KCP Bekasi Tambun 1 — mengerjakan website & dashboard internal.",
       fourProjectsTitle: "7+ Project Major Selesai",
-      fourProjectsDesc: "BSI Company Profile, EduCare, SMK Telesandi, D&DiShop, CakraLogy, Webkraf, dan portofolio — semua live dan bisa diakses.",
+      fourProjectsDesc: "BSI Company Profile, EduCare, SMK Telesandi, D&DiShop, CakraLogy, KRAFDEV, dan portofolio — semua live dan bisa diakses.",
       lutfiDevTitle: "Meluncurkan LUTFI.DEV",
       lutfiDevDesc: "Membangun personal developer OS sebagai pusat portofolio digital saya.",
       webJourneyTitle: "Memulai Web Development",
@@ -419,7 +425,7 @@ export const id = {
       actLearningNext: "Sedang belajar Next.js",
       actLearningNextDesc: "Mendalami App Router, caching, dan server components.",
       actNewProject: "Project baru ditambahkan",
-      actNewProjectDesc: "Webkraf Digital Studio masuk ke daftar project.",
+      actNewProjectDesc: "KRAFDEV Digital Technology Studio masuk ke daftar project.",
       actGithubUpdated: "Repositori GitHub diperbarui",
       actGithubUpdatedDesc: "Push commit terbaru ke repository portfolio.",
     },
@@ -536,7 +542,7 @@ export const id = {
       notifPortfolioTitle: "Portfolio diperbarui",
       notifPortfolioMsg: "Tampilan baru dengan nuansa developer OS.",
       notifProjectTitle: "Project baru ditambahkan",
-      notifProjectMsg: "Webkraf Digital Studio kini ada di daftar project.",
+      notifProjectMsg: "KRAFDEV Digital Technology Studio kini ada di daftar project.",
     },
   },
   settings: {

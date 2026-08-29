@@ -1,0 +1,164 @@
+
+> my-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.18.4:3000
+- Environments: .env.local
+✓ Ready in 1785ms
+✓ Running next.config.ts took 97ms
+
+ GET / 200 in 2.4s (next.js: 1175ms, application-code: 1197ms)
+ GET /api/github 200 in 879ms (next.js: 184ms, application-code: 696ms)
+ GET /api/github 200 in 33ms (next.js: 12ms, application-code: 20ms)
+ GET / 200 in 159ms (next.js: 18ms, application-code: 141ms)
+ GET /krafdev 200 in 351ms (next.js: 108ms, application-code: 243ms)
+ GET /about 200 in 313ms (next.js: 96ms, application-code: 216ms)
+ GET /projects 200 in 1998ms (next.js: 422ms, application-code: 1576ms)
+ GET /projects/krafdev-digital-technology-studio 200 in 2.1s (next.js: 160ms, generate-params: 1727ms, application-code: 186ms)
+ GET /projects/bsi-company-profile 200 in 265ms (next.js: 16ms, generate-params: 11ms, application-code: 238ms)
+ GET /achievements 200 in 302ms (next.js: 126ms, application-code: 176ms)
+ GET /certificates 200 in 282ms (next.js: 87ms, application-code: 195ms)
+ GET /experience 200 in 263ms (next.js: 86ms, application-code: 177ms)
+ GET /skills 200 in 287ms (next.js: 129ms, application-code: 158ms)
+ GET /resume 200 in 274ms (next.js: 85ms, application-code: 189ms)
+ GET /contact 200 in 331ms (next.js: 209ms, application-code: 122ms)
+ GET /overview 200 in 433ms (next.js: 301ms, application-code: 132ms)
+ GET /github 200 in 193ms (next.js: 72ms, application-code: 121ms)
+ GET /activity 200 in 306ms (next.js: 89ms, application-code: 217ms)
+ GET /chat 200 in 216ms (next.js: 84ms, application-code: 132ms)
+ GET /settings 200 in 240ms (next.js: 95ms, application-code: 145ms)
+ GET /maintenance 200 in 1399ms (next.js: 1274ms, application-code: 125ms)
+ POST /api/github 405 in 53ms (next.js: 37ms, application-code: 16ms)
+ POST /api/weather 405 in 1404ms (next.js: 1373ms, application-code: 31ms)
+ GET /api/weather 200 in 47ms (next.js: 7ms, application-code: 39ms)
+ POST /api/ai 400 in 503ms (next.js: 477ms, application-code: 26ms)
+ GET /api/github 200 in 51ms (next.js: 20ms, application-code: 31ms)
+ POST /api/ai 200 in 1121ms (next.js: 39ms, application-code: 1081ms)
+ GET /krafdev 200 in 349ms (next.js: 142ms, application-code: 207ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /about 200 in 170ms (next.js: 81ms, application-code: 89ms)
+ GET / 200 in 130ms (next.js: 60ms, application-code: 70ms)
+ GET /api/github 200 in 98ms (next.js: 19ms, application-code: 78ms)
+ GET /api/github 200 in 55ms (next.js: 23ms, application-code: 32ms)
+ GET /api/github 200 in 46ms (next.js: 11ms, application-code: 35ms)
+ GET /api/github 200 in 46ms (next.js: 9ms, application-code: 36ms)
+ GET /krafdev 200 in 184ms (next.js: 20ms, application-code: 164ms)
+✓ Compiled in 2.1s
+ GET /krafdev 200 in 761ms (next.js: 378ms, application-code: 383ms)
+⚠ Fast Refresh had to perform a full reload when ./src/data/translations/id.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 1136ms
+ GET /krafdev 200 in 934ms (next.js: 65ms, application-code: 868ms)
+ GET /krafdev 200 in 962ms (next.js: 357ms, application-code: 606ms)
+⚠ Fast Refresh had to perform a full reload when ./src/data/translations/id.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 916ms
+ GET /krafdev 200 in 498ms (next.js: 90ms, application-code: 408ms)
+✓ Finished filesystem cache database compaction in 12.1s
+⚠ Fast Refresh had to perform a full reload when ./src/data/translations/en.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 906ms
+ GET /krafdev 200 in 651ms (next.js: 115ms, application-code: 536ms)
+ GET /krafdev 200 in 638ms (next.js: 323ms, application-code: 315ms)
+✓ Compiled in 170ms
+⚠ Fast Refresh had to perform a full reload when ./src/data/translations/en.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /krafdev 200 in 542ms (next.js: 49ms, application-code: 493ms)
+ GET /krafdev 200 in 351ms (next.js: 21ms, application-code: 329ms)
+ GET /krafdev 200 in 181ms (next.js: 24ms, application-code: 157ms)
+ GET / 200 in 1225ms (next.js: 745ms, application-code: 481ms)
+ GET /api/github 200 in 440ms (next.js: 22ms, application-code: 419ms)
+ GET /api/github 200 in 336ms (next.js: 10ms, application-code: 326ms)
+ GET /projects/bsi-company-profile 200 in 2.3s (next.js: 1337ms, generate-params: 368ms, application-code: 632ms)
+ GET /projects/bsi-company-profile 200 in 234ms (next.js: 70ms, generate-params: 0.1ms, application-code: 164ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+✓ Compiled in 6.4s
+✓ Compiled in 775ms
+⨯ ReferenceError: React is not defined
+    at Module.eval (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+    at module evaluation (C:\Users\Asus\OneDrive\Desktop\Portofolio\my-portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__1i5i0n-._.js:849:47)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: [React.JS, Tailwind.css, "Google Maps", "Framer Motion", "PWA", "Open Graph", "React Router", "Prioty Hints", "Vercel", "SEO"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing",
+⨯ ReferenceError: React is not defined
+    at Module.eval (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+    at module evaluation (C:\Users\Asus\OneDrive\Desktop\Portofolio\my-portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__1i5i0n-._.js:849:47)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: [React.JS, Tailwind.css, "Google Maps", "Framer Motion", "PWA", "Open Graph", "React Router", "Prioty Hints", "Vercel", "SEO"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing", {
+  page: '/projects/bsi-company-profile'
+}
+⨯ ReferenceError: React is not defined
+    at Module.eval (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+    at module evaluation (C:\Users\Asus\OneDrive\Desktop\Portofolio\my-portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__1i5i0n-._.js:849:47)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: [React.JS, Tailwind.css, "Google Maps", "Framer Motion", "PWA", "Open Graph", "React Router", "Prioty Hints", "Vercel", "SEO"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing", {
+  page: '/projects/bsi-company-profile'
+}
+⨯ ReferenceError: React is not defined
+    at Module.eval (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+    at module evaluation (C:\Users\Asus\OneDrive\Desktop\Portofolio\my-portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__1i5i0n-._.js:849:47)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: [React.JS, Tailwind.css, "Google Maps", "Framer Motion", "PWA", "Open Graph", "React Router", "Prioty Hints", "Vercel", "SEO"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing", {
+  page: '/'
+}
+⚠ Fast Refresh had to perform a full reload when ./src/data/projects.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ ReferenceError: React is not defined
+    at Module.eval (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+    at module evaluation (C:\Users\Asus\OneDrive\Desktop\Portofolio\my-portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__1i5i0n-._.js:849:47)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: [React.JS, "Tailwind.css", "Google Maps", "Framer Motion", "PWA", "Open Graph", "React Router", "Prioty Hints", "Vercel", "SEO"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing",
+⨯ ReferenceError: React is not defined
+    at Module.eval (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+    at module evaluation (C:\Users\Asus\OneDrive\Desktop\Portofolio\my-portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__1i5i0n-._.js:849:47)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: [React.JS, "Tailwind.css", "Google Maps", "Framer Motion", "PWA", "Open Graph", "React Router", "Prioty Hints", "Vercel", "SEO"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing", {
+  page: '/'
+}
+⨯ Failed to generate static paths for /projects/[slug]:
+ReferenceError: React is not defined
+    at module evaluation (src\data\projects.ts:37:12)
+    at module evaluation (src\app\layout.tsx:5:1)
+  35 |     descriptionKey: "bsiCompanyProfile",
+  36 |     features: ["responsive", "seo", "cleanUi", "performance"],
+> 37 |     tech: ["Next.js", "React", "Tailwind CSS", "JavaScript"],
+     |            ^
+  38 |     github: "https://github.com/lutfi-dika",
+  39 |     demo: "https://bsi-kcp-tambun-bekasi.vercel.app",
+  40 |     preview: "landing", {
+  type: 'ReferenceError'
+}
+○ Compiling /_error ...
+⚠ Fast Refresh had to perform a full reload when ./src/data/projects.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload

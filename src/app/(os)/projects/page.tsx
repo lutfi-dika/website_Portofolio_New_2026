@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "next.js projects",
     "BSI company profile",
     "EduCare",
-    "Webkraf Digital Studio",
+    "KRAFDEV Digital Technology Studio",
   ],
   alternates: { canonical: "/projects" },
   openGraph: {

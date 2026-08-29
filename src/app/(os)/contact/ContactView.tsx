@@ -53,7 +53,7 @@ export function ContactView() {
       message: form.message.trim(),
     });
 
-    const waNumber = contactChannels.find((c) => c.icon === "whatsapp")?.href?.replace("https://wa.me/", "") || "6285135977841";
+    const waNumber = contactChannels.find((c) => c.icon === "whatsapp")?.href?.replace("https://wa.me/", "") || "6281295431853";
     const waText = [
       `Halo Lutfi! Ada pesan baru dari website portfolio.`,
       ``,

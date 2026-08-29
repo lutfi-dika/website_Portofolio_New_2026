@@ -125,12 +125,13 @@ const personSchema = {
   "@type": "Person",
   name: profile.name,
   alternateName: "LUTFI.DEV",
-  jobTitle: profile.role,
-  description: profile.bio,
+  jobTitle: "Founder & Owner of KRAFDEV Digital Technology Studio, Frontend Developer, Web Developer",
+  description:
+    "Muhammad Lutfi Andika adalah founder & owner dari KRAFDEV Digital Technology Studio dan Frontend/Web Developer dari Bekasi, Indonesia. Peraih Juara 3 Frontend Developer ITECHNO CUP 2025 dan ICOM FEAST 2026, peserta LKS Cyber Security Jawa Barat, serta alumni Web Developer Intern Bank Syariah Indonesia.",
   url: siteUrl,
   image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
-  telephone: "+6285135977841",
+  telephone: "+6281295431853",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bekasi",
@@ -168,9 +169,36 @@ const personSchema = {
     "Git",
     "Figma",
     "Vercel",
+    "Jasa Pembuatan Website",
   ],
   knowsLanguage: ["id", "en"],
+  award: [
+    {
+      "@type": "Award",
+      name: "Juara 3 Frontend Developer — ITECHNO CUP 2025",
+      url: `${siteUrl}/achievements`,
+    },
+    {
+      "@type": "Award",
+      name: "Juara 3 Frontend Developer — ICOM FEAST 2026",
+      url: `${siteUrl}/achievements`,
+    },
+    {
+      "@type": "Award",
+      name: "Lomba Kompetensi Siswa (LKS) Bidang Cyber Security — Jawa Barat",
+      url: `${siteUrl}/achievements`,
+    },
+  ],
   hasOccupation: [
+    {
+      "@type": "Occupation",
+      name: "Founder & Owner KRAFDEV Digital Technology Studio",
+      occupationLocation: {
+        "@type": "Country",
+        name: "Indonesia",
+      },
+      skills: ["Web Development", "Company Profile", "SEO", "Project Management"],
+    },
     {
       "@type": "Occupation",
       name: "Frontend Developer",
@@ -195,6 +223,11 @@ const personSchema = {
     name: "KRAFDEV Digital Technology Studio",
     url: siteUrl,
   },
+  founderOf: {
+    "@type": "Organization",
+    name: "KRAFDEV Digital Technology Studio",
+    url: siteUrl,
+  },
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
     credentialCategory: "Vocational Education",
@@ -212,7 +245,7 @@ const professionalServiceSchema = {
   url: siteUrl,
   image: `${siteUrl}/Avatar.png`,
   email: `mailto:${profile.email}`,
-  telephone: "+6285135977841",
+  telephone: "+6281295431853",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bekasi",
@@ -322,7 +355,7 @@ const organizationSchema = {
   description:
     "KRAFDEV Digital Technology Studio adalah studio web development yang membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Layanan: company profile, landing page, e-commerce, dashboard & web application, UI/UX design, SEO, dan maintenance.",
   email: `mailto:${profile.email}`,
-  telephone: "+6285135977841",
+  telephone: "+6281295431853",
   foundingDate: "2026",
   founder: {
     "@type": "Person",
@@ -435,6 +468,14 @@ const faqSchema = {
     },
     {
       "@type": "Question",
+      name: "Apa saja prestasi Muhammad Lutfi Andika?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Muhammad Lutfi Andika meraih Juara 3 kategori Frontend Developer di ITECHNO CUP 2025 dan Juara 3 kategori Frontend Developer di ICOM FEAST 2026, serta mengikuti LKS (Lomba Kompetensi Siswa) bidang Cyber Security tingkat provinsi Jawa Barat. Ia juga berpengalaman sebagai Web Developer / IT intern di Bank Syariah Indonesia.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "Apa itu KRAFDEV Digital Technology Studio?",
       acceptedAnswer: {
         "@type": "Answer",
@@ -454,7 +495,7 @@ const faqSchema = {
       name: "Bagaimana cara menghubungi Muhammad Lutfi Andika?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bisa menghubungi via email di lutfiandika.dev@gmail.com, WhatsApp di +6285135977841, atau Instagram di @303.andika. Form kontak tersedia di halaman Contact portfolio.",
+        text: "Bisa menghubungi via email di lutfiandika33@gmail.com, WhatsApp di +6281295431853, atau Instagram di @303.andika. Form kontak tersedia di halaman Contact portfolio.",
       },
     },
     {
