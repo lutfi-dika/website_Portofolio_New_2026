@@ -102,9 +102,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/Avatar.png", type: "image/png" }],
-    shortcut: "/Avatar.png",
-    apple: "/Avatar.png",
+    icon: [
+      { url: "/Avatar.png", type: "image/png", sizes: "500x500" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: `${siteUrl}/Avatar.png`,
+    apple: `${siteUrl}/Avatar.png`,
+    other: [{ rel: "logo", url: `${siteUrl}/Avatar.png` }],
   },
   verification: {
     google: "aDpO1RGTuhsjYc7AHePdjiNseGfYSB_K3QGC6AFUjgo",
@@ -350,7 +354,12 @@ const organizationSchema = {
   name: `${profile.business}`,
   alternateName: "KRAFDEV",
   url: siteUrl,
-  logo: `${siteUrl}/Avatar.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/Avatar.png`,
+    width: 500,
+    height: 500,
+  },
   image: `${siteUrl}/Avatar.png`,
   description:
     "KRAFDEV Digital Technology Studio adalah studio web development yang membantu bisnis membangun website profesional, responsive, cepat, dan scalable. Layanan: company profile, landing page, e-commerce, dashboard & web application, UI/UX design, SEO, dan maintenance.",

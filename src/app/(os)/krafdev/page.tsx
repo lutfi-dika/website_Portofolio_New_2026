@@ -358,11 +358,42 @@ export default function KrafdevPage() {
               name: profile.business,
               url: siteUrl,
               founder: { "@type": "Person", name: profile.name },
+              sameAs: socials.map((s) => s.href),
             },
             areaServed: { "@type": "Country", name: "Indonesia" },
             availableLanguage: ["id", "en"],
             description:
               "Jasa pembuatan website profesional: company profile, landing page, e-commerce, dashboard web app, UI/UX design, dan SEO.",
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Layanan KRAFDEV Digital Technology Studio",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "Company Profile Website" },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "Landing Page" },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "E-Commerce / Toko Online" },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "Dashboard & Web Application" },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "UI/UX Design" },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "SEO & Performance" },
+                },
+              ],
+            },
           }),
         }}
       />
