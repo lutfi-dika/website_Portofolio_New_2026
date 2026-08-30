@@ -550,6 +550,7 @@ export default function RootLayout({
       lang="id"
       data-theme="dark"
       data-accent="blue"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
