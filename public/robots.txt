@@ -1,0 +1,6 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://lutfiandika.my.id/sitemap.xml

@@ -5,11 +5,11 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Website HANYA akan mati/maintenance jika di-deploy ke server live (production).
   // Di localhost (saat Anda jalankan npm run dev), nilainya otomatis false.
-const isMaintenanceMode = false;
+  const isMaintenanceMode = false;
 
   const pathname = request.nextUrl.pathname;
 
-  // Izinkan akses jika menuju halaman maintenance atau file sistem Next.js
+  // Izinkan akses jika menuju halaman maintenance
   if (
     isMaintenanceMode &&
     !pathname.startsWith('/maintenance') &&
@@ -24,5 +24,6 @@ const isMaintenanceMode = false;
 }
 
 export const config = {
-  matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
+  // Mengecualikan folder Next.js, file gambar, favicon, sitemap.xml, dan robots.txt agar langsung lolos
+  matcher: '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
 };
