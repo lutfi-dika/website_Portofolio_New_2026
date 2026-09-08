@@ -147,13 +147,19 @@ export function ResumeView() {
           allowTaint: true,
           logging: false,
           backgroundColor: "#f8fafc",
-          windowWidth: 800,
+          windowWidth: 900, // buffer di atas ~794px (210mm) biar konten kanan nggak kepotong
+          scrollX: 0, // reset offset scroll supaya capture tidak ikut geser
+          scrollY: 0,
         },
         jsPDF: {
           unit: "mm",
           format: "a4",
           orientation: "portrait",
         },
+        // "css" mode bikin html2pdf menghormati page-break-inside/break-inside
+        // yang kita set di style tiap kartu/blok, jadi teks tidak terpotong
+        // di tengah saat jatuh di batas halaman.
+        pagebreak: { mode: ["css", "legacy"], avoid: ["tr", "td", "img"] },
       };
 
       await html2pdf().set(opt).from(element).save();
@@ -457,12 +463,16 @@ export function ResumeView() {
         </button>
       </motion.div>
 
-      {/* ── Hidden printable resume (PDF) ── */}
+      {/* ── Hidden printable resume (PDF) ──
+          Dipindah dari `position:absolute; left:-9999px` ke `fixed` di (0,0)
+          dengan z-index negatif + opacity 0, supaya html2canvas tidak salah
+          hitung viewport clone-nya saat capture. */}
       <div
         style={{
-          position: "absolute",
-          left: "-9999px",
-          top: "0",
+          position: "fixed",
+          left: 0,
+          top: 0,
+          zIndex: -9999,
           width: "210mm",
           pointerEvents: "none",
           opacity: 0,
@@ -488,6 +498,7 @@ export function ResumeView() {
               borderRadius: "12px",
               padding: "20px 24px",
               marginBottom: "14px",
+              ...pdfAvoidBreak,
             }}
           >
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -569,7 +580,7 @@ export function ResumeView() {
           </div>
 
           {/* Professional Summary */}
-          <div style={pdfCardStyle}>
+          <div style={{ ...pdfCardStyle, ...pdfAvoidBreak }}>
             <h2 style={pdfHeadingStyle}>
               {t.resume.professionalSummary.toUpperCase()}
             </h2>
@@ -589,7 +600,10 @@ export function ResumeView() {
           <div style={pdfCardStyle}>
             <h2 style={pdfHeadingStyle}>{t.experience.title.toUpperCase()}</h2>
             {experiences.map((exp) => (
-              <div key={exp.id} style={{ marginBottom: "12px" }}>
+              <div
+                key={exp.id}
+                style={{ marginBottom: "12px", ...pdfAvoidBreak }}
+              >
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <tbody>
                     <tr>
@@ -663,7 +677,10 @@ export function ResumeView() {
               {t.experience.educationTitle.toUpperCase()}
             </h2>
             {educationHistory.map((edu) => (
-              <div key={edu.id} style={{ marginBottom: "14px" }}>
+              <div
+                key={edu.id}
+                style={{ marginBottom: "14px", ...pdfAvoidBreak }}
+              >
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <tbody>
                     <tr>
@@ -766,6 +783,7 @@ export function ResumeView() {
                 key={group.category}
                 style={{
                   marginBottom: idx < skillGroups.length - 1 ? "8px" : 0,
+                  ...pdfAvoidBreak,
                 }}
               >
                 <p
@@ -813,6 +831,7 @@ export function ResumeView() {
                     borderRadius: "6px",
                     border: "1px solid #e2e8f0",
                     width: "100%",
+                    ...pdfAvoidBreak,
                   }}
                 >
                   <div>
@@ -893,6 +912,14 @@ const pdfHeadingStyle: React.CSSProperties = {
   margin: "0 0 8px 0",
   textTransform: "uppercase",
   letterSpacing: "0.5px",
+};
+
+// Mencegah html2pdf memotong satu blok konten (satu entri pengalaman,
+// pendidikan, skill group, atau sertifikat) di tengah saat jatuh
+// tepat di batas halaman — blok akan lompat utuh ke halaman berikutnya.
+const pdfAvoidBreak: React.CSSProperties = {
+  pageBreakInside: "avoid",
+  breakInside: "avoid",
 };
 
 const pdfBadgeStyle: React.CSSProperties = {

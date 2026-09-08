@@ -311,30 +311,50 @@ export const en: Dictionary = {
         "Publishing it as a living archive via GitHub Pages with a clear version marker.",
     },
   },
-  experience: {
-    title: "Experience",
-    subtitle: "Work experience that shaped my abilities.",
-    educationTitle: "Education",
-    activities: "Activities",
-    roles: {
-      webDeveloperIt: "Web Developer / IT",
-      pkl: "Internship (Praktik Kerja Lapangan)",
-    },
-    activitiesList: {
-      websiteDevelopment: "Developed and maintained internal website features",
-      dashboardDevelopment: "Built dashboard interfaces for data monitoring & operations",
-      uiImplementation: "Implemented responsive, accessible UI from design mockups",
-      database: "Designed and developed relational database schemas (MySQL)",
-      testing: "Functional testing and bug fixing before release",
-      documentation: "Wrote technical documentation for the development team",
-    },
-    educationFocus: {
-      webDevFocus: "Web Development",
-      networkFocus: "Computer Networks",
-      softwareEngFocus: "Software Engineering Fundamentals",
-      organizationFocus: "Organization",
-    },
+ experience: {
+  title: "Experience",
+  subtitle: "Work experiences that shaped my abilities.",
+  educationTitle: "Education",
+  activities: "Activities",
+
+  // --- Job Roles (sesuai roleKey) ---
+  roles: {
+    dashboardMultiRole: "Dashboard Multi Role (Admin, Mikro, Konsumer, Pawning)", // <-- key diganti
+    frontendWebDev: "Frontend Web Developer",
   },
+
+  // --- Types of Experience (sesuai typeKey) ---
+  types: {
+    pkl: "Internship (Praktik Kerja Lapangan)",
+    project: "Project Development",
+  },
+
+  // --- Activity Descriptions (sesuai activitiesKeys) ---
+  activitiesList: {
+    // === Activities for Internal Dashboard (PKL) ===
+    websiteDevelopment: "Developed and maintained internal website features",
+    dashboardDevelopment: "Built dashboard interfaces for data monitoring & operations",
+    uiImplementation: "Implemented modern UI/UX from Figma designs",
+    database: "Designed and developed relational database schemas (MySQL)",
+    testing: "Conducted functional testing and bug fixing before release",
+    documentation: "Wrote technical documentation for the development team",
+
+    // === Activities for Company Profile (Project) ===
+    responsiveDesign: "Built fully responsive layouts for mobile, tablet, and desktop devices",
+    seoOptimization: "Optimized search engine visibility using Open Graph, Meta Tags, & Priority Hints",
+    performanceOptimization: "Optimized performance through Code Splitting, Lazy Loading, and caching",
+    pwaImplementation: "Implemented Progressive Web App (PWA) for offline access and native-like experience",
+    deployment: "Managed deployment to Vercel and version control using GitHub",
+  },
+
+  // --- Education Focus Areas (sesuai focusKeys) ---
+  educationFocus: {
+    webDevFocus: "Web Development",
+    networkFocus: "Computer Networks",
+    softwareEngFocus: "Software Engineering Fundamentals",
+    organizationFocus: "Organization",
+  },
+},
   certificates: {
     title: "Certificates",
     subtitle: "Certifications and completed learning programs.",
@@ -407,31 +427,50 @@ export const en: Dictionary = {
     limitedData: "limited data",
     publicRepos: "Public Repos",
   },
-  activity: {
-    title: "Activity Feed",
-    subtitle: "A record of what I've been working on.",
-    empty: "No activity yet.",
-    all: "All",
-    types: {
-      project: "Project",
-      learning: "Learning",
-      github: "GitHub",
-      portfolio: "Portfolio",
-      milestone: "Milestone",
-    },
-    items: {
-      actPortfolioUpdated: "Portfolio updated",
-      actPortfolioUpdatedDesc: "Launched LUTFI.DEV — a new developer OS version.",
-      actBsiDashboard: "BSI Dashboard updated",
-      actBsiDashboardDesc: "Multi-role module progress reached 80%.",
-      actLearningNext: "Learning Next.js",
-      actLearningNextDesc: "Deep diving into App Router, caching, and server components.",
-      actNewProject: "New project added",
-      actNewProjectDesc: "KRAFDEV Digital Technology Studio joined the projects list.",
-      actGithubUpdated: "GitHub repository updated",
-      actGithubUpdatedDesc: "Pushed latest commits to the portfolio repository.",
-    },
+activity: {
+  title: "Activity Feed",
+  subtitle: "A record of what I've been working on recently.",
+  empty: "No activity yet.",
+  all: "All",
+  types: {
+    project: "Project",
+    learning: "Learning",
+    github: "GitHub",
+    portfolio: "Portfolio",
+    milestone: "Milestone",
   },
+  items: {
+    // Portfolio
+    actPortfolioUpdated: "Portfolio updated",
+    actPortfolioUpdatedDesc: "Launched LUTFI.DEV — a new version of my personal portfolio.",
+
+    // Project - Dashboard
+    actBsiDashboard: "BSI Dashboard updated",
+    actBsiDashboardDesc: "Multi-role module progress reached 80%.",
+
+    // Project - Company Profile
+    actBsiCompanyProfile: "BSI KCP Tambun 1 Company Profile", // <-- TAMBAH
+    actCompanyProfileDesc: "Built company profile using React.js & Tailwind CSS.", // <-- TAMBAH
+
+    // Learning
+    actLearningNext: "Learning Next.js",
+    actLearningNextDesc: "Deep diving into App Router, caching, and server components.",
+
+    actLearningLaravel: "Learning Laravel",
+    actLearningLaravelDesc: "Exploring routing, Eloquent ORM, and authentication.",
+
+    actLearningCyberSecurity: "Learning Cyber Security", // <-- TAMBAH
+    actLearningCyberSecurityDesc: "Exploring network security, encryption, and ethical hacking.", // <-- TAMBAH
+
+    // Project - New
+    actNewProject: "New project added",
+    actNewProjectDesc: "KRAFDEV Digital Technology Studio added to the projects list.",
+
+    // GitHub
+    actGithubUpdated: "GitHub repository updated",
+    actGithubUpdatedDesc: "Pushed latest commits to the portfolio repository.",
+  },
+},
   chat: {
     title: "Chat",
     subtitle: "Ask anything about me right from the dashboard.",

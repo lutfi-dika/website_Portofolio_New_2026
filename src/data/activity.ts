@@ -11,7 +11,6 @@ export interface ActivityItem {
   titleKey: string;
   /** translation key (optional detail line) */
   descriptionKey?: string;
-  date: string; // ISO-ish display date
   type: ActivityType;
 }
 
@@ -20,35 +19,48 @@ export const activities: ActivityItem[] = [
     id: "act-lutfi-dev",
     titleKey: "actPortfolioUpdated",
     descriptionKey: "actPortfolioUpdatedDesc",
-    date: "2026-08-24",
     type: "portfolio",
   },
   {
     id: "act-bsi-dashboard",
     titleKey: "actBsiDashboard",
     descriptionKey: "actBsiDashboardDesc",
-    date: "2026-08",
+    type: "project",
+  },
+  {
+    id: "act-company-profile-bsi-kcp-bekasi-tambun1",
+    titleKey: "actBsiCompanyProfile",
+    descriptionKey: "actCompanyProfileDesc",
     type: "project",
   },
   {
     id: "act-learning-next",
     titleKey: "actLearningNext",
     descriptionKey: "actLearningNextDesc",
-    date: "2026-08",
+    type: "learning",
+  },
+  {
+    id: "act-learning-Laravel",
+    titleKey: "actLearningLaravel",
+    descriptionKey: "actLearningLaravelDesc",
+    type: "learning",
+  },
+  {
+    id: "act-learning-cybersecurity",
+    titleKey: "actLearningCyberSecurity",
+    descriptionKey: "actLearningCyberSecurityDesc", // <-- typo diperbaiki
     type: "learning",
   },
   {
     id: "act-new-project",
     titleKey: "actNewProject",
     descriptionKey: "actNewProjectDesc",
-    date: "2026-07",
     type: "project",
   },
   {
     id: "act-github",
     titleKey: "actGithubUpdated",
     descriptionKey: "actGithubUpdatedDesc",
-    date: "2026-07",
     type: "github",
   },
 ];

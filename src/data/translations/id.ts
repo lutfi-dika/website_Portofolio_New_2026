@@ -310,29 +310,49 @@ export const id = {
     },
   },
   experience: {
-    title: "Pengalaman",
-    subtitle: "Pengalaman kerja dan organisasi yang membentuk kemampuan saya.",
-    educationTitle: "Pendidikan",
-    activities: "Aktivitas",
-    roles: {
-      webDeveloperIt: "Web Developer / IT",
-      pkl: "Praktik Kerja Lapangan",
-    },
-    activitiesList: {
-      websiteDevelopment: "Pengembangan & maintenance fitur website internal",
-      dashboardDevelopment: "Membangun antarmuka dashboard untuk monitoring data & operasional",
-      uiImplementation: "Implementasi UI responsif dan aksesibel dari mockup desain",
-      database: "Merancang & mengembangkan skema database relasional (MySQL)",
-      testing: "Testing fungsional dan bug fixing sebelum rilis",
-      documentation: "Penulisan dokumentasi teknis untuk tim development",
-    },
-    educationFocus: {
-      webDevFocus: "Web Development",
-      networkFocus: "Jaringan Komputer",
-      softwareEngFocus: "Dasar Rekayasa Perangkat Lunak",
-      organizationFocus: "Organisasi",
-    },
+  title: "Pengalaman",
+  subtitle: "Pengalaman kerja dan organisasi yang membentuk kemampuan saya.",
+  educationTitle: "Pendidikan",
+  activities: "Aktivitas",
+
+  // --- Role (sesuai roleKey di experiences) ---
+  roles: {
+    dashboardMultiRole: "Dashboard Multi Role (Admin, Mikro, Konsumer, Pawning)", // <-- key diganti
+    frontendWebDev: "Frontend Web Developer",
   },
+
+  // --- Tipe Pengalaman (sesuai typeKey di experiences) ---
+  types: {
+    pkl: "Praktik Kerja Lapangan",
+    project: "Pengembangan Proyek",
+  },
+
+  // --- Aktivitas (sesuai activitiesKeys di experiences) ---
+  activitiesList: {
+    // === Aktivitas untuk Dashboard Internal (PKL) ===
+    websiteDevelopment: "Pengembangan & pemeliharaan fitur website internal",
+    dashboardDevelopment: "Membangun antarmuka dashboard untuk monitoring data & operasional",
+    uiImplementation: "Implementasi UI/UX modern dari desain Figma",
+    database: "Merancang & mengembangkan skema database relasional (MySQL)",
+    testing: "Pengujian fungsional dan perbaikan bug sebelum rilis",
+    documentation: "Penulisan dokumentasi teknis untuk tim pengembangan",
+
+    // === Aktivitas untuk Company Profile (Project) ===
+    responsiveDesign: "Membangun tampilan responsif untuk berbagai ukuran perangkat (mobile, tablet, desktop)",
+    seoOptimization: "Optimasi mesin pencari (SEO) menggunakan Open Graph, Meta Tags, & Priority Hints",
+    performanceOptimization: "Optimasi performa website (Code Splitting, Lazy Loading, & caching)",
+    pwaImplementation: "Implementasi Progressive Web App (PWA) untuk akses offline & pengalaman seperti aplikasi native",
+    deployment: "Proses deployment ke Vercel serta manajemen versi kode menggunakan GitHub",
+  },
+
+  // --- Fokus Pendidikan (sesuai focusKeys di educationHistory) ---
+  educationFocus: {
+    webDevFocus: "Web Development",
+    networkFocus: "Jaringan Komputer",
+    softwareEngFocus: "Dasar Rekayasa Perangkat Lunak",
+    organizationFocus: "Organisasi",
+  },
+},
   certificates: {
     title: "Sertifikat",
     subtitle: "Sertifikasi dan kelulusan program pembelajaran.",
@@ -405,31 +425,50 @@ export const id = {
     limitedData: "data terbatas",
     publicRepos: "Repo Publik",
   },
-  activity: {
-    title: "Activity Feed",
-    subtitle: "Rekam jejak apa yang sedang saya kerjakan.",
-    empty: "Belum ada aktivitas.",
-    all: "Semua",
-    types: {
-      project: "Project",
-      learning: "Belajar",
-      github: "GitHub",
-      portfolio: "Portfolio",
-      milestone: "Milestone",
-    },
-    items: {
-      actPortfolioUpdated: "Portfolio diperbarui",
-      actPortfolioUpdatedDesc: "Meluncurkan LUTFI.DEV — developer OS versi baru.",
-      actBsiDashboard: "BSI Dashboard diperbarui",
-      actBsiDashboardDesc: "Progress modul multi-role mencapai 80%.",
-      actLearningNext: "Sedang belajar Next.js",
-      actLearningNextDesc: "Mendalami App Router, caching, dan server components.",
-      actNewProject: "Project baru ditambahkan",
-      actNewProjectDesc: "KRAFDEV Digital Technology Studio masuk ke daftar project.",
-      actGithubUpdated: "Repositori GitHub diperbarui",
-      actGithubUpdatedDesc: "Push commit terbaru ke repository portfolio.",
-    },
+activity: {
+  title: "Activity Feed",
+  subtitle: "Yang sedang saya kerjakan akhir-akhir ini.",
+  empty: "Belum ada aktivitas.",
+  all: "Semua",
+  types: {
+    project: "Project",
+    learning: "Belajar",
+    github: "GitHub",
+    portfolio: "Portfolio",
+    milestone: "Milestone",
   },
+  items: {
+    // Portfolio
+    actPortfolioUpdated: "Portfolio diperbarui",
+    actPortfolioUpdatedDesc: "Meluncurkan LUTFI.DEV — versi terbaru dari portfolio personal.",
+
+    // Project - Dashboard
+    actBsiDashboard: "BSI Dashboard diperbarui",
+    actBsiDashboardDesc: "Progress modul multi-role mencapai 80%.",
+
+    // Project - Company Profile
+    actBsiCompanyProfile: "Company Profile BSI KCP Tambun 1", // <-- TAMBAH
+    actCompanyProfileDesc: "Membangun company profile dengan React.js & Tailwind CSS.", // <-- TAMBAH
+
+    // Learning
+    actLearningNext: "Sedang belajar Next.js",
+    actLearningNextDesc: "Mendalami App Router, caching, dan server components.",
+
+    actLearningLaravel: "Sedang belajar Laravel",
+    actLearningLaravelDesc: "Mendalami routing, Eloquent ORM, dan authentication.",
+
+    actLearningCyberSecurity: "Sedang belajar Cyber Security", // <-- TAMBAH
+    actLearningCyberSecurityDesc: "Mendalami network security, encryption, dan ethical hacking.", // <-- TAMBAH
+
+    // Project - New
+    actNewProject: "Project baru ditambahkan",
+    actNewProjectDesc: "KRAFDEV Digital Technology Studio masuk ke dalam daftar project.",
+
+    // GitHub
+    actGithubUpdated: "Repositori GitHub diperbarui",
+    actGithubUpdatedDesc: "Push commit terbaru ke repository portfolio.",
+  },
+},
   chat: {
     title: "Chat",
     subtitle: "Tanya apa saja tentang saya langsung dari dashboard.",
