@@ -165,6 +165,7 @@ export const id = {
       frontend: "Frontend Mastery",
       frameworks: "Frameworks & Libraries",
       backend: "Backend & Systems",
+      mobile: "Mobile Development",
       tools: "Tools & Platforms",
     },
     all: "Semua",

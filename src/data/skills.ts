@@ -1,5 +1,14 @@
-export type SkillCategory = "frontend" | "frameworks" | "backend" | "tools";
-export type SkillLevel = "comfortable" | "learning" | "exploring";
+export type SkillCategory =
+  | "frontend"
+  | "frameworks"
+  | "backend"
+  | "mobile"
+  | "tools";
+
+export type SkillLevel =
+  | "comfortable"
+  | "learning"
+  | "exploring";
 
 export interface Skill {
   name: string;
@@ -15,49 +24,182 @@ export interface SkillGroup {
 
 /**
  * Skills organized by category.
+ *
  * Levels:
  *   comfortable — used in real projects, confident with the basics
  *   learning    — currently studying, have some hands-on experience
  *   exploring   — just getting started, know the fundamentals
  */
+
 export const skillGroups: SkillGroup[] = [
+  // ==========================================
+  // FRONTEND
+  // ==========================================
   {
     category: "frontend",
     skills: [
-      { name: "HTML", icon: "html", color: "#e34f26", level: "comfortable" },
-      { name: "CSS", icon: "css", color: "#2965f1", level: "comfortable" },
-      { name: "JavaScript", icon: "javascript", color: "#f7df1e", level: "comfortable" },
-      { name: "React", icon: "react", color: "#61dafb", level: "comfortable" },
-      { name: "TypeScript", icon: "typescript", color: "#3178c6", level: "comfortable" },
+      {
+        name: "HTML",
+        icon: "html",
+        color: "#E34F26",
+        level: "comfortable",
+      },
+      {
+        name: "CSS",
+        icon: "css",
+        color: "#2965F1",
+        level: "comfortable",
+      },
+      {
+        name: "JavaScript",
+        icon: "javascript",
+        color: "#F7DF1E",
+        level: "comfortable",
+      },
+      {
+        name: "React",
+        icon: "react",
+        color: "#61DAFB",
+        level: "comfortable",
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript",
+        color: "#3178C6",
+        level: "comfortable",
+      },
     ],
   },
+
+  // ==========================================
+  // FRAMEWORKS
+  // ==========================================
   {
     category: "frameworks",
     skills: [
-      { name: "Tailwind CSS", icon: "tailwind", color: "#38b2ac", level: "comfortable" },
-      { name: "Bootstrap", icon: "bootstrap", color: "#7952b3", level: "comfortable" },
-      { name: "Next.js", icon: "nextjs", color: "#e2e8f0", level: "comfortable" },
-      { name: "UIverse", icon: "uiverse", color: "#6366f1", level: "exploring" },
-      { name: "AOS Animation", icon: "aos", color: "#22c55e", level: "exploring" },
-      { name: "Flowbite", icon: "flowbite", color: "#0ea5e9", level: "exploring" },
+      {
+        name: "Tailwind CSS",
+        icon: "tailwind",
+        color: "#38B2AC",
+        level: "comfortable",
+      },
+      {
+        name: "Bootstrap",
+        icon: "bootstrap",
+        color: "#7952B3",
+        level: "comfortable",
+      },
+      {
+        name: "Next.js",
+        icon: "nextjs",
+        color: "#000000",
+        level: "comfortable",
+      },
+      {
+        name: "UIverse",
+        icon: "uiverse",
+        color: "#6366F1",
+        level: "exploring",
+      },
+      {
+        name: "AOS Animation",
+        icon: "aos",
+        color: "#22C55E",
+        level: "exploring",
+      },
+      {
+        name: "Flowbite",
+        icon: "flowbite",
+        color: "#0EA5E9",
+        level: "exploring",
+      },
     ],
   },
+
+  // ==========================================
+  // BACKEND
+  // ==========================================
   {
     category: "backend",
     skills: [
-      { name: "PHP", icon: "php", color: "#777bb4", level: "comfortable" },
-      { name: "MySQL", icon: "mysql", color: "#4479a1", level: "comfortable" },
-      { name: "phpMyAdmin", icon: "phpmyadmin", color: "#f39c12", level: "exploring" },
-      { name: "Laravel", icon: "laravel", color: "#ff2d20", level: "learning" },
+      {
+        name: "PHP",
+        icon: "php",
+        color: "#777BB4",
+        level: "comfortable",
+      },
+      {
+        name: "MySQL",
+        icon: "mysql",
+        color: "#4479A1",
+        level: "comfortable",
+      },
+      {
+        name: "phpMyAdmin",
+        icon: "phpmyadmin",
+        color: "#F39C12",
+        level: "exploring",
+      },
+      {
+        name: "Laravel",
+        icon: "laravel",
+        color: "#FF2D20",
+        level: "learning",
+      },
     ],
   },
+
+  // ==========================================
+  // MOBILE
+  // ==========================================
+  {
+    category: "mobile",
+    skills: [
+      {
+        name: "Flutter",
+        icon: "flutter",
+        color: "#02569B",
+        level: "learning",
+      },
+      {
+        name: "Dart",
+        icon: "dart",
+        color: "#0175C2",
+        level: "learning",
+      },
+    ],
+  },
+
+  // ==========================================
+  // TOOLS
+  // ==========================================
   {
     category: "tools",
     skills: [
-      { name: "Git", icon: "git", color: "#f05032", level: "comfortable" },
-      { name: "GitHub", icon: "github-skill", color: "#24292f", level: "comfortable" },
-      { name: "VS Code", icon: "vscode", color: "#007acc", level: "comfortable" },
-      { name: "Vercel", icon: "vercel", color: "#e2e8f0", level: "comfortable" },
+      {
+        name: "Git",
+        icon: "git",
+        color: "#F05032",
+        level: "comfortable",
+      },
+      {
+        name: "GitHub",
+        icon: "github",
+        color: "#24292F",
+        level: "comfortable",
+      },
+      {
+        name: "VS Code",
+        icon: "vscode",
+        color: "#007ACC",
+        level: "comfortable",
+      },
+      {
+        name: "Vercel",
+        icon: "vercel",
+        color: "#000000",
+        level: "comfortable",
+      },
     ],
   },
 ];
