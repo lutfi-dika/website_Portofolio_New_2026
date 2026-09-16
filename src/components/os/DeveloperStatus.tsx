@@ -47,6 +47,7 @@ export function DeveloperStatus() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="flex items-center gap-2"
+      suppressHydrationWarning
     >
       <span className="relative flex h-2 w-2">
         <span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${config.dot} opacity-75`} />

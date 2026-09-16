@@ -234,12 +234,12 @@ export const id = {
       "Website company profile modern dengan desain responsif penuh, optimasi SEO, dan UI bersih kontemporer yang dibangun untuk kejelasan dan kepercayaan.",
     bsiDashboard:
       "Dashboard monitoring operasional dengan sistem akses multi-role untuk pengelolaan data — role, permission, dan pemantauan real-time dalam satu tempat.",
+    ekonexaManagementEkonomi:
+      "Sistem manajemen ekonomi berbasis web untuk pengelolaan keuangan, transaksi, dan perencanaan anggaran — dibangun dengan Laravel & Tailwind CSS.",
     educare:
       "Platform pembelajaran digital dengan login siswa & guru, materi pelajaran, video pembelajaran, dan kuis interaktif untuk alur kelas yang lengkap.",
-    krafdev:
+    krafdevDigitalTechnologyStudio:
       "Website resmi KRAFDEV Digital Technology Studio — studio web development milik saya. Menampilkan layanan pembuatan website profesional, company profile, landing page, e-commerce, UI/UX design, dan SEO untuk menjangkau klien.",
-    smkTelesandi:
-      "Website profil resmi SMK Telekomunikasi Telesandi Bekasi — informasi sekolah yang rapi, responsif, dan mudah diakses siswa maupun umum.",
     dDishop:
       "Toko online D&DiShop dengan antarmuka React yang bersih — katalog produk, detail item, dan pengalaman belanja yang sederhana.",
     weddingInvitation:
@@ -266,6 +266,11 @@ export const id = {
       animation: "Animasi halus",
       scrollMotion: "Motion berbasis scroll",
       interactiveUi: "Komponen UI interaktif",
+      financialManagement: "Manajemen keuangan",
+      transactionManagement: "Manajemen transaksi",
+      budgetPlanning: "Perencanaan anggaran",
+      authentication: "Autentikasi & keamanan",
+      darkMode: "Mode gelap & terang",
     },
     challenges: {
       bsiCompanyProfileChallenge:
@@ -296,6 +301,10 @@ export const id = {
         "Membuat undangan digital yang terasa pribadi, elegan, dan lancar di perangkat HP para tamu.",
       weddingInvitationSolution:
         "Desain elegan responsif dengan animasi halus, navigasi ringan, dan tombol berbagi WhatsApp yang mudah.",
+      ekonexaManagementEkonomiChallenge:
+        "Membangun sistem manajemen keuangan yang lengkap — dari autentikasi hingga laporan — dengan PHP native dalam waktu terbatas.",
+      ekonexaManagementEkonomiSolution:
+        "Arsitektur modular dengan PHP, database MySQL, dan UI responsif berbasis Tailwind CSS yang mudah digunakan.",
       cakralogyChallenge:
         "Menyajikan konten yang padat agar tetap menarik dan tidak monoton saat dibaca.",
       cakralogySolution:

@@ -108,7 +108,10 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(DEFAULTS.theme);
   const [accent, setAccentState] = useState<Accent>(DEFAULTS.accent);
   const [density, setDensityState] = useState<Density>(DEFAULTS.density);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(DEFAULTS.sidebarCollapsed);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    if (typeof window === "undefined") return DEFAULTS.sidebarCollapsed;
+    return document.documentElement.dataset.sidebar === "collapsed";
+  });
   const [effects, setEffects] = useState<Effects>(DEFAULTS.effects);
   const [a11y, setA11yState] = useState<Accessibility>(DEFAULTS.a11y);
 

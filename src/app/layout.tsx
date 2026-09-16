@@ -543,6 +543,7 @@ document.documentElement.dataset.largeText=a.largeText?"on":"off";
 document.documentElement.dataset.contrast=a.highContrast?"on":"off";
 var rm=a.reducedMotion||e.animations===false||window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 document.documentElement.dataset.motion=rm?"reduced":"full";
+document.documentElement.dataset.sidebar=s.sidebarCollapsed?"collapsed":"expanded";
 var l=localStorage.getItem("lutfi.locale");if(l){try{l=JSON.parse(l);}catch(_){}
 if(l==="id"||l==="en"){document.documentElement.lang=l;}else{document.documentElement.lang="id";}}
 else{document.documentElement.lang="id";}

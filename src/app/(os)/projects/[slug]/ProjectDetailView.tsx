@@ -71,6 +71,8 @@ export function ProjectDetailView({ slug }: { slug: string }) {
     "bsi-multi-role-dashboard": "bsiDashboard",
     "d-dishop": "dDishop",
     "undangan-pernikahan-zulfian-irya": "weddingInvitation",
+    "ekonexa-management-ekonomi": "ekonexaManagementEkonomi",
+    "krafdev-digital-technology-studio": "krafdev",
   };
   const prefix = CHALLENGE_PREFIX[project.slug] ?? project.slug;
   const challenge =

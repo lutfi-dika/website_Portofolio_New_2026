@@ -97,7 +97,7 @@ export function MiniCalendar() {
   return (
     <div className="flex h-full flex-col">
       <div className="mb-2 flex items-center justify-between">
-        <p className="text-sm font-semibold capitalize">{monthLabel}</p>
+        <p className="text-sm font-semibold capitalize" suppressHydrationWarning>{monthLabel}</p>
         <div className="flex gap-1">
           <button
             onClick={() => setViewDate(new Date(year, month - 1, 1))}

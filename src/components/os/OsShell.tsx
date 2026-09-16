@@ -141,7 +141,7 @@ export function OsShell({ children }: { children: React.ReactNode }) {
               ))}
             </div>
             <p className="font-mono text-[10px] text-faint">
-              © {new Date().getFullYear()} Muhammad Lutfi Andika
+              © 2026 Muhammad Lutfi Andika
             </p>
           </div>
         </footer>

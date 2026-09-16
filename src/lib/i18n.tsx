@@ -25,7 +25,17 @@ const DICTS: Record<Locale, Dictionary> = { id, en };
 const I18nContext = createContext<I18nValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("id");
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window === "undefined") return "id";
+    try {
+      const raw = window.localStorage.getItem("lutfi.locale");
+      if (!raw) return "id";
+      let value = raw;
+      try { value = JSON.parse(raw) as string; } catch { /* legacy/plain value */ }
+      if (value === "en" || value === "id") return value;
+    } catch { /* noop */ }
+    return "id";
+  });
 
   useEffect(() => {
     try {

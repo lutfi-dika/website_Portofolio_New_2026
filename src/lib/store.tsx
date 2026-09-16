@@ -25,7 +25,14 @@ interface NotificationsValue {
 const NotificationsContext = createContext<NotificationsValue | null>(null);
 
 function NotificationsProvider({ children }: { children: ReactNode }) {
-  const [notifications, setNotifications] = useState<AppNotification[]>([]);
+  const [notifications, setNotifications] = useState<AppNotification[]>(() => {
+    if (typeof window === "undefined") return initialNotifications as unknown as AppNotification[];
+    try {
+      const raw = window.localStorage.getItem("lutfi.notifications");
+      if (raw) return JSON.parse(raw) as AppNotification[];
+    } catch { /* noop */ }
+    return initialNotifications as unknown as AppNotification[];
+  });
 
   useEffect(() => {
     try {
@@ -90,7 +97,14 @@ interface SavedValue {
 const SavedContext = createContext<SavedValue | null>(null);
 
 function SavedProvider({ children }: { children: ReactNode }) {
-  const [savedSlugs, setSaved] = useState<string[]>([]);
+  const [savedSlugs, setSaved] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const raw = window.localStorage.getItem("lutfi.saved");
+      if (raw) return JSON.parse(raw) as string[];
+    } catch { /* noop */ }
+    return [];
+  });
   const savedRef = useRef<string[]>([]);
 
   useEffect(() => {
@@ -161,7 +175,14 @@ interface InboxValue {
 const InboxContext = createContext<InboxValue | null>(null);
 
 function InboxProvider({ children }: { children: ReactNode }) {
-  const [messages, setMessages] = useState<InboxMessage[]>([]);
+  const [messages, setMessages] = useState<InboxMessage[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const raw = window.localStorage.getItem("lutfi.inbox");
+      if (raw) return JSON.parse(raw) as InboxMessage[];
+    } catch { /* noop */ }
+    return [];
+  });
 
   useEffect(() => {
     try {

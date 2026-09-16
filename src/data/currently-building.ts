@@ -1,7 +1,7 @@
 export const currentlyBuilding = {
   project: "BSI Multi-Role Dashboard",
   statusKey: "inProgress",
-  tech: ["PHP","MYSQL","Talwind.css", "Javascript","Chart.js","Font Awesom","PDF","Excel","Email","WhatsAPP OTP"],
+  tech: ["PHP", "MySQL", "Tailwind CSS", "JavaScript", "Chart.js", "Font Awesome 6", "FPDF", "PHPExcel", "PHPMailer", "Fonnte API"],
   progress: 80,
   client: "Bank Syariah Indonesia — PKL",
 } as const;

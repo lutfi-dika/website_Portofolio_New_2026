@@ -236,12 +236,12 @@ export const en: Dictionary = {
       "A modern company profile website with fully responsive design, SEO optimization, and a clean contemporary UI built for clarity and trust.",
     bsiDashboard:
       "Operational monitoring dashboard with a multi-role access system for data management — roles, permissions, and real-time monitoring in one place.",
+    ekonexaManagementEkonomi:
+      "Web-based economic management system for financial management, transactions, and budget planning — built with Laravel & Tailwind CSS.",
     educare:
       "Digital learning platform with student & teacher login, learning materials, video lessons, and interactive quizzes for a complete classroom flow.",
-    krafdev:
+    krafdevDigitalTechnologyStudio:
       "Official website of KRAFDEV Digital Technology Studio — my own web development studio. Showcasing professional website building services: company profile, landing page, e-commerce, UI/UX design, and SEO to reach clients.",
-    smkTelesandi:
-      "Official website of SMK Telekomunikasi Telesandi Bekasi — tidy, responsive school information that is easy to access for students and the public.",
     dDishop:
       "D&DiShop online store with a clean React interface — product catalog, item details, and a simple shopping experience.",
     weddingInvitation:
@@ -268,6 +268,11 @@ export const en: Dictionary = {
       animation: "Smooth animations",
       scrollMotion: "Scroll-driven motion",
       interactiveUi: "Interactive UI components",
+      financialManagement: "Financial management",
+      transactionManagement: "Transaction management",
+      budgetPlanning: "Budget planning",
+      authentication: "Authentication & security",
+      darkMode: "Dark & light mode",
     },
     challenges: {
       bsiCompanyProfileChallenge:
@@ -298,6 +303,10 @@ export const en: Dictionary = {
         "Building a digital invitation that feels personal, elegant, and runs smoothly on guests' mobile phones.",
       weddingInvitationSolution:
         "Elegant responsive design with smooth animations, lightweight navigation, and easy WhatsApp sharing buttons.",
+      ekonexaManagementEkonomiChallenge:
+        "Building a complete financial management system — from authentication to reports — with plain PHP within a limited timeframe.",
+      ekonexaManagementEkonomiSolution:
+        "Modular architecture with PHP, MySQL database, and a responsive Tailwind CSS UI that is easy to use.",
       cakralogyChallenge:
         "Presenting dense content so it stays engaging and doesn't feel monotonous to read.",
       cakralogySolution:
