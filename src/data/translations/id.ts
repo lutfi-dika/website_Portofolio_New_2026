@@ -143,7 +143,7 @@ export const id = {
         "Mulai mengikuti kompetisi di bidang teknologi dan pengembangan aplikasi, salah satunya iTechno Cup 2025 untuk menguji kemampuan dan pengalaman dalam menyelesaikan project.",
       journey2026CompetitionTitle: "2026 — Mengikuti Kompetisi Teknologi",
       journey2026CompetitionDesc:
-        "Mengikuti berbagai kompetisi teknologi seperti ICOM Feast di IDN dan LKS Cyber Security untuk mengembangkan kemampuan, pengalaman, serta menghadapi tantangan di dunia teknologi.",
+        "Mengikuti berbagai kompetisi teknologi seperti ICOM Feast dan LKS Cyber Security untuk mengembangkan kemampuan, pengalaman, serta menghadapi tantangan di dunia teknologi.",
       journey2026Title: "2026 — Praktik Kerja Lapangan",
       journey2026Desc:
         "Memulai pengalaman profesional melalui Praktik Kerja Lapangan sebagai Web Developer / IT di Bank Syariah Indonesia KCP Bekasi Tambun.",

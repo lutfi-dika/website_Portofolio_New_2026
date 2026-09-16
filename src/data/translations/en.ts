@@ -145,7 +145,7 @@ export const en: Dictionary = {
         "Started participating in technology and application development competitions, including iTechno Cup 2025, to test my skills and gain experience in solving real-world challenges.",
       journey2026CompetitionTitle: "2026 — Joined Technology Competitions",
       journey2026CompetitionDesc:
-        "Participated in technology competitions such as ICOM Feast at IDN and LKS Cyber Security to strengthen my technical skills, gain experience, and take on new challenges in the technology field.",
+        "Participated in technology competitions such as ICOM Feast and LKS Cyber Security to strengthen my technical skills, gain experience, and take on new challenges in the technology field.",
       journey2026Title: "2026 — Internship Experience",
       journey2026Desc:
         "Started my professional experience through an internship as a Web Developer / IT at Bank Syariah Indonesia KCP Bekasi Tambun.",

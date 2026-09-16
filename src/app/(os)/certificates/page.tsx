@@ -6,7 +6,7 @@ import { siteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Sertifikat",
   description:
-    "Koleksi sertifikat Muhammad Lutfi Andika — owner KRAFDEV Digital Technology Studio: ITECHNO CUP 2025, ICOM FEAST 2026, LKS, IDN Boarding School, dan Piagam Penghargaan web development.",
+    "Koleksi sertifikat Muhammad Lutfi Andika — owner KRAFDEV Digital Technology Studio: ITECHNO CUP 2025, ICOM FEAST 2026, LKS Lomba Kompetensi Siswa, dan Piagam Penghargaan web development.",
   keywords: [
     "sertifikat Muhammad Lutfi Andika",
     "sertifikat frontend developer",
