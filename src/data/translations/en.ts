@@ -240,6 +240,8 @@ export const en: Dictionary = {
       "Web-based economic management system for financial management, transactions, and budget planning — built with Laravel & Tailwind CSS.",
     educare:
       "Digital learning platform with student & teacher login, learning materials, video lessons, and interactive quizzes for a complete classroom flow.",
+    absensiSekolah:
+      "A web-based school attendance system built with Laravel 12 + React (Inertia.js) + Tailwind CSS. Features dual attendance functions: School Attendance and Subject Attendance with multi-role access, QR Code, GPS tracking, and real-time monitoring.",
     krafdevDigitalTechnologyStudio:
       "Official website of KRAFDEV Digital Technology Studio — my own web development studio. Showcasing professional website building services: company profile, landing page, e-commerce, UI/UX design, and SEO to reach clients.",
     dDishop:
@@ -273,6 +275,9 @@ export const en: Dictionary = {
       budgetPlanning: "Budget planning",
       authentication: "Authentication & security",
       darkMode: "Dark & light mode",
+      qrCode: "QR Code attendance",
+      gpsTracking: "GPS location tracking",
+      realTimeMonitoring: "Real-time monitoring",
     },
     challenges: {
       bsiCompanyProfileChallenge:
@@ -319,6 +324,10 @@ export const en: Dictionary = {
         "Showing my journey honestly without removing old work that is already online.",
       legacyPortfolioSolution:
         "Publishing it as a living archive via GitHub Pages with a clear version marker.",
+      absensiSekolahChallenge:
+        "Building two different attendance systems — school attendance and subject attendance — with multi-role access, QR Code, GPS, and real-time features in a single application.",
+      absensiSekolahSolution:
+        "Laravel 12 + Inertia.js + React architecture with role-based middleware, QR Code generator, GPS integration, and real-time auto-refresh for attendance lists.",
     },
   },
  experience: {

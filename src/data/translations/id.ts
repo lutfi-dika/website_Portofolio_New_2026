@@ -238,6 +238,8 @@ export const id = {
       "Sistem manajemen ekonomi berbasis web untuk pengelolaan keuangan, transaksi, dan perencanaan anggaran — dibangun dengan Laravel & Tailwind CSS.",
     educare:
       "Platform pembelajaran digital dengan login siswa & guru, materi pelajaran, video pembelajaran, dan kuis interaktif untuk alur kelas yang lengkap.",
+    absensiSekolah:
+      "Sistem kehadiran siswa di sekolah berbasis web dengan Laravel 12 + React (Inertia.js) + Tailwind CSS. Memiliki dua fungsi absensi utama: Kehadiran Sekolah dan Absensi Mata Pelajaran dengan multi-role, QR Code, GPS, dan monitoring real-time.",
     krafdevDigitalTechnologyStudio:
       "Website resmi KRAFDEV Digital Technology Studio — studio web development milik saya. Menampilkan layanan pembuatan website profesional, company profile, landing page, e-commerce, UI/UX design, dan SEO untuk menjangkau klien.",
     dDishop:
@@ -271,6 +273,9 @@ export const id = {
       budgetPlanning: "Perencanaan anggaran",
       authentication: "Autentikasi & keamanan",
       darkMode: "Mode gelap & terang",
+      qrCode: "Absensi via QR Code",
+      gpsTracking: "Pelacakan lokasi GPS",
+      realTimeMonitoring: "Monitoring real-time",
     },
     challenges: {
       bsiCompanyProfileChallenge:
@@ -317,6 +322,10 @@ export const id = {
         "Menampilkan perjalanan secara jujur tanpa menghapus karya lama yang sudah online.",
       legacyPortfolioSolution:
         "Mempublikasikannya sebagai arsip hidup via GitHub Pages dengan penanda versi yang jelas.",
+      absensiSekolahChallenge:
+        "Membangun dua sistem absensi yang berbeda — kehadiran sekolah dan absensi mata pelajaran — dengan multi-role, QR Code, GPS, dan real-time dalam satu aplikasi.",
+      absensiSekolahSolution:
+        "Arsitektur Laravel 12 + Inertia.js + React dengan role-based middleware, QR Code generator, integrasi GPS, dan auto-refresh daftar hadir real-time.",
     },
   },
   experience: {
