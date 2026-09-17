@@ -239,7 +239,7 @@ export const en: Dictionary = {
     ekonexaManagementEkonomi:
       "Web-based economic management system for financial management, transactions, and budget planning — built with Laravel & Tailwind CSS.",
     educare:
-      "Digital learning platform with student & teacher login, learning materials, video lessons, and interactive quizzes for a complete classroom flow.",
+      "Digital learning platform (LMS) for students, teachers, and admin — with learning materials, interactive quizzes, course modules, progress tracking, certificates, notifications, and multi-language support.",
     absensiSekolah:
       "A web-based school attendance system built with Laravel 12 + React (Inertia.js) + Tailwind CSS. Features dual attendance functions: School Attendance and Subject Attendance with multi-role access, QR Code, GPS tracking, and real-time monitoring.",
     krafdevDigitalTechnologyStudio:
@@ -275,6 +275,7 @@ export const en: Dictionary = {
       budgetPlanning: "Budget planning",
       authentication: "Authentication & security",
       darkMode: "Dark & light mode",
+      certificate: "Digital certificates",
       qrCode: "QR Code attendance",
       gpsTracking: "GPS location tracking",
       realTimeMonitoring: "Real-time monitoring",
@@ -289,9 +290,9 @@ export const en: Dictionary = {
       bsiDashboardSolution:
         "Designed role-based routing architecture, reusable table & form components, and structured Laravel APIs.",
       educareChallenge:
-        "Building a complete learning flow — from login to quizzes — with plain PHP within a limited timeframe.",
+        "Building a complete LMS — from multi-role authentication to quizzes, certificates, and multi-language support — with Laravel within a limited timeframe.",
       educareSolution:
-        "Clean code structure with logic separation, normalized MySQL database, and a simple UI easy for students to use.",
+        "Modular architecture with Laravel 12 + Blade, SQLite database, role-based middleware, auto-grading quizzes, and a responsive Tailwind CSS v4 UI.",
       krafdevChallenge:
         "Building a studio website that showcases services professionally and convincingly to potential clients.",
       krafdevSolution:

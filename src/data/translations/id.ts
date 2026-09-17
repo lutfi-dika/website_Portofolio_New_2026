@@ -237,7 +237,7 @@ export const id = {
     ekonexaManagementEkonomi:
       "Sistem manajemen ekonomi berbasis web untuk pengelolaan keuangan, transaksi, dan perencanaan anggaran — dibangun dengan Laravel & Tailwind CSS.",
     educare:
-      "Platform pembelajaran digital dengan login siswa & guru, materi pelajaran, video pembelajaran, dan kuis interaktif untuk alur kelas yang lengkap.",
+      "Platform pembelajaran digital (LMS) untuk siswa, guru, dan admin — dengan materi pembelajaran, kuis interaktif, modul kursus, pelacakan progres, sertifikat, notifikasi, dan multi-bahasa.",
     absensiSekolah:
       "Sistem kehadiran siswa di sekolah berbasis web dengan Laravel 12 + React (Inertia.js) + Tailwind CSS. Memiliki dua fungsi absensi utama: Kehadiran Sekolah dan Absensi Mata Pelajaran dengan multi-role, QR Code, GPS, dan monitoring real-time.",
     krafdevDigitalTechnologyStudio:
@@ -273,6 +273,7 @@ export const id = {
       budgetPlanning: "Perencanaan anggaran",
       authentication: "Autentikasi & keamanan",
       darkMode: "Mode gelap & terang",
+      certificate: "Sertifikat digital",
       qrCode: "Absensi via QR Code",
       gpsTracking: "Pelacakan lokasi GPS",
       realTimeMonitoring: "Monitoring real-time",
@@ -287,9 +288,9 @@ export const id = {
       bsiDashboardSolution:
         "Merancang arsitektur role-based routing, komponen tabel & form reusable, serta API Laravel yang terstruktur.",
       educareChallenge:
-        "Membangun alur belajar lengkap — dari login hingga kuis — dengan PHP native dalam waktu terbatas.",
+        "Membangun LMS lengkap — dari autentikasi multi-role hingga kuis, sertifikat, dan multi-bahasa — dengan Laravel dalam waktu terbatas.",
       educareSolution:
-        "Struktur kode rapi dengan pemisahan logic, database MySQL yang dinormalisasi, dan UI sederhana yang mudah digunakan siswa.",
+        "Arsitektur modular dengan Laravel 12 + Blade, database SQLite, role-based middleware, auto-grading kuis, dan UI responsif berbasis Tailwind CSS v4.",
       krafdevChallenge:
         "Membangun website studio yang menampilkan layanan secara profesional dan meyakinkan bagi calon klien.",
       krafdevSolution:
