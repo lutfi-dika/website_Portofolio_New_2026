@@ -167,7 +167,7 @@ export const projects: Project[] = [
       "Axios",
     ],
     github: "https://github.com/lutfi-dika/EdUCare-",
-    demo: "http://educare-timkodinginaja.page.gd",
+    demo: "#",
     preview: "dashboard",
     accent: "#22c55e",
     accent2: "#16a34a",
